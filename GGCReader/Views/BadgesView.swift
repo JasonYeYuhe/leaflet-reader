@@ -17,6 +17,11 @@ struct BadgesCard: View {
     let dailyPageGoal: Int
 
     @State private var selectedBadge: Badge?
+    @State private var showingPaywall = false
+    var storeManager = StoreManager.shared
+
+    /// Free users see only the first 10 badges
+    private static let freeBadgeLimit = 10
 
     private var totalPages: Int {
         allLogs.reduce(0) { $0 + $1.pagesRead }
@@ -223,6 +228,11 @@ struct BadgesCard: View {
         badges.filter(\.isUnlocked).count
     }
 
+    private func isProBadge(_ badge: Badge) -> Bool {
+        guard let index = badges.firstIndex(where: { $0.id == badge.id }) else { return false }
+        return index >= Self.freeBadgeLimit && !storeManager.isPro
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
@@ -249,7 +259,11 @@ struct BadgesCard: View {
                             .foregroundStyle(.secondary)
                     }
                     Spacer()
-                    if badge.isUnlocked {
+                    if isProBadge(badge) {
+                        Image(systemName: "crown.fill")
+                            .foregroundStyle(.yellow)
+                            .font(.caption)
+                    } else if badge.isUnlocked {
                         Image(systemName: "checkmark.circle.fill")
                             .foregroundStyle(.green)
                     }
@@ -260,7 +274,29 @@ struct BadgesCard: View {
 
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 6), count: 5), spacing: 10) {
                 ForEach(badges) { badge in
-                    badgeItem(badge)
+                    badgeItem(badge, locked: isProBadge(badge))
+                }
+            }
+
+            if !storeManager.isPro {
+                Button {
+                    showingPaywall = true
+                } label: {
+                    HStack(spacing: 6) {
+                        Image(systemName: "crown.fill")
+                            .foregroundStyle(.yellow)
+                            .font(.caption)
+                        Text("Unlock all badges with Pro")
+                            .font(.caption.bold())
+                            .foregroundStyle(.secondary)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 8)
+                    .background(Color.yellow.opacity(0.08), in: RoundedRectangle(cornerRadius: 10))
+                }
+                .buttonStyle(.plain)
+                .sheet(isPresented: $showingPaywall) {
+                    PaywallView()
                 }
             }
         }
@@ -268,27 +304,42 @@ struct BadgesCard: View {
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
     }
 
-    private func badgeItem(_ badge: Badge) -> some View {
+    private func badgeItem(_ badge: Badge, locked: Bool = false) -> some View {
         VStack(spacing: 4) {
-            Text(badge.isUnlocked ? badge.icon : "🔒")
-                .font(.system(size: 28))
-                .opacity(badge.isUnlocked ? 1 : 0.4)
-                .scaleEffect(badge.isUnlocked ? 1 : 0.85)
+            if locked {
+                Text(badge.icon)
+                    .font(.system(size: 28))
+                    .opacity(0.3)
+                    .overlay {
+                        Image(systemName: "lock.fill")
+                            .font(.system(size: 10))
+                            .foregroundStyle(.yellow)
+                    }
+            } else {
+                Text(badge.isUnlocked ? badge.icon : "🔒")
+                    .font(.system(size: 28))
+                    .opacity(badge.isUnlocked ? 1 : 0.4)
+                    .scaleEffect(badge.isUnlocked ? 1 : 0.85)
+            }
             Text(badge.name)
                 .font(.system(size: 9, weight: .medium))
-                .foregroundStyle(badge.isUnlocked ? .primary : .secondary)
+                .foregroundStyle(locked ? .tertiary : (badge.isUnlocked ? .primary : .secondary))
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
         }
         .frame(maxWidth: .infinity)
         .contentShape(Rectangle())
         .onTapGesture {
-            withAnimation(.easeInOut(duration: 0.2)) {
-                if selectedBadge?.id == badge.id {
-                    selectedBadge = nil
-                } else {
-                    selectedBadge = badge
-                    HapticManager.selection()
+            if locked {
+                showingPaywall = true
+            } else {
+                withAnimation(.easeInOut(duration: 0.2)) {
+                    if selectedBadge?.id == badge.id {
+                        selectedBadge = nil
+                    } else {
+                        selectedBadge = badge
+                        HapticManager.selection()
+                    }
                 }
             }
         }

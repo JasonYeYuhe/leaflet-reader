@@ -6,8 +6,16 @@ struct BookNotesView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var book: Book
     @State private var showingAddNote = false
+    @State private var showingPaywall = false
     @State private var newNoteContent = ""
     @State private var newNotePage = ""
+    var storeManager = StoreManager.shared
+
+    static let freeNoteLimit = 3
+
+    private var canAddNote: Bool {
+        storeManager.isPro || book.notes.count < Self.freeNoteLimit
+    }
 
     private var sortedNotes: [BookNote] {
         book.notes.sorted { $0.dateCreated > $1.dateCreated }
@@ -57,12 +65,19 @@ struct BookNotesView: View {
                 }
                 ToolbarItem(placement: .primaryAction) {
                     Button {
-                        showingAddNote = true
-                        newNotePage = String(book.currentPage)
+                        if canAddNote {
+                            showingAddNote = true
+                            newNotePage = String(book.currentPage)
+                        } else {
+                            showingPaywall = true
+                        }
                     } label: {
                         Image(systemName: "plus")
                     }
                 }
+            }
+            .sheet(isPresented: $showingPaywall) {
+                PaywallView()
             }
             .alert("Add Note", isPresented: $showingAddNote) {
                 TextField("Your note...", text: $newNoteContent)
@@ -77,6 +92,7 @@ struct BookNotesView: View {
     }
 
     private func addNote() {
+        guard canAddNote else { return }
         guard !newNoteContent.trimmingCharacters(in: .whitespaces).isEmpty else { return }
         let note = BookNote(
             content: newNoteContent.trimmingCharacters(in: .whitespaces),

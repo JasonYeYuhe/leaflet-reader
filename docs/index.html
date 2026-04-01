@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet (拾页) - Reading Tracker</title>
+    <style>
+        :root {
+            --primary: #4A90D9;
+            --bg: #FAFBFC;
+            --card: #FFFFFF;
+            --text: #1D1D1F;
+            --secondary: #6E6E73;
+            --accent: #34C759;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1C1C1E;
+                --card: #2C2C2E;
+                --text: #F5F5F7;
+                --secondary: #A1A1A6;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        header {
+            text-align: center;
+            padding: 80px 0 40px;
+        }
+        .app-icon {
+            width: 120px; height: 120px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, #4A90D9, #357ABD);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 32px rgba(74, 144, 217, 0.3);
+        }
+        .app-icon span { font-size: 56px; }
+        h1 { font-size: 42px; font-weight: 700; margin-bottom: 8px; }
+        .subtitle { font-size: 20px; color: var(--secondary); margin-bottom: 32px; }
+        .lang-switch {
+            display: flex; gap: 12px; justify-content: center;
+            margin-bottom: 48px;
+        }
+        .lang-switch a {
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: var(--card);
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            border: 1px solid #E5E5EA;
+            transition: all 0.2s;
+        }
+        .lang-switch a:hover, .lang-switch a.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+        .feature {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        .feature .icon { font-size: 32px; margin-bottom: 12px; }
+        .feature h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+        .feature p { font-size: 14px; color: var(--secondary); }
+        .pricing {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 48px;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        .pricing h2 { font-size: 28px; margin-bottom: 24px; }
+        .plans { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .plan {
+            padding: 20px 28px;
+            border-radius: 14px;
+            background: var(--bg);
+            min-width: 160px;
+            border: 2px solid transparent;
+        }
+        .plan.popular { border-color: var(--accent); }
+        .plan .price { font-size: 28px; font-weight: 700; }
+        .plan .period { font-size: 14px; color: var(--secondary); }
+        .plan .badge {
+            font-size: 11px; font-weight: 600;
+            background: var(--accent); color: white;
+            padding: 2px 8px; border-radius: 10px;
+            display: inline-block; margin-top: 6px;
+        }
+        footer {
+            text-align: center;
+            padding: 32px 0;
+            color: var(--secondary);
+            font-size: 13px;
+        }
+        footer a { color: var(--secondary); margin: 0 12px; }
+        .content { display: none; }
+        .content.active { display: block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="app-icon"><span>📖</span></div>
+            <h1 id="app-title">Leaflet</h1>
+            <p class="subtitle" id="app-subtitle">Track your reading journey</p>
+            <div class="lang-switch">
+                <a href="#" onclick="switchLang('en')" class="active" id="lang-en">English</a>
+                <a href="#" onclick="switchLang('zh')" id="lang-zh">中文</a>
+                <a href="#" onclick="switchLang('ja')" id="lang-ja">日本語</a>
+            </div>
+        </header>
+
+        <!-- English -->
+        <div class="content active" id="content-en">
+            <div class="features">
+                <div class="feature">
+                    <div class="icon">📚</div>
+                    <h3>Book Tracking</h3>
+                    <p>Manage your reading list and track progress for every book.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🔥</div>
+                    <h3>Daily Goals & Streaks</h3>
+                    <p>Set daily page goals, build reading streaks, and stay consistent.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🏅</div>
+                    <h3>Achievements</h3>
+                    <p>Unlock 29 unique badges as you reach reading milestones.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">📊</div>
+                    <h3>Statistics</h3>
+                    <p>Visualize your reading habits with charts and insights.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">⏱️</div>
+                    <h3>Reading Timer</h3>
+                    <p>Track your reading sessions with a built-in timer.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">📝</div>
+                    <h3>Notes & Chapters</h3>
+                    <p>Annotate books and organize by chapters.</p>
+                </div>
+            </div>
+            <div class="pricing">
+                <h2>Leaflet Pro</h2>
+                <div class="plans">
+                    <div class="plan">
+                        <div class="price">$1.99</div>
+                        <div class="period">per month</div>
+                    </div>
+                    <div class="plan popular">
+                        <div class="price">$14.99</div>
+                        <div class="period">per year</div>
+                        <div class="badge">Best Value</div>
+                    </div>
+                    <div class="plan">
+                        <div class="price">$29.99</div>
+                        <div class="period">lifetime</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chinese -->
+        <div class="content" id="content-zh">
+            <div class="features">
+                <div class="feature">
+                    <div class="icon">📚</div>
+                    <h3>书籍管理</h3>
+                    <p>管理你的书单，追踪每本书的阅读进度。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🔥</div>
+                    <h3>每日目标与连续打卡</h3>
+                    <p>设定每日页数目标，保持阅读连续性。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🏅</div>
+                    <h3>成就徽章</h3>
+                    <p>达成阅读里程碑，解锁 29 种独特徽章。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">📊</div>
+                    <h3>阅读统计</h3>
+                    <p>通过图表和数据洞察你的阅读习惯。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">⏱️</div>
+                    <h3>阅读计时器</h3>
+                    <p>内置计时器，记录每次阅读时长。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">📝</div>
+                    <h3>笔记与章节</h3>
+                    <p>为书籍添加标注，按章节整理阅读内容。</p>
+                </div>
+            </div>
+            <div class="pricing">
+                <h2>拾页 Pro</h2>
+                <div class="plans">
+                    <div class="plan">
+                        <div class="price">$1.99</div>
+                        <div class="period">每月</div>
+                    </div>
+                    <div class="plan popular">
+                        <div class="price">$14.99</div>
+                        <div class="period">每年</div>
+                        <div class="badge">最划算</div>
+                    </div>
+                    <div class="plan">
+                        <div class="price">$29.99</div>
+                        <div class="period">永久买断</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Japanese -->
+        <div class="content" id="content-ja">
+            <div class="features">
+                <div class="feature">
+                    <div class="icon">📚</div>
+                    <h3>読書管理</h3>
+                    <p>読書リストを管理し、各書籍の進捗を追跡。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🔥</div>
+                    <h3>毎日の目標と連続記録</h3>
+                    <p>毎日のページ目標を設定し、読書の習慣を維持。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🏅</div>
+                    <h3>実績バッジ</h3>
+                    <p>読書のマイルストーンを達成して、29種のバッジを解除。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">📊</div>
+                    <h3>読書統計</h3>
+                    <p>チャートとインサイトで読書習慣を可視化。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">⏱️</div>
+                    <h3>読書タイマー</h3>
+                    <p>内蔵タイマーで読書セッションを記録。</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">📝</div>
+                    <h3>メモとチャプター</h3>
+                    <p>書籍にメモを追加し、チャプターごとに整理。</p>
+                </div>
+            </div>
+            <div class="pricing">
+                <h2>Leaflet Pro</h2>
+                <div class="plans">
+                    <div class="plan">
+                        <div class="price">$1.99</div>
+                        <div class="period">月額</div>
+                    </div>
+                    <div class="plan popular">
+                        <div class="price">$14.99</div>
+                        <div class="period">年額</div>
+                        <div class="badge">お得</div>
+                    </div>
+                    <div class="plan">
+                        <div class="price">$29.99</div>
+                        <div class="period">永久</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+            <p style="margin-top: 12px;">&copy; 2026 Leaflet (拾页). All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const titles = { en: 'Leaflet', zh: '拾页', ja: 'Leaflet' };
+        const subtitles = {
+            en: 'Track your reading journey',
+            zh: '记录你的阅读旅程',
+            ja: 'あなたの読書を記録しよう'
+        };
+        function switchLang(lang) {
+            document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+            document.getElementById('content-' + lang).classList.add('active');
+            document.querySelectorAll('.lang-switch a').forEach(el => el.classList.remove('active'));
+            document.getElementById('lang-' + lang).classList.add('active');
+            document.getElementById('app-title').textContent = titles[lang];
+            document.getElementById('app-subtitle').textContent = subtitles[lang];
+        }
+    </script>
+</body>
+</html>

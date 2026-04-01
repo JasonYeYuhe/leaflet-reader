@@ -5,6 +5,7 @@ import PhotosUI
 struct BookFormView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+    @Query private var allBooks: [Book]
 
     var bookToEdit: Book?
 
@@ -158,6 +159,11 @@ struct BookFormView: View {
             book.coverColor = selectedColor
             book.coverImageData = coverImageData
         } else {
+            let store = StoreManager.shared
+            guard store.isPro || allBooks.count < StoreManager.freeBookLimit else {
+                dismiss()
+                return
+            }
             let book = Book(
                 title: title.trimmingCharacters(in: .whitespaces),
                 author: author.trimmingCharacters(in: .whitespaces),

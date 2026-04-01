@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Leaflet (拾页)</title>
+    <style>
+        :root { --bg: #FAFBFC; --card: #FFF; --text: #1D1D1F; --secondary: #6E6E73; --primary: #4A90D9; }
+        @media (prefers-color-scheme: dark) {
+            :root { --bg: #1C1C1E; --card: #2C2C2E; --text: #F5F5F7; --secondary: #A1A1A6; }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+        h1 { font-size: 32px; margin-bottom: 8px; }
+        .date { color: var(--secondary); font-size: 14px; margin-bottom: 32px; }
+        .lang-switch { display: flex; gap: 8px; margin-bottom: 32px; }
+        .lang-switch a {
+            padding: 4px 14px; border-radius: 16px; background: var(--card);
+            color: var(--text); text-decoration: none; font-size: 13px;
+            border: 1px solid #E5E5EA; transition: all 0.2s;
+        }
+        .lang-switch a:hover, .lang-switch a.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .content { display: none; }
+        .content.active { display: block; }
+        h2 { font-size: 20px; margin: 28px 0 12px; }
+        p, li { font-size: 15px; color: var(--text); margin-bottom: 12px; }
+        ul { padding-left: 20px; }
+        a.back { display: inline-block; margin-bottom: 24px; color: var(--primary); text-decoration: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a class="back" href="index.html">&larr; Back</a>
+    <h1 id="page-title">Privacy Policy</h1>
+    <p class="date">Effective: April 1, 2026</p>
+    <div class="lang-switch">
+        <a href="#" onclick="sw('en')" class="active" id="l-en">English</a>
+        <a href="#" onclick="sw('zh')" id="l-zh">中文</a>
+        <a href="#" onclick="sw('ja')" id="l-ja">日本語</a>
+    </div>
+
+    <div class="content active" id="c-en">
+        <h2>Overview</h2>
+        <p>Leaflet ("the App") is a reading tracker developed by an independent developer. We are committed to protecting your privacy. This policy explains how we handle your data.</p>
+
+        <h2>Data Collection</h2>
+        <p>Leaflet does <strong>not</strong> collect, transmit, or store any personal data on external servers. All your data (books, reading progress, notes, goals) is stored locally on your device and optionally synced via your personal iCloud account.</p>
+
+        <h2>Third-Party Services</h2>
+        <ul>
+            <li><strong>Apple iCloud:</strong> If enabled, your data syncs across your devices via iCloud, governed by <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</li>
+            <li><strong>Apple StoreKit:</strong> In-app purchases are processed by Apple. We do not have access to your payment information.</li>
+        </ul>
+
+        <h2>Data We Do NOT Collect</h2>
+        <ul>
+            <li>Personal identification information</li>
+            <li>Location data</li>
+            <li>Usage analytics or tracking</li>
+            <li>Advertising identifiers</li>
+        </ul>
+
+        <h2>Calendar Access</h2>
+        <p>The App may request access to your calendar to create reading tasks. This data stays on your device and is managed by Apple's EventKit framework. We do not read or transmit your calendar data.</p>
+
+        <h2>Camera Access</h2>
+        <p>The App may request camera access to scan book covers. Images are processed on-device and are not transmitted externally.</p>
+
+        <h2>Children's Privacy</h2>
+        <p>Leaflet does not knowingly collect data from children under 13. The App is safe for all ages.</p>
+
+        <h2>Changes</h2>
+        <p>We may update this policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+
+        <h2>Contact</h2>
+        <p>If you have questions, contact us at: leaflet.reader.app@gmail.com</p>
+    </div>
+
+    <div class="content" id="c-zh">
+        <h2>概述</h2>
+        <p>拾页（"本应用"）是由独立开发者开发的阅读追踪应用。我们致力于保护您的隐私。本政策说明我们如何处理您的数据。</p>
+
+        <h2>数据收集</h2>
+        <p>拾页<strong>不会</strong>在外部服务器上收集、传输或存储任何个人数据。您的所有数据（书籍、阅读进度、笔记、目标）均存储在您的设备本地，并可选择通过您的个人 iCloud 账户同步。</p>
+
+        <h2>第三方服务</h2>
+        <ul>
+            <li><strong>Apple iCloud：</strong>如果启用，您的数据将通过 iCloud 在设备间同步，受 <a href="https://www.apple.com/legal/privacy/">Apple 隐私政策</a>约束。</li>
+            <li><strong>Apple StoreKit：</strong>应用内购买由 Apple 处理。我们无法访问您的支付信息。</li>
+        </ul>
+
+        <h2>我们不收集的数据</h2>
+        <ul>
+            <li>个人身份信息</li>
+            <li>位置数据</li>
+            <li>使用分析或追踪数据</li>
+            <li>广告标识符</li>
+        </ul>
+
+        <h2>日历访问</h2>
+        <p>本应用可能请求访问您的日历以创建阅读任务。此数据保留在您的设备上，由 Apple 的 EventKit 框架管理。我们不会读取或传输您的日历数据。</p>
+
+        <h2>相机访问</h2>
+        <p>本应用可能请求相机访问权限以扫描书籍封面。图像在设备上处理，不会外传。</p>
+
+        <h2>儿童隐私</h2>
+        <p>拾页不会故意收集 13 岁以下儿童的数据。本应用适合所有年龄段使用。</p>
+
+        <h2>变更</h2>
+        <p>我们可能不时更新本政策。变更将发布在此页面，并更新生效日期。</p>
+
+        <h2>联系我们</h2>
+        <p>如有问题，请联系：leaflet.reader.app@gmail.com</p>
+    </div>
+
+    <div class="content" id="c-ja">
+        <h2>概要</h2>
+        <p>Leaflet（拾页、以下「本アプリ」）は、個人開発者が開発した読書トラッカーアプリです。私たちはあなたのプライバシーの保護に努めています。本ポリシーでは、データの取り扱いについて説明します。</p>
+
+        <h2>データ収集</h2>
+        <p>本アプリは、外部サーバーに個人データを収集、送信、保存<strong>しません</strong>。すべてのデータ（書籍、読書進捗、メモ、目標）はデバイスにローカル保存され、お使いの個人 iCloud アカウントを通じて同期することもできます。</p>
+
+        <h2>サードパーティサービス</h2>
+        <ul>
+            <li><strong>Apple iCloud：</strong>有効な場合、データは iCloud を通じてデバイス間で同期されます。<a href="https://www.apple.com/legal/privacy/">Apple のプライバシーポリシー</a>に準拠します。</li>
+            <li><strong>Apple StoreKit：</strong>アプリ内購入は Apple によって処理されます。お支払い情報にアクセスすることはありません。</li>
+        </ul>
+
+        <h2>収集しないデータ</h2>
+        <ul>
+            <li>個人識別情報</li>
+            <li>位置情報</li>
+            <li>利用分析やトラッキング</li>
+            <li>広告識別子</li>
+        </ul>
+
+        <h2>カレンダーへのアクセス</h2>
+        <p>本アプリは、読書タスクを作成するためにカレンダーへのアクセスを要求する場合があります。このデータはデバイス上に保持され、Apple の EventKit フレームワークで管理されます。</p>
+
+        <h2>カメラへのアクセス</h2>
+        <p>本アプリは、書籍の表紙をスキャンするためにカメラへのアクセスを要求する場合があります。画像はデバイス上で処理され、外部に送信されません。</p>
+
+        <h2>お子様のプライバシー</h2>
+        <p>本アプリは、13歳未満のお子様のデータを意図的に収集しません。すべての年齢層に安全です。</p>
+
+        <h2>変更</h2>
+        <p>本ポリシーは随時更新される場合があります。変更はこのページに掲載され、発効日が更新されます。</p>
+
+        <h2>お問い合わせ</h2>
+        <p>ご質問がありましたら、こちらまでご連絡ください：leaflet.reader.app@gmail.com</p>
+    </div>
+</div>
+<script>
+    const t={en:'Privacy Policy',zh:'隐私政策',ja:'プライバシーポリシー'};
+    function sw(l){
+        document.querySelectorAll('.content').forEach(e=>e.classList.remove('active'));
+        document.getElementById('c-'+l).classList.add('active');
+        document.querySelectorAll('.lang-switch a').forEach(e=>e.classList.remove('active'));
+        document.getElementById('l-'+l).classList.add('active');
+        document.getElementById('page-title').textContent=t[l];
+    }
+</script>
+</body>
+</html>

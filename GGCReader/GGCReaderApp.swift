@@ -11,6 +11,8 @@ struct GGCReaderApp: App {
         } catch {
             fatalError("Failed to create ModelContainer: \(error)")
         }
+        // Start StoreKit transaction listener early
+        _ = StoreManager.shared
     }
 
     var body: some Scene {

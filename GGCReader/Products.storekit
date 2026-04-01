@@ -1,0 +1,171 @@
+{
+  "identifier" : "8A5C2E3F-1234-4567-89AB-CDEF01234567",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "29.99",
+      "familyShareable" : false,
+      "internalID" : "L001",
+      "localizations" : [
+        {
+          "description" : "Unlock all features forever",
+          "displayName" : "Lifetime Pro",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "永久解锁所有功能",
+          "displayName" : "终身专业版",
+          "locale" : "zh_CN"
+        },
+        {
+          "description" : "すべての機能を永久にアンロック",
+          "displayName" : "永久プロ版",
+          "locale" : "ja"
+        }
+      ],
+      "productID" : "com.jason.ggcreader.pro.lifetime",
+      "referenceName" : "Lifetime Pro",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6741684630",
+    "_developerTeamID" : "KHMK6Q3L3K",
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 733276800,
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "leaflet_pro",
+      "localizations" : [
+
+      ],
+      "name" : "Leaflet Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "1.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "S001",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Monthly access to all Pro features",
+              "displayName" : "Monthly Pro",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "每月解锁所有专业版功能",
+              "displayName" : "月度专业版",
+              "locale" : "zh_CN"
+            },
+            {
+              "description" : "毎月すべてのプロ機能にアクセス",
+              "displayName" : "月額プロ版",
+              "locale" : "ja"
+            }
+          ],
+          "productID" : "com.jason.ggcreader.pro.monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly Pro",
+          "subscriptionGroupID" : "leaflet_pro",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "14.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "S002",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Yearly access to all Pro features",
+              "displayName" : "Yearly Pro",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "每年解锁所有专业版功能",
+              "displayName" : "年度专业版",
+              "locale" : "zh_CN"
+            },
+            {
+              "description" : "年間すべてのプロ機能にアクセス",
+              "displayName" : "年額プロ版",
+              "locale" : "ja"
+            }
+          ],
+          "productID" : "com.jason.ggcreader.pro.yearly",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Yearly Pro",
+          "subscriptionGroupID" : "leaflet_pro",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

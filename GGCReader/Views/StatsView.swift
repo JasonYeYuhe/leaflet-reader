@@ -5,6 +5,8 @@ struct StatsView: View {
     @Query private var books: [Book]
     @Query(sort: \ReadingLog.date, order: .reverse) private var allLogs: [ReadingLog]
     @Query(sort: \ReadingSession.startTime, order: .reverse) private var allSessions: [ReadingSession]
+    var storeManager = StoreManager.shared
+    @State private var showingPaywall = false
 
     private var totalBooks: Int { books.count }
     private var finishedBooks: Int { books.filter(\.isFinished).count }
@@ -91,35 +93,60 @@ struct StatsView: View {
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
 
                 // Reading speed
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("Reading Speed")
-                        .font(.headline)
+                if storeManager.isPro {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Reading Speed")
+                            .font(.headline)
 
-                    HStack(spacing: 24) {
-                        VStack {
-                            Text(String(format: "%.1f", dailyAverage))
-                                .font(.title.bold())
-                                .foregroundStyle(.blue)
-                            Text("pages/day")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-
-                        if totalReadingTime > 0 {
+                        HStack(spacing: 24) {
                             VStack {
-                                Text(formatDuration(totalReadingTime))
+                                Text(String(format: "%.1f", dailyAverage))
                                     .font(.title.bold())
-                                    .foregroundStyle(.green)
-                                Text("total reading")
+                                    .foregroundStyle(.blue)
+                                Text("pages/day")
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
+
+                            if totalReadingTime > 0 {
+                                VStack {
+                                    Text(formatDuration(totalReadingTime))
+                                        .font(.title.bold())
+                                        .foregroundStyle(.green)
+                                    Text("total reading")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
                         }
+                        .frame(maxWidth: .infinity)
                     }
-                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+                } else {
+                    Button {
+                        showingPaywall = true
+                    } label: {
+                        VStack(spacing: 8) {
+                            Image(systemName: "crown.fill")
+                                .font(.title3)
+                                .foregroundStyle(.yellow)
+                            Text("Reading Speed & More")
+                                .font(.subheadline.bold())
+                                .foregroundStyle(.primary)
+                            Text("Upgrade to Pro for advanced stats")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+                    }
+                    .buttonStyle(.plain)
+                    .sheet(isPresented: $showingPaywall) {
+                        PaywallView()
+                    }
                 }
-                .padding()
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
             }
             .padding()
         }

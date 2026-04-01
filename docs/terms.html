@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Use - Leaflet (拾页)</title>
+    <style>
+        :root { --bg: #FAFBFC; --card: #FFF; --text: #1D1D1F; --secondary: #6E6E73; --primary: #4A90D9; }
+        @media (prefers-color-scheme: dark) {
+            :root { --bg: #1C1C1E; --card: #2C2C2E; --text: #F5F5F7; --secondary: #A1A1A6; }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+        h1 { font-size: 32px; margin-bottom: 8px; }
+        .date { color: var(--secondary); font-size: 14px; margin-bottom: 32px; }
+        .lang-switch { display: flex; gap: 8px; margin-bottom: 32px; }
+        .lang-switch a {
+            padding: 4px 14px; border-radius: 16px; background: var(--card);
+            color: var(--text); text-decoration: none; font-size: 13px;
+            border: 1px solid #E5E5EA; transition: all 0.2s;
+        }
+        .lang-switch a:hover, .lang-switch a.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .content { display: none; }
+        .content.active { display: block; }
+        h2 { font-size: 20px; margin: 28px 0 12px; }
+        p, li { font-size: 15px; color: var(--text); margin-bottom: 12px; }
+        ul { padding-left: 20px; }
+        a.back { display: inline-block; margin-bottom: 24px; color: var(--primary); text-decoration: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a class="back" href="index.html">&larr; Back</a>
+    <h1 id="page-title">Terms of Use</h1>
+    <p class="date">Effective: April 1, 2026</p>
+    <div class="lang-switch">
+        <a href="#" onclick="sw('en')" class="active" id="l-en">English</a>
+        <a href="#" onclick="sw('zh')" id="l-zh">中文</a>
+        <a href="#" onclick="sw('ja')" id="l-ja">日本語</a>
+    </div>
+
+    <div class="content active" id="c-en">
+        <h2>1. Acceptance</h2>
+        <p>By downloading or using Leaflet ("the App"), you agree to these Terms of Use. If you do not agree, please do not use the App.</p>
+
+        <h2>2. License</h2>
+        <p>We grant you a limited, non-exclusive, non-transferable license to use the App on Apple devices you own or control, subject to the Apple Media Services Terms and Conditions.</p>
+
+        <h2>3. Subscriptions & Purchases</h2>
+        <ul>
+            <li>Leaflet Pro is available as a monthly subscription ($1.99/month), yearly subscription ($14.99/year), or a one-time lifetime purchase ($29.99).</li>
+            <li>Payment is charged to your Apple ID account at confirmation of purchase.</li>
+            <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period.</li>
+            <li>You can manage and cancel subscriptions in your Apple ID account settings.</li>
+            <li>No refunds are provided for partial subscription periods.</li>
+        </ul>
+
+        <h2>4. Free Tier</h2>
+        <p>The free version of Leaflet includes core features with limits: up to 5 books, 3 notes per book, 10 achievement badges, and basic statistics. Upgrading to Pro removes all limits.</p>
+
+        <h2>5. User Content</h2>
+        <p>You retain ownership of all content you create in the App (book entries, notes, reading logs). We do not access, collect, or claim rights to your content.</p>
+
+        <h2>6. Disclaimer</h2>
+        <p>The App is provided "as is" without warranties of any kind. We do not guarantee uninterrupted or error-free operation.</p>
+
+        <h2>7. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App.</p>
+
+        <h2>8. Changes</h2>
+        <p>We reserve the right to modify these terms at any time. Continued use of the App constitutes acceptance of updated terms.</p>
+
+        <h2>9. Contact</h2>
+        <p>Questions? Contact us at: leaflet.reader.app@gmail.com</p>
+    </div>
+
+    <div class="content" id="c-zh">
+        <h2>1. 接受条款</h2>
+        <p>下载或使用拾页（"本应用"）即表示您同意本使用条款。如果您不同意，请勿使用本应用。</p>
+
+        <h2>2. 许可</h2>
+        <p>我们授予您有限的、非独占的、不可转让的许可，允许您在您拥有或控制的 Apple 设备上使用本应用，受 Apple 媒体服务条款和条件约束。</p>
+
+        <h2>3. 订阅与购买</h2>
+        <ul>
+            <li>拾页 Pro 提供月度订阅（$1.99/月）、年度订阅（$14.99/年）或一次性永久购买（$29.99）。</li>
+            <li>确认购买时，费用将从您的 Apple ID 账户扣除。</li>
+            <li>订阅将自动续期，除非在当前期结束前至少 24 小时取消。</li>
+            <li>您可以在 Apple ID 账户设置中管理和取消订阅。</li>
+            <li>订阅期间不提供部分退款。</li>
+        </ul>
+
+        <h2>4. 免费版</h2>
+        <p>拾页免费版包含核心功能，但有以下限制：最多 5 本书、每本书 3 条笔记、10 个成就徽章和基础统计。升级到 Pro 可解除所有限制。</p>
+
+        <h2>5. 用户内容</h2>
+        <p>您在应用中创建的所有内容（书籍条目、笔记、阅读记录）的所有权归您所有。我们不会访问、收集或主张对您内容的权利。</p>
+
+        <h2>6. 免责声明</h2>
+        <p>本应用按"原样"提供，不附带任何形式的保证。我们不保证应用的不间断或无错误运行。</p>
+
+        <h2>7. 责任限制</h2>
+        <p>在法律允许的最大范围内，我们不对因使用本应用而产生的任何间接、附带或后果性损害负责。</p>
+
+        <h2>8. 变更</h2>
+        <p>我们保留随时修改本条款的权利。继续使用本应用即表示接受更新后的条款。</p>
+
+        <h2>9. 联系我们</h2>
+        <p>如有问题，请联系：leaflet.reader.app@gmail.com</p>
+    </div>
+
+    <div class="content" id="c-ja">
+        <h2>1. 同意</h2>
+        <p>Leaflet（拾页、以下「本アプリ」）をダウンロードまたは使用することにより、本利用規約に同意したものとみなされます。同意されない場合は、本アプリを使用しないでください。</p>
+
+        <h2>2. ライセンス</h2>
+        <p>当方は、お客様が所有または管理する Apple デバイスで本アプリを使用するための、限定的、非独占的、譲渡不能なライセンスを付与します。Apple メディアサービス利用規約に準じます。</p>
+
+        <h2>3. サブスクリプションと購入</h2>
+        <ul>
+            <li>Leaflet Pro は月額サブスクリプション（$1.99/月）、年額サブスクリプション（$14.99/年）、または永久購入（$29.99）としてご利用いただけます。</li>
+            <li>購入確認時に Apple ID アカウントに請求されます。</li>
+            <li>サブスクリプションは、現在の期間終了の少なくとも 24 時間前にキャンセルしない限り、自動更新されます。</li>
+            <li>Apple ID アカウント設定でサブスクリプションの管理とキャンセルが可能です。</li>
+            <li>サブスクリプション期間中の部分的な返金は行いません。</li>
+        </ul>
+
+        <h2>4. 無料版</h2>
+        <p>Leaflet の無料版には、書籍 5 冊まで、書籍あたりメモ 3 件、実績バッジ 10 個、基本統計などの制限付きでコア機能が含まれます。Pro にアップグレードすると、すべての制限が解除されます。</p>
+
+        <h2>5. ユーザーコンテンツ</h2>
+        <p>本アプリで作成したすべてのコンテンツ（書籍エントリ、メモ、読書記録）の所有権はお客様に帰属します。当方はお客様のコンテンツにアクセスしたり、権利を主張することはありません。</p>
+
+        <h2>6. 免責事項</h2>
+        <p>本アプリは「現状のまま」提供され、いかなる種類の保証も付きません。中断のない、またはエラーのない動作を保証するものではありません。</p>
+
+        <h2>7. 責任の制限</h2>
+        <p>法律で許される最大限の範囲で、本アプリの使用から生じる間接的、偶発的、または結果的損害について責任を負いません。</p>
+
+        <h2>8. 変更</h2>
+        <p>当方は、いつでも本規約を変更する権利を留保します。本アプリの継続使用は、更新された規約への同意を意味します。</p>
+
+        <h2>9. お問い合わせ</h2>
+        <p>ご質問がありましたら、こちらまでご連絡ください：leaflet.reader.app@gmail.com</p>
+    </div>
+</div>
+<script>
+    const t={en:'Terms of Use',zh:'使用条款',ja:'利用規約'};
+    function sw(l){
+        document.querySelectorAll('.content').forEach(e=>e.classList.remove('active'));
+        document.getElementById('c-'+l).classList.add('active');
+        document.querySelectorAll('.lang-switch a').forEach(e=>e.classList.remove('active'));
+        document.getElementById('l-'+l).classList.add('active');
+        document.getElementById('page-title').textContent=t[l];
+    }
+</script>
+</body>
+</html>

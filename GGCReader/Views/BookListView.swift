@@ -7,7 +7,13 @@ struct BookListView: View {
     @Binding var selectedBook: Book?
     @State private var showingAddBook = false
     @State private var showingScanner = false
+    @State private var showingPaywall = false
     @State private var searchText = ""
+    var storeManager = StoreManager.shared
+
+    private var canAddBook: Bool {
+        storeManager.isPro || books.count < StoreManager.freeBookLimit
+    }
 
     private var filteredBooks: [Book] {
         if searchText.isEmpty { return books }
@@ -67,13 +73,21 @@ struct BookListView: View {
             ToolbarItem(placement: .primaryAction) {
                 Menu {
                     Button {
-                        showingAddBook = true
+                        if canAddBook {
+                            showingAddBook = true
+                        } else {
+                            showingPaywall = true
+                        }
                     } label: {
                         Label("Add Manually", systemImage: "pencil")
                     }
                     #if os(iOS)
                     Button {
-                        showingScanner = true
+                        if canAddBook {
+                            showingScanner = true
+                        } else {
+                            showingPaywall = true
+                        }
                     } label: {
                         Label("Scan Book Cover", systemImage: "camera")
                     }
@@ -90,7 +104,35 @@ struct BookListView: View {
         .sheet(isPresented: $showingScanner) {
             BookScannerView()
         }
+        .sheet(isPresented: $showingPaywall) {
+            PaywallView()
+        }
         #endif
+        .safeAreaInset(edge: .bottom) {
+            if !storeManager.isPro && !books.isEmpty {
+                HStack {
+                    Image(systemName: "book.closed")
+                        .foregroundStyle(.blue)
+                    Text("\(books.count)/\(StoreManager.freeBookLimit) books")
+                        .font(.caption.bold())
+                    Spacer()
+                    if !canAddBook {
+                        Button {
+                            showingPaywall = true
+                        } label: {
+                            Label("Upgrade", systemImage: "crown.fill")
+                                .font(.caption.bold())
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .buttonBorderShape(.capsule)
+                        .controlSize(.small)
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 10)
+                .background(.ultraThinMaterial)
+            }
+        }
     }
 
     private func deleteBooks(from list: [Book], at offsets: IndexSet) {

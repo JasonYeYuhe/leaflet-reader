@@ -1,9 +1,10 @@
 # Xcode
 build/
-*.xcodeproj/
 DerivedData/
 *.xcuserdata
 *.xcworkspace
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/
 
 # macOS
 .DS_Store

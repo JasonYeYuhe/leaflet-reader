@@ -1,14 +1,66 @@
 import SwiftUI
 
 struct SettingsView: View {
+    var storeManager = StoreManager.shared
+    @State private var showingPaywall = false
+
     var body: some View {
         List {
+            proSection
             #if os(iOS)
             appIconSection
             #endif
             aboutSection
         }
         .navigationTitle("Settings")
+        .sheet(isPresented: $showingPaywall) {
+            PaywallView()
+        }
+    }
+
+    // MARK: - Pro Status
+
+    private var proSection: some View {
+        Section {
+            if storeManager.isPro {
+                HStack(spacing: 12) {
+                    Image(systemName: "crown.fill")
+                        .font(.title2)
+                        .foregroundStyle(.yellow)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Leaflet Pro")
+                            .font(.headline)
+                        Text("All features unlocked")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    Spacer()
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundStyle(.green)
+                }
+            } else {
+                Button {
+                    showingPaywall = true
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: "crown.fill")
+                            .font(.title2)
+                            .foregroundStyle(.yellow)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Upgrade to Pro")
+                                .font(.headline)
+                                .foregroundStyle(.primary)
+                            Text("Unlimited books, all badges & more")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+        }
     }
 
     // MARK: - App Icon
@@ -33,6 +85,7 @@ struct SettingsView: View {
 
     private func appIconItem(_ option: AppIconOption) -> some View {
         let isSelected = currentIconName == option.iconName
+        let isLocked = option != .blue && !storeManager.isPro
         return VStack(spacing: 6) {
             Image(uiImage: option.preview)
                 .resizable()
@@ -43,6 +96,15 @@ struct SettingsView: View {
                     RoundedRectangle(cornerRadius: 14)
                         .strokeBorder(isSelected ? Color.accentColor : Color.clear, lineWidth: 3)
                 )
+                .overlay {
+                    if isLocked {
+                        RoundedRectangle(cornerRadius: 14)
+                            .fill(.black.opacity(0.3))
+                        Image(systemName: "lock.fill")
+                            .foregroundStyle(.white)
+                            .font(.caption)
+                    }
+                }
                 .shadow(radius: isSelected ? 4 : 1)
 
             Text(option.displayName)
@@ -56,6 +118,10 @@ struct SettingsView: View {
     }
 
     private func setIcon(_ option: AppIconOption) {
+        guard option == .blue || storeManager.isPro else {
+            showingPaywall = true
+            return
+        }
         HapticManager.selection()
         UIApplication.shared.setAlternateIconName(option.iconName) { error in
             if error != nil {
