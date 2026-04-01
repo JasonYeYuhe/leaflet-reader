@@ -11,10 +11,8 @@ struct BookNotesView: View {
     @State private var newNotePage = ""
     var storeManager = StoreManager.shared
 
-    static let freeNoteLimit = 3
-
     private var canAddNote: Bool {
-        storeManager.isPro || book.notes.count < Self.freeNoteLimit
+        storeManager.isPro || book.notes.count < StoreManager.freeNoteLimit
     }
 
     private var sortedNotes: [BookNote] {

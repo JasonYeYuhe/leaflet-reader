@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 import VisionKit
 
 #if os(iOS)
@@ -68,6 +69,13 @@ struct BookScannerView: View {
                     selectedTitle: $selectedTitle,
                     selectedAuthor: $selectedAuthor,
                     onConfirm: { title, author in
+                        let store = StoreManager.shared
+                        let descriptor = FetchDescriptor<Book>()
+                        let count = (try? modelContext.fetchCount(descriptor)) ?? 0
+                        guard store.isPro || count < StoreManager.freeBookLimit else {
+                            dismiss()
+                            return
+                        }
                         let book = Book(title: title, author: author, totalPages: 0)
                         modelContext.insert(book)
                         dismiss()

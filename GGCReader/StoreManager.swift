@@ -32,6 +32,8 @@ final class StoreManager {
     // MARK: - Free Tier Limits
 
     static let freeBookLimit = 5
+    static let freeNoteLimit = 3
+    static let freeBadgeLimit = 10
 
     // MARK: - Init
 

@@ -20,8 +20,8 @@ struct BadgesCard: View {
     @State private var showingPaywall = false
     var storeManager = StoreManager.shared
 
-    /// Free users see only the first 10 badges
-    private static let freeBadgeLimit = 10
+    /// Free users see only the first N badges unlockable
+    private static var freeBadgeLimit: Int { StoreManager.freeBadgeLimit }
 
     private var totalPages: Int {
         allLogs.reduce(0) { $0 + $1.pagesRead }
