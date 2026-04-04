@@ -26,7 +26,7 @@ final class Book {
 
     var isbn: String = ""
     var publisher: String = ""
-    var coverImageData: Data?
+    @Attribute(.externalStorage) var coverImageData: Data?
 
     var progressPercentage: Double {
         guard totalPages > 0 else { return 0 }

@@ -29,6 +29,13 @@ final class StoreManager {
 
     private var transactionListener: Task<Void, Never>?
 
+    // MARK: - TestFlight Detection
+
+    /// Returns `true` when running via TestFlight (sandbox receipt).
+    static let isTestFlight: Bool = {
+        Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
+    }()
+
     // MARK: - Free Tier Limits
 
     static let freeBookLimit = 5
@@ -38,6 +45,10 @@ final class StoreManager {
     // MARK: - Init
 
     private init() {
+        // TestFlight users get Pro for free.
+        if Self.isTestFlight {
+            isPro = true
+        }
         transactionListener = listenForTransactions()
         Task { await loadProducts() }
         Task { await updatePurchasedProducts() }
@@ -116,7 +127,7 @@ final class StoreManager {
         }
 
         purchasedProductIDs = purchased
-        isPro = !purchased.isEmpty
+        isPro = Self.isTestFlight || !purchased.isEmpty
     }
 
     // MARK: - Verification

@@ -159,11 +159,27 @@ struct GoalsView: View {
         ZStack {
             ScrollView {
                 VStack(spacing: 20) {
-                    todayCard
-                    streakCard
-                    goalCard
-                    insightsCard
-                    heatmapCard
+                    GoalRingSection(
+                        todayPages: todayPages,
+                        dailyPageGoal: dailyPageGoal,
+                        todayProgress: todayProgress
+                    )
+                    StreakSection(
+                        currentStreak: currentStreak,
+                        bestStreak: bestStreak
+                    )
+                    GoalSettingSection(dailyPageGoal: $dailyPageGoal)
+                    WeeklyInsightsSection(
+                        weeklyPages: weeklyPages,
+                        weeklyAverage: weeklyAverage,
+                        mostActiveDay: mostActiveDay,
+                        weeklyTrend: weeklyTrend,
+                        projectedCompletion: projectedCompletion
+                    )
+                    HeatmapSection(
+                        heatmapData: heatmapData,
+                        dailyPageGoal: dailyPageGoal
+                    )
                     BadgesCard(
                         allLogs: allLogs,
                         books: books,
@@ -183,7 +199,6 @@ struct GoalsView: View {
                 previousProgress = todayProgress
             }
             .onChange(of: todayProgress) { oldValue, newValue in
-                // Celebrate when crossing 100%
                 if oldValue < 1.0 && newValue >= 1.0 {
                     HapticManager.goalAchieved()
                     showCelebration = true
@@ -202,324 +217,6 @@ struct GoalsView: View {
                 message: "Goal Complete!"
             )
         }
-    }
-
-    // MARK: - Today's Progress
-
-    private var todayCard: some View {
-        VStack(spacing: 16) {
-            ProgressRingView(
-                progress: todayProgress,
-                color: todayProgress >= 1.0 ? .green : .blue,
-                size: 120
-            )
-
-            VStack(spacing: 4) {
-                Text("\(todayPages)/\(dailyPageGoal)")
-                    .font(.title.bold())
-                    .monospacedDigit()
-                if todayProgress >= 1.0 {
-                    Text("Goal Complete!")
-                        .font(.subheadline.bold())
-                        .foregroundStyle(.green)
-                } else {
-                    Text("\(dailyPageGoal - todayPages) pages to go")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                }
-            }
-        }
-        .frame(maxWidth: .infinity)
-        .padding()
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
-    }
-
-    // MARK: - Streak
-
-    private var streakCard: some View {
-        HStack(spacing: 20) {
-            VStack(spacing: 4) {
-                HStack(spacing: 4) {
-                    Image(systemName: "flame.fill")
-                        .foregroundStyle(.orange)
-                    Text("\(currentStreak)")
-                        .font(.title.bold())
-                        .monospacedDigit()
-                }
-                Text("Current Streak")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-
-            Divider()
-                .frame(height: 40)
-
-            VStack(spacing: 4) {
-                HStack(spacing: 4) {
-                    Image(systemName: "trophy.fill")
-                        .foregroundStyle(.yellow)
-                    Text("\(bestStreak)")
-                        .font(.title.bold())
-                        .monospacedDigit()
-                }
-                Text("Best Streak")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-        }
-        .padding()
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
-    }
-
-    // MARK: - Goal Setting
-
-    private var goalCard: some View {
-        VStack(spacing: 12) {
-            Text("Daily Goal")
-                .font(.headline)
-
-            HStack(spacing: 8) {
-                Button {
-                    if dailyPageGoal > 5 { dailyPageGoal -= 5 }
-                } label: {
-                    Text("-5")
-                        .font(.caption.bold())
-                        .frame(width: 36, height: 36)
-                        .background(.blue.opacity(0.15), in: Circle())
-                }
-                .buttonStyle(.plain)
-                .foregroundStyle(.blue)
-
-                Button {
-                    if dailyPageGoal > 1 { dailyPageGoal -= 1 }
-                } label: {
-                    Text("-1")
-                        .font(.caption.bold())
-                        .frame(width: 36, height: 36)
-                        .background(.blue.opacity(0.1), in: Circle())
-                }
-                .buttonStyle(.plain)
-                .foregroundStyle(.blue)
-
-                Text("\(dailyPageGoal)")
-                    .font(.system(size: 36, weight: .bold, design: .rounded))
-                    .monospacedDigit()
-                    .frame(width: 80)
-
-                Button {
-                    dailyPageGoal += 1
-                } label: {
-                    Text("+1")
-                        .font(.caption.bold())
-                        .frame(width: 36, height: 36)
-                        .background(.blue.opacity(0.1), in: Circle())
-                }
-                .buttonStyle(.plain)
-                .foregroundStyle(.blue)
-
-                Button {
-                    dailyPageGoal += 5
-                } label: {
-                    Text("+5")
-                        .font(.caption.bold())
-                        .frame(width: 36, height: 36)
-                        .background(.blue.opacity(0.15), in: Circle())
-                }
-                .buttonStyle(.plain)
-                .foregroundStyle(.blue)
-            }
-
-            Text("pages per day")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-        }
-        .padding()
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
-    }
-
-    // MARK: - Heatmap
-
-    private var heatmapCard: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("Reading Activity")
-                .font(.headline)
-
-            let data = heatmapData
-            let weekdaySymbols = calendar.shortWeekdaySymbols
-            let headers = Array(weekdaySymbols[1...]) + [weekdaySymbols[0]]
-
-            HStack(spacing: 4) {
-                ForEach(headers, id: \.self) { day in
-                    Text(day)
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                        .frame(maxWidth: .infinity)
-                }
-            }
-
-            let weeks = stride(from: 0, to: data.count, by: 7).map { start in
-                Array(data[start..<min(start + 7, data.count)])
-            }
-
-            ForEach(Array(weeks.enumerated()), id: \.offset) { _, week in
-                HStack(spacing: 4) {
-                    ForEach(Array(week.enumerated()), id: \.offset) { _, day in
-                        let ratio = dailyPageGoal > 0 ? Double(day.pages) / Double(dailyPageGoal) : 0
-                        let isToday = calendar.isDateInToday(day.date)
-
-                        RoundedRectangle(cornerRadius: 4)
-                            .fill(colorForRatio(ratio))
-                            .aspectRatio(1, contentMode: .fit)
-                            .frame(maxWidth: .infinity)
-                            .overlay {
-                                if day.pages > 0 {
-                                    Text("\(day.pages)")
-                                        .font(.system(size: 9, weight: .medium, design: .rounded))
-                                        .foregroundStyle(ratio >= 0.5 ? .white : .primary.opacity(0.6))
-                                        .minimumScaleFactor(0.5)
-                                        .lineLimit(1)
-                                }
-                            }
-                            .overlay {
-                                if isToday {
-                                    RoundedRectangle(cornerRadius: 4)
-                                        .strokeBorder(.primary.opacity(0.5), lineWidth: 1.5)
-                                }
-                            }
-                    }
-                    if week.count < 7 {
-                        ForEach(0..<(7 - week.count), id: \.self) { _ in
-                            Color.clear
-                                .aspectRatio(1, contentMode: .fit)
-                                .frame(maxWidth: .infinity)
-                        }
-                    }
-                }
-            }
-
-            HStack(spacing: 8) {
-                HStack(spacing: 4) {
-                    RoundedRectangle(cornerRadius: 2)
-                        .fill(Color.gray.opacity(0.15))
-                        .frame(width: 12, height: 12)
-                    Text("0")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                }
-                HStack(spacing: 4) {
-                    RoundedRectangle(cornerRadius: 2)
-                        .fill(Color.green.opacity(0.3))
-                        .frame(width: 12, height: 12)
-                    Text("<50%")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                }
-                HStack(spacing: 4) {
-                    RoundedRectangle(cornerRadius: 2)
-                        .fill(Color.green.opacity(0.6))
-                        .frame(width: 12, height: 12)
-                    Text("<100%")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                }
-                HStack(spacing: 4) {
-                    RoundedRectangle(cornerRadius: 2)
-                        .fill(Color.green)
-                        .frame(width: 12, height: 12)
-                    Image(systemName: "checkmark")
-                        .font(.system(size: 8, weight: .bold))
-                        .foregroundStyle(.green)
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .center)
-        }
-        .padding()
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
-    }
-
-    // MARK: - Weekly Insights Card
-
-    private var insightsCard: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Image(systemName: "chart.line.uptrend.xyaxis")
-                    .foregroundStyle(.purple)
-                Text("Weekly Insights")
-                    .font(.headline)
-            }
-
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-                insightItem(
-                    label: String(localized: "This Week"),
-                    value: "\(weeklyPages)",
-                    unit: String(localized: "pages"),
-                    icon: "book.pages"
-                )
-                insightItem(
-                    label: String(localized: "Daily Avg"),
-                    value: String(format: "%.1f", weeklyAverage),
-                    unit: String(localized: "pages"),
-                    icon: "chart.bar"
-                )
-                if let day = mostActiveDay {
-                    insightItem(
-                        label: String(localized: "Most Active"),
-                        value: day,
-                        unit: "",
-                        icon: "star.fill"
-                    )
-                }
-                insightItem(
-                    label: String(localized: "Trend"),
-                    value: weeklyTrend > 0 ? "+\(Int(weeklyTrend * 100))%" : "\(Int(weeklyTrend * 100))%",
-                    unit: String(localized: "vs last week"),
-                    icon: weeklyTrend >= 0 ? "arrow.up.right" : "arrow.down.right"
-                )
-            }
-
-            if let proj = projectedCompletion {
-                HStack(spacing: 6) {
-                    Image(systemName: "clock.arrow.circlepath")
-                        .font(.caption)
-                        .foregroundStyle(.orange)
-                    Text("Finish \"\(proj.book.title)\" in ~\(proj.daysLeft) days")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(2)
-                }
-                .padding(.top, 2)
-            }
-        }
-        .padding()
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
-    }
-
-    private func insightItem(label: String, value: String, unit: String, icon: String) -> some View {
-        HStack(spacing: 8) {
-            Image(systemName: icon)
-                .font(.caption)
-                .foregroundStyle(.purple.opacity(0.7))
-                .frame(width: 20)
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text(value)
-                    .font(.subheadline.bold())
-                    .monospacedDigit()
-                if unit.isEmpty {
-                    Text(label)
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                } else {
-                    Text("\(label) · \(unit)")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
-                }
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
 
     // MARK: - Reminder Card
@@ -586,7 +283,7 @@ struct GoalsView: View {
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
     }
 
-    // MARK: - Calendar
+    // MARK: - Calendar Card
 
     private var calendarCard: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -638,7 +335,6 @@ struct GoalsView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 8)
             } else {
-                // Quick-add: tap a book to open sheet with it pre-selected
                 if !readingBooks.isEmpty {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 8) {
@@ -669,7 +365,6 @@ struct GoalsView: View {
                     }
                 }
 
-                // Today's tasks
                 if !calendarManager.todayEvents.isEmpty {
                     Text("Today")
                         .font(.caption.bold())
@@ -681,7 +376,6 @@ struct GoalsView: View {
                     }
                 }
 
-                // Upcoming tasks
                 if !calendarManager.upcomingEvents.isEmpty {
                     Text("Upcoming")
                         .font(.caption.bold())
@@ -709,6 +403,8 @@ struct GoalsView: View {
         .padding()
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
     }
+
+    // MARK: - Task Row
 
     private func taskRow(event: EKEvent, showDate: Bool = false) -> some View {
         let isCompleted = (event.title ?? "").hasPrefix("✅")
@@ -768,6 +464,8 @@ struct GoalsView: View {
         }
     }
 
+    // MARK: - Complete Task
+
     private func completeTask(_ event: EKEvent) {
         let wasCompleted = calendarManager.isCompleted(event)
         let meta = calendarManager.metadata(for: event)
@@ -775,7 +473,6 @@ struct GoalsView: View {
         HapticManager.taskDone()
         calendarManager.toggleTaskCompletion(event)
 
-        // If marking as done and has book metadata, update reading progress
         if !wasCompleted, let meta {
             if let book = books.first(where: { $0.id == meta.bookID }) {
                 let fromPage = book.currentPage
@@ -786,12 +483,11 @@ struct GoalsView: View {
                     modelContext.insert(log)
                     book.currentPage = toPage
                     book.lastReadDate = Date()
-                    try? modelContext.save()
+                    do { try modelContext.save() } catch { print("[GoalsView] Failed to save reading log: \(error)") }
                 }
             }
         }
 
-        // If un-marking (undo), remove the last log for that book+pages
         if wasCompleted, let meta {
             if let book = books.first(where: { $0.id == meta.bookID }) {
                 let today = Calendar.current.startOfDay(for: Date())
@@ -802,7 +498,7 @@ struct GoalsView: View {
                     book.currentPage = max(book.currentPage - lastLog.pagesRead, 0)
                     book.lastReadDate = Date()
                     modelContext.delete(lastLog)
-                    try? modelContext.save()
+                    do { try modelContext.save() } catch { print("[GoalsView] Failed to save undo: \(error)") }
                 }
             }
         }
@@ -823,7 +519,6 @@ struct GoalsView: View {
     private var addTaskSheet: some View {
         NavigationStack {
             Form {
-                // Book selection
                 Section {
                     if readingBooks.isEmpty {
                         Text("No books in progress")
@@ -862,7 +557,6 @@ struct GoalsView: View {
                     Text("Select Book")
                 }
 
-                // Pages
                 if preselectedBook != nil {
                     Section {
                         HStack {
@@ -918,7 +612,6 @@ struct GoalsView: View {
                             .foregroundStyle(.blue)
                         }
 
-                        // Quick page presets
                         HStack(spacing: 8) {
                             ForEach([10, 20, 30, 50], id: \.self) { p in
                                 Button {
@@ -939,12 +632,10 @@ struct GoalsView: View {
                     }
                 }
 
-                // Date
                 Section {
                     DatePicker("Date", selection: $taskDate, displayedComponents: .date)
                 }
 
-                // Preview / Custom title
                 Section {
                     if preselectedBook != nil {
                         HStack {
@@ -991,14 +682,5 @@ struct GoalsView: View {
                 }
             }
         }
-    }
-
-    // MARK: - Helpers
-
-    private func colorForRatio(_ ratio: Double) -> Color {
-        if ratio <= 0 { return Color.gray.opacity(0.15) }
-        if ratio < 0.5 { return Color.green.opacity(0.3) }
-        if ratio < 1.0 { return Color.green.opacity(0.6) }
-        return Color.green
     }
 }

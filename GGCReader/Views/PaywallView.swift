@@ -30,7 +30,7 @@ struct PaywallView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Leaflet Pro")
+            .navigationTitle("æstel Pro")
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
             #endif
@@ -317,9 +317,13 @@ struct PaywallView: View {
                 .multilineTextAlignment(.center)
 
             HStack(spacing: 4) {
-                Link("Terms of Use", destination: URL(string: "https://jasonyeyuhe.github.io/leaflet-reader/terms.html")!)
+                if let termsURL = URL(string: "https://jasonyeyuhe.github.io/leaflet-reader/terms.html") {
+                    Link("Terms of Use", destination: termsURL)
+                }
                 Text("·")
-                Link("Privacy Policy", destination: URL(string: "https://jasonyeyuhe.github.io/leaflet-reader/privacy.html")!)
+                if let privacyURL = URL(string: "https://jasonyeyuhe.github.io/leaflet-reader/privacy.html") {
+                    Link("Privacy Policy", destination: privacyURL)
+                }
             }
             .font(.caption2)
             .foregroundStyle(.secondary)

@@ -40,10 +40,10 @@ struct StatsView: View {
 
     private var last7DaysData: [(String, Int)] {
         let calendar = Calendar.current
-        return (0..<7).reversed().map { daysAgo in
-            let date = calendar.date(byAdding: .day, value: -daysAgo, to: Date())!
+        return (0..<7).reversed().compactMap { daysAgo in
+            guard let date = calendar.date(byAdding: .day, value: -daysAgo, to: Date()) else { return nil }
             let start = calendar.startOfDay(for: date)
-            let end = calendar.date(byAdding: .day, value: 1, to: start)!
+            guard let end = calendar.date(byAdding: .day, value: 1, to: start) else { return nil }
             let pages = allLogs
                 .filter { $0.date >= start && $0.date < end }
                 .reduce(0) { $0 + $1.pagesRead }

@@ -191,7 +191,7 @@ struct ScanResultsView: View {
 
                 Section {
                     Button("Add Book") {
-                        guard !selectedTitle.isEmpty else { return }
+                        guard !selectedTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
                         onConfirm(selectedTitle, selectedAuthor)
                     }
                     .disabled(selectedTitle.trimmingCharacters(in: .whitespaces).isEmpty)

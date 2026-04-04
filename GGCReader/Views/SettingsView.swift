@@ -1,12 +1,17 @@
 import SwiftUI
+import SwiftData
 
 struct SettingsView: View {
+    @Query(sort: \Book.dateAdded, order: .reverse) private var books: [Book]
     var storeManager = StoreManager.shared
     @State private var showingPaywall = false
+    @State private var csvFile: CSVFile?
+    @State private var showingExportError = false
 
     var body: some View {
         List {
             proSection
+            exportSection
             #if os(iOS)
             appIconSection
             #endif
@@ -28,7 +33,7 @@ struct SettingsView: View {
                         .font(.title2)
                         .foregroundStyle(.yellow)
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("Leaflet Pro")
+                        Text("æstel Pro")
                             .font(.headline)
                         Text("All features unlocked")
                             .font(.caption)
@@ -131,6 +136,41 @@ struct SettingsView: View {
     }
     #endif
 
+    // MARK: - Export Data
+
+    private var exportSection: some View {
+        Section {
+            if let csvFile {
+                ShareLink(item: csvFile, preview: SharePreview("æstel Export", image: Image(systemName: "tablecells"))) {
+                    Label("Share CSV", systemImage: "square.and.arrow.up")
+                }
+            }
+            Button {
+                generateCSV()
+            } label: {
+                Label("Export Reading Data", systemImage: "arrow.down.doc")
+            }
+        } header: {
+            Text("Data")
+        }
+    }
+
+    private func generateCSV() {
+        var csv = "Title,Author,Total Pages,Current Page,Progress,Date Added,Finished\n"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        for book in books {
+            let title = book.title.replacingOccurrences(of: ",", with: ";")
+            let author = book.author.replacingOccurrences(of: ",", with: ";")
+            let progress = String(format: "%.0f%%", book.progressPercentage * 100)
+            let added = dateFormatter.string(from: book.dateAdded)
+            csv += "\(title),\(author),\(book.totalPages),\(book.currentPage),\(progress),\(added),\(book.isFinished ? "Yes" : "No")\n"
+        }
+
+        csvFile = CSVFile(content: csv)
+    }
+
     // MARK: - About
 
     private var aboutSection: some View {
@@ -148,6 +188,18 @@ struct SettingsView: View {
 }
 
 // MARK: - App Icon Options
+
+// MARK: - CSV Export
+
+struct CSVFile: Transferable {
+    let content: String
+
+    static var transferRepresentation: some TransferRepresentation {
+        DataRepresentation(exportedContentType: .commaSeparatedText) { file in
+            Data(file.content.utf8)
+        }
+    }
+}
 
 #if os(iOS)
 enum AppIconOption: String, CaseIterable, Identifiable {

@@ -3,20 +3,29 @@ import SwiftData
 
 @main
 struct GGCReaderWatchApp: App {
-    let modelContainer: ModelContainer
+    let modelContainer: ModelContainer?
 
     init() {
         do {
             modelContainer = try SharedModelContainer.create()
         } catch {
-            fatalError("Failed to create ModelContainer: \(error)")
+            print("[GGCReaderWatch] Failed to create ModelContainer: \(error)")
+            modelContainer = nil
         }
     }
 
     var body: some Scene {
         WindowGroup {
-            WatchBookListView()
+            if let modelContainer {
+                WatchBookListView()
+                    .modelContainer(modelContainer)
+            } else {
+                ContentUnavailableView(
+                    "Unable to Load Data",
+                    systemImage: "exclamationmark.triangle",
+                    description: Text("Please restart the app or check your iCloud settings.")
+                )
+            }
         }
-        .modelContainer(modelContainer)
     }
 }

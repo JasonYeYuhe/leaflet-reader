@@ -50,15 +50,19 @@ final class CalendarManager {
 
     // MARK: - Calendar Setup
 
+    private static let calendarName = String(localized: "æstel", comment: "Calendar name for reading tasks")
+    private static let legacyCalendarNames = ["拾叶记", "æstel", "Leaflet"]
+
     private func setupCalendar() {
         let calendars = eventStore.calendars(for: .event)
-        if let existing = calendars.first(where: { $0.title == "拾页" || $0.title == "Leaflet" }) {
+        let allKnownNames = Set(Self.legacyCalendarNames + [Self.calendarName])
+        if let existing = calendars.first(where: { allKnownNames.contains($0.title) }) {
             readingCalendar = existing
             return
         }
 
         let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
-        newCalendar.title = "拾页"
+        newCalendar.title = Self.calendarName
         newCalendar.cgColor = CGColor(red: 0.2, green: 0.78, blue: 0.35, alpha: 1.0)
 
         // Find a suitable source (prefer iCloud for sync)
@@ -117,7 +121,9 @@ final class CalendarManager {
         do {
             try eventStore.save(event, span: .thisEvent, commit: true)
             refreshEvents()
-        } catch { }
+        } catch {
+            print("[CalendarManager] Failed to save goal completion: \(error)")
+        }
     }
 
     // MARK: - Task Management
@@ -136,7 +142,9 @@ final class CalendarManager {
         do {
             try eventStore.save(event, span: .thisEvent, commit: true)
             refreshEvents()
-        } catch { }
+        } catch {
+            print("[CalendarManager] Failed to save task: \(error)")
+        }
     }
 
     /// Returns metadata if the event has book info attached
@@ -173,7 +181,9 @@ final class CalendarManager {
 
         do {
             try eventStore.save(target, span: .thisEvent, commit: true)
-        } catch { }
+        } catch {
+            print("[CalendarManager] Failed to toggle task completion: \(error)")
+        }
 
         // Force UI update by re-fetching
         todayEvents = []
@@ -191,7 +201,9 @@ final class CalendarManager {
 
         do {
             try eventStore.remove(target, span: .thisEvent, commit: true)
-        } catch { }
+        } catch {
+            print("[CalendarManager] Failed to delete task: \(error)")
+        }
 
         // Force UI update by re-fetching
         todayEvents = []

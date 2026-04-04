@@ -1,6 +1,19 @@
 import SwiftUI
 import SwiftData
 
+enum BookSortOption: String, CaseIterable {
+    case lastRead = "Last Read"
+    case title = "Title"
+    case dateAdded = "Date Added"
+    case progress = "Progress"
+}
+
+enum BookFilterOption: String, CaseIterable {
+    case all = "All"
+    case reading = "Reading"
+    case finished = "Finished"
+}
+
 struct BookListView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \Book.lastReadDate, order: .reverse) private var books: [Book]
@@ -9,6 +22,8 @@ struct BookListView: View {
     @State private var showingScanner = false
     @State private var showingPaywall = false
     @State private var searchText = ""
+    @State private var sortOption: BookSortOption = .lastRead
+    @State private var filterOption: BookFilterOption = .all
     var storeManager = StoreManager.shared
 
     private var canAddBook: Bool {
@@ -16,11 +31,37 @@ struct BookListView: View {
     }
 
     private var filteredBooks: [Book] {
-        if searchText.isEmpty { return books }
-        return books.filter {
-            $0.title.localizedCaseInsensitiveContains(searchText) ||
-            $0.author.localizedCaseInsensitiveContains(searchText)
+        var result = books
+
+        // Search: title, author, publisher
+        if !searchText.isEmpty {
+            result = result.filter {
+                $0.title.localizedCaseInsensitiveContains(searchText) ||
+                $0.author.localizedCaseInsensitiveContains(searchText) ||
+                $0.publisher.localizedCaseInsensitiveContains(searchText)
+            }
         }
+
+        // Filter
+        switch filterOption {
+        case .all: break
+        case .reading: result = result.filter { !$0.isFinished }
+        case .finished: result = result.filter { $0.isFinished }
+        }
+
+        // Sort
+        switch sortOption {
+        case .lastRead:
+            result.sort { ($0.lastReadDate ?? .distantPast) > ($1.lastReadDate ?? .distantPast) }
+        case .title:
+            result.sort { $0.title.localizedCompare($1.title) == .orderedAscending }
+        case .dateAdded:
+            result.sort { $0.dateAdded > $1.dateAdded }
+        case .progress:
+            result.sort { $0.progressPercentage > $1.progressPercentage }
+        }
+
+        return result
     }
 
     private var readingBooks: [Book] {
@@ -41,33 +82,46 @@ struct BookListView: View {
                 }
             }
 
-            if !readingBooks.isEmpty {
-                Section("Reading") {
-                    ForEach(readingBooks) { book in
-                        NavigationLink(value: book) {
-                            BookRowView(book: book)
+            if filterOption == .all {
+                // Grouped view
+                if !readingBooks.isEmpty {
+                    Section("Reading") {
+                        ForEach(readingBooks) { book in
+                            NavigationLink(value: book) {
+                                BookRowView(book: book)
+                            }
                         }
-                    }
-                    .onDelete { indexSet in
-                        deleteBooks(from: readingBooks, at: indexSet)
+                        .onDelete { indexSet in
+                            deleteBooks(from: readingBooks, at: indexSet)
+                        }
                     }
                 }
-            }
 
-            if !finishedBooks.isEmpty {
-                Section("Finished") {
-                    ForEach(finishedBooks) { book in
-                        NavigationLink(value: book) {
-                            BookRowView(book: book)
+                if !finishedBooks.isEmpty {
+                    Section("Finished") {
+                        ForEach(finishedBooks) { book in
+                            NavigationLink(value: book) {
+                                BookRowView(book: book)
+                            }
+                        }
+                        .onDelete { indexSet in
+                            deleteBooks(from: finishedBooks, at: indexSet)
                         }
                     }
-                    .onDelete { indexSet in
-                        deleteBooks(from: finishedBooks, at: indexSet)
+                }
+            } else {
+                // Flat view when filtered
+                ForEach(filteredBooks) { book in
+                    NavigationLink(value: book) {
+                        BookRowView(book: book)
                     }
+                }
+                .onDelete { indexSet in
+                    deleteBooks(from: filteredBooks, at: indexSet)
                 }
             }
         }
-        .searchable(text: $searchText, prompt: "Search books")
+        .searchable(text: $searchText, prompt: "Search books, authors, publishers")
         .navigationTitle("My Books")
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -94,6 +148,43 @@ struct BookListView: View {
                     #endif
                 } label: {
                     Image(systemName: "plus")
+                }
+            }
+            ToolbarItem(placement: .secondaryAction) {
+                Menu {
+                    // Sort options
+                    Section("Sort By") {
+                        ForEach(BookSortOption.allCases, id: \.self) { option in
+                            Button {
+                                sortOption = option
+                            } label: {
+                                HStack {
+                                    Text(LocalizedStringKey(option.rawValue))
+                                    if sortOption == option {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Filter options
+                    Section("Filter") {
+                        ForEach(BookFilterOption.allCases, id: \.self) { option in
+                            Button {
+                                filterOption = option
+                            } label: {
+                                HStack {
+                                    Text(LocalizedStringKey(option.rawValue))
+                                    if filterOption == option {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } label: {
+                    Image(systemName: "line.3.horizontal.decrease.circle")
                 }
             }
         }

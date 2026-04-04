@@ -65,7 +65,7 @@ struct CelebrationView: View {
             Particle(
                 x: CGFloat.random(in: 0...w),
                 y: h + 50,
-                emoji: emojis.randomElement()!,
+                emoji: emojis.randomElement() ?? "🎉",
                 size: CGFloat.random(in: 16...32),
                 rotation: Double.random(in: -180...180)
             )
