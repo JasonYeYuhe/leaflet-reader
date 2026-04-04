@@ -46,6 +46,9 @@ struct PaywallView: View {
                 // Default select yearly
                 selectedProduct = storeManager.yearlyProduct ?? storeManager.products.first
             }
+            #if os(macOS)
+            .frame(minWidth: 380, idealWidth: 420, minHeight: 500, idealHeight: 600)
+            #endif
         }
     }
 
@@ -239,7 +242,7 @@ struct PaywallView: View {
                 isPurchasing = true
                 errorMessage = nil
                 do {
-                    let result = try await storeManager.purchase(product)
+                    let result: StoreManager.PurchaseResult = try await storeManager.purchase(product)
                     switch result {
                     case .success:
                         HapticManager.notification(.success)

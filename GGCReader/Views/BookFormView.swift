@@ -1,6 +1,7 @@
 import SwiftUI
 import SwiftData
 import PhotosUI
+import UniformTypeIdentifiers
 
 struct BookFormView: View {
     @Environment(\.modelContext) private var modelContext
@@ -104,6 +105,33 @@ struct BookFormView: View {
                     )
                     .frame(maxWidth: .infinity)
                     .listRowBackground(Color.clear)
+                    #if os(macOS)
+                    .onDrop(of: [UTType.image], isTargeted: nil) { providers in
+                        guard let provider = providers.first else { return false }
+                        _ = provider.loadDataRepresentation(for: UTType.image) { data, _ in
+                            if let data {
+                                let compressed = compressImage(data)
+                                Task { @MainActor in
+                                    coverImageData = compressed
+                                }
+                            }
+                        }
+                        return true
+                    }
+                    .overlay {
+                        if coverImageData == nil {
+                            RoundedRectangle(cornerRadius: 12)
+                                .strokeBorder(style: StrokeStyle(lineWidth: 2, dash: [6]))
+                                .foregroundStyle(.secondary.opacity(0.3))
+                                .overlay {
+                                    Text("Drop image here")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                                .allowsHitTesting(false)
+                        }
+                    }
+                    #endif
                 }
             }
             .navigationTitle(isEditing ? "Edit Book" : "Add Book")
@@ -191,6 +219,26 @@ struct BookFormView: View {
             return resized.jpegData(compressionQuality: 0.7) ?? data
         }
         return image.jpegData(compressionQuality: 0.7) ?? data
+        #elseif os(macOS)
+        guard let nsImage = NSImage(data: data),
+              let cgImage = nsImage.cgImage(forProposedRect: nil, context: nil, hints: nil) else { return data }
+        let maxWidth: CGFloat = 600
+        let originalWidth = CGFloat(cgImage.width)
+        let originalHeight = CGFloat(cgImage.height)
+        let targetWidth = min(originalWidth, maxWidth)
+        let scale = targetWidth / originalWidth
+        let targetHeight = originalHeight * scale
+        let width = Int(targetWidth)
+        let height = Int(targetHeight)
+        guard let ctx = CGContext(data: nil, width: width, height: height,
+                                  bitsPerComponent: 8, bytesPerRow: 0,
+                                  space: CGColorSpaceCreateDeviceRGB(),
+                                  bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else { return data }
+        ctx.interpolationQuality = .high
+        ctx.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+        guard let resizedCG = ctx.makeImage() else { return data }
+        let rep = NSBitmapImageRep(cgImage: resizedCG)
+        return rep.representation(using: .jpeg, properties: [.compressionFactor: 0.7]) ?? data
         #else
         return data
         #endif

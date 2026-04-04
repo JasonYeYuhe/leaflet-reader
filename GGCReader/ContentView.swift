@@ -1,6 +1,85 @@
 import SwiftUI
 import SwiftData
 
+#if os(macOS)
+enum SidebarItem: String, CaseIterable, Identifiable {
+    case books = "Books"
+    case goals = "Goals"
+    case stats = "Stats"
+    case settings = "Settings"
+
+    var id: String { rawValue }
+
+    var icon: String {
+        switch self {
+        case .books: "books.vertical"
+        case .goals: "flame"
+        case .stats: "chart.bar"
+        case .settings: "gearshape"
+        }
+    }
+}
+
+struct ContentView: View {
+    @State private var selectedSidebarItem: SidebarItem? = .books
+    @State private var selectedBook: Book?
+    @State private var columnVisibility: NavigationSplitViewVisibility = .all
+
+    var body: some View {
+        NavigationSplitView(columnVisibility: $columnVisibility) {
+            List(selection: $selectedSidebarItem) {
+                Section {
+                    ForEach(SidebarItem.allCases) { item in
+                        Label(LocalizedStringKey(item.rawValue), systemImage: item.icon)
+                            .tag(item)
+                    }
+                }
+            }
+            .navigationSplitViewColumnWidth(min: 160, ideal: 200)
+            .navigationTitle("æstel")
+        } content: {
+            if selectedSidebarItem == .books {
+                BookListView(selectedBook: $selectedBook)
+            }
+        } detail: {
+            switch selectedSidebarItem {
+            case .books:
+                if let selectedBook {
+                    BookDetailView(book: selectedBook)
+                } else {
+                    ContentUnavailableView {
+                        Label("Select a Book", systemImage: "book")
+                    } description: {
+                        Text("Choose a book from the sidebar to view its details")
+                    }
+                }
+            case .goals:
+                NavigationStack {
+                    GoalsView()
+                }
+            case .stats:
+                NavigationStack {
+                    StatsView()
+                }
+            case .settings:
+                NavigationStack {
+                    SettingsView()
+                }
+            case nil:
+                ContentUnavailableView {
+                    Label("æstel", systemImage: "book")
+                }
+            }
+        }
+        .onChange(of: selectedSidebarItem) { _, newValue in
+            withAnimation {
+                columnVisibility = newValue == .books ? .all : .detailOnly
+            }
+        }
+    }
+}
+
+#else
 struct ContentView: View {
     @State private var selectedTab = 0
 
@@ -38,6 +117,7 @@ struct ContentView: View {
         }
     }
 }
+#endif
 
 struct BooksTab: View {
     @State private var selectedBook: Book?

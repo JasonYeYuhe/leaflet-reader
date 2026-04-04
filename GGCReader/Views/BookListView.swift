@@ -149,6 +149,7 @@ struct BookListView: View {
                 } label: {
                     Image(systemName: "plus")
                 }
+                .help("Add Book")
             }
             ToolbarItem(placement: .secondaryAction) {
                 Menu {
@@ -195,10 +196,10 @@ struct BookListView: View {
         .sheet(isPresented: $showingScanner) {
             BookScannerView()
         }
+        #endif
         .sheet(isPresented: $showingPaywall) {
             PaywallView()
         }
-        #endif
         .safeAreaInset(edge: .bottom) {
             if !storeManager.isPro && !books.isEmpty {
                 HStack {

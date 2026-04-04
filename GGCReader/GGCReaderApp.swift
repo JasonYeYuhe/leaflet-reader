@@ -20,5 +20,19 @@ struct GGCReaderApp: App {
             ContentView()
         }
         .modelContainer(modelContainer)
+        #if os(macOS)
+        .defaultSize(width: 1000, height: 700)
+        .windowToolbarStyle(.unified)
+        .commands {
+            SidebarCommands()
+        }
+        #endif
+
+        #if os(macOS)
+        Settings {
+            SettingsView()
+                .modelContainer(modelContainer)
+        }
+        #endif
     }
 }

@@ -65,6 +65,7 @@ struct BookDetailView: View {
                 } label: {
                     Image(systemName: "pencil")
                 }
+                .help("Edit Book")
             }
         }
         .sheet(isPresented: $showingEditBook) {
@@ -263,10 +264,12 @@ struct BookDetailView: View {
                         Image(systemName: "minus.circle")
                     }
                     .accessibilityLabel("Decrease 1 page")
+                    .help("Decrease 1 page")
                     Button { quickIncrement(by: 1) } label: {
                         Image(systemName: "plus.circle")
                     }
                     .accessibilityLabel("Add 1 page")
+                    .help("Add 1 page")
                     Button { quickIncrement(by: 5) } label: {
                         Text("+5")
                             .font(.caption.bold())

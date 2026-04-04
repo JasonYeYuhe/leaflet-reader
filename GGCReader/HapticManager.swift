@@ -34,8 +34,11 @@ enum HapticManager {
 #else
 @MainActor
 enum HapticManager {
-    static func impact(_ style: Any? = nil) {}
-    static func notification(_ type: Any? = nil) {}
+    enum FeedbackStyle { case light, medium, heavy }
+    enum NotificationType { case success, warning, error }
+
+    static func impact(_ style: FeedbackStyle = .medium) {}
+    static func notification(_ type: NotificationType) {}
     static func selection() {}
     static func taskDone() {}
     static func goalAchieved() {}
