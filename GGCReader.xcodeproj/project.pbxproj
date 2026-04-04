@@ -538,6 +538,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 10;
 				INFOPLIST_KEY_CFBundleDisplayName = "æstel";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "æstel uses your calendar to sync reading tasks and record goal completion.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is needed to scan book covers and recognize text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -660,6 +661,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 10;
 				INFOPLIST_KEY_CFBundleDisplayName = "æstel";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "æstel uses your calendar to sync reading tasks and record goal completion.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is needed to scan book covers and recognize text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -694,6 +696,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 10;
 				INFOPLIST_KEY_CFBundleDisplayName = "æstel";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "æstel uses your calendar to sync reading tasks and record goal completion.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is needed to scan book covers and recognize text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -808,6 +811,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 10;
 				INFOPLIST_KEY_CFBundleDisplayName = "æstel";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "æstel uses your calendar to sync reading tasks and record goal completion.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera access is needed to scan book covers and recognize text.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
