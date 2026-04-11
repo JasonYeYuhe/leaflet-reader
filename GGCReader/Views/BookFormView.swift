@@ -17,6 +17,13 @@ struct BookFormView: View {
     @State private var coverImageData: Data?
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var showingCamera = false
+    @State private var genre = ""
+
+    private static let commonGenres = [
+        "Fiction", "Non-Fiction", "Sci-Fi", "Fantasy", "Mystery",
+        "Romance", "Thriller", "Biography", "History", "Self-Help",
+        "Science", "Philosophy", "Poetry", "Business", "Technology"
+    ]
 
     private var isEditing: Bool { bookToEdit != nil }
     private var isValid: Bool {
@@ -34,6 +41,27 @@ struct BookFormView: View {
                         #if os(iOS)
                         .keyboardType(.numberPad)
                         #endif
+                }
+
+                Section("Genre") {
+                    TextField("Genre", text: $genre)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 6) {
+                            ForEach(Self.commonGenres, id: \.self) { g in
+                                Button {
+                                    genre = g
+                                } label: {
+                                    Text(g)
+                                        .font(.caption)
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 6)
+                                        .background(genre == g ? Color.accentColor : Color.accentColor.opacity(0.1), in: Capsule())
+                                        .foregroundStyle(genre == g ? .white : .accentColor)
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                    }
                 }
 
                 // Cover image
@@ -156,6 +184,7 @@ struct BookFormView: View {
                     totalPages = String(book.totalPages)
                     selectedColor = book.coverColor
                     coverImageData = book.coverImageData
+                    genre = book.genre
                 }
             }
             .onChange(of: selectedPhoto) { _, newValue in
@@ -186,6 +215,7 @@ struct BookFormView: View {
             book.totalPages = pages
             book.coverColor = selectedColor
             book.coverImageData = coverImageData
+            book.genre = genre.trimmingCharacters(in: .whitespaces)
         } else {
             let store = StoreManager.shared
             guard store.isPro || allBooks.count < StoreManager.freeBookLimit else {
@@ -199,6 +229,7 @@ struct BookFormView: View {
                 coverColor: selectedColor
             )
             book.coverImageData = coverImageData
+            book.genre = genre.trimmingCharacters(in: .whitespaces)
             modelContext.insert(book)
         }
         dismiss()

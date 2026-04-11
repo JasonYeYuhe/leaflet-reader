@@ -6,7 +6,9 @@ struct SettingsView: View {
     var storeManager = StoreManager.shared
     @State private var showingPaywall = false
     @State private var csvFile: CSVFile?
+    @State private var jsonFile: JSONExportFile?
     @State private var showingExportError = false
+    @State private var showingGoodreadsImport = false
 
     var body: some View {
         List {
@@ -140,15 +142,33 @@ struct SettingsView: View {
 
     private var exportSection: some View {
         Section {
+            Button {
+                generateCSV()
+            } label: {
+                Label("Export CSV", systemImage: "tablecells")
+            }
             if let csvFile {
-                ShareLink(item: csvFile, preview: SharePreview("æstel Export", image: Image(systemName: "tablecells"))) {
+                ShareLink(item: csvFile, preview: SharePreview("æstel Export.csv", image: Image(systemName: "tablecells"))) {
                     Label("Share CSV", systemImage: "square.and.arrow.up")
                 }
             }
             Button {
-                generateCSV()
+                generateJSON()
             } label: {
-                Label("Export Reading Data", systemImage: "arrow.down.doc")
+                Label("Export JSON (Full Data)", systemImage: "doc.text")
+            }
+            if let jsonFile {
+                ShareLink(item: jsonFile, preview: SharePreview("æstel Export.json", image: Image(systemName: "doc.text"))) {
+                    Label("Share JSON", systemImage: "square.and.arrow.up")
+                }
+            }
+            Button {
+                showingGoodreadsImport = true
+            } label: {
+                Label("Import from Goodreads", systemImage: "arrow.down.doc")
+            }
+            .sheet(isPresented: $showingGoodreadsImport) {
+                GoodreadsImportView()
             }
         } header: {
             Text("Data")
@@ -156,19 +176,86 @@ struct SettingsView: View {
     }
 
     private func generateCSV() {
-        var csv = "Title,Author,Total Pages,Current Page,Progress,Date Added,Finished\n"
+        var csv = "Title,Author,Genre,Total Pages,Current Page,Progress,Date Added,Finished\n"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
         for book in books {
             let title = book.title.replacingOccurrences(of: ",", with: ";")
             let author = book.author.replacingOccurrences(of: ",", with: ";")
+            let genre = book.genre.replacingOccurrences(of: ",", with: ";")
             let progress = String(format: "%.0f%%", book.progressPercentage * 100)
             let added = dateFormatter.string(from: book.dateAdded)
-            csv += "\(title),\(author),\(book.totalPages),\(book.currentPage),\(progress),\(added),\(book.isFinished ? "Yes" : "No")\n"
+            csv += "\(title),\(author),\(genre),\(book.totalPages),\(book.currentPage),\(progress),\(added),\(book.isFinished ? "Yes" : "No")\n"
         }
 
         csvFile = CSVFile(content: csv)
+    }
+
+    private func generateJSON() {
+        let dateFormatter = ISO8601DateFormatter()
+        let export: [[String: Any]] = books.map { book in
+            var dict: [String: Any] = [
+                "title": book.title,
+                "author": book.author,
+                "genre": book.genre,
+                "totalPages": book.totalPages,
+                "currentPage": book.currentPage,
+                "progress": book.progressPercentage,
+                "dateAdded": dateFormatter.string(from: book.dateAdded),
+                "finished": book.isFinished
+            ]
+            if let lastRead = book.lastReadDate {
+                dict["lastReadDate"] = dateFormatter.string(from: lastRead)
+            }
+            dict["readingLogs"] = book.readingLogs
+                .sorted { $0.date > $1.date }
+                .map { log in
+                    [
+                        "date": dateFormatter.string(from: log.date),
+                        "fromPage": log.fromPage,
+                        "toPage": log.toPage,
+                        "pagesRead": log.pagesRead
+                    ] as [String: Any]
+                }
+            dict["notes"] = book.notes
+                .sorted { $0.dateCreated > $1.dateCreated }
+                .map { note in
+                    [
+                        "content": note.content,
+                        "page": note.page,
+                        "dateCreated": dateFormatter.string(from: note.dateCreated)
+                    ] as [String: Any]
+                }
+            dict["sessions"] = book.sessions
+                .sorted { $0.startTime > $1.startTime }
+                .map { session in
+                    var s: [String: Any] = [
+                        "startTime": dateFormatter.string(from: session.startTime),
+                        "durationSeconds": session.durationSeconds,
+                        "startPage": session.startPage,
+                        "endPage": session.endPage
+                    ]
+                    if let endTime = session.endTime {
+                        s["endTime"] = dateFormatter.string(from: endTime)
+                    }
+                    return s
+                }
+            dict["chapters"] = book.chapters
+                .sorted { $0.sortOrder < $1.sortOrder }
+                .map { chapter in
+                    [
+                        "name": chapter.name,
+                        "startPage": chapter.startPage,
+                        "endPage": chapter.endPage
+                    ] as [String: Any]
+                }
+            return dict
+        }
+
+        if let data = try? JSONSerialization.data(withJSONObject: export, options: [.prettyPrinted, .sortedKeys]) {
+            jsonFile = JSONExportFile(data: data)
+        }
     }
 
     // MARK: - About
@@ -197,6 +284,16 @@ struct CSVFile: Transferable {
     static var transferRepresentation: some TransferRepresentation {
         DataRepresentation(exportedContentType: .commaSeparatedText) { file in
             Data(file.content.utf8)
+        }
+    }
+}
+
+struct JSONExportFile: Transferable {
+    let data: Data
+
+    static var transferRepresentation: some TransferRepresentation {
+        DataRepresentation(exportedContentType: .json) { file in
+            file.data
         }
     }
 }

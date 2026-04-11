@@ -38,8 +38,8 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.jason.ggcreader
         PRODUCT_NAME: "æstel"
         INFOPLIST_KEY_CFBundleDisplayName: "æstel"
-        MARKETING_VERSION: "1.4.0"
-        CURRENT_PROJECT_VERSION: "10"
+        MARKETING_VERSION: "1.5.0"
+        CURRENT_PROJECT_VERSION: "11"
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
         INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: true
         INFOPLIST_KEY_UILaunchScreen_Generation: true
@@ -56,16 +56,55 @@ targets:
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS: true
         INFOPLIST_KEY_LSApplicationCategoryType: "public.app-category.books"
+        ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES: true
+      configs:
+        Debug:
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+        Release:
+          SWIFT_COMPILATION_MODE: wholemodule
+    dependencies:
+      - target: GGCReaderWidget
+        embed: true
+        platforms: [iOS]
+    entitlements:
+      path: GGCReader/GGCReader.entitlements
+      properties:
+        com.apple.security.personal-information.calendars: true
+        com.apple.developer.aps-environment: production
+        com.apple.security.application-groups:
+          - group.com.jason.ggcreader
+
+  GGCReaderWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: GGCReaderWidget
+        excludes:
+          - "**/.DS_Store"
+      - path: Shared
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jason.ggcreader.widget
+        PRODUCT_NAME: "GGCReaderWidget"
+        MARKETING_VERSION: "1.5.0"
+        CURRENT_PROJECT_VERSION: "11"
+        CODE_SIGN_ENTITLEMENTS: GGCReaderWidget/GGCReaderWidget.entitlements
+        SWIFT_EMIT_LOC_STRINGS: true
+        INFOPLIST_KEY_CFBundleDisplayName: "æstel Widget"
+        INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier: "com.apple.widgetkit-extension"
+        LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../../Frameworks"
       configs:
         Debug:
           SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
         Release:
           SWIFT_COMPILATION_MODE: wholemodule
     entitlements:
-      path: GGCReader/GGCReader.entitlements
+      path: GGCReaderWidget/GGCReaderWidget.entitlements
       properties:
-        com.apple.security.personal-information.calendars: true
-        com.apple.developer.aps-environment: production
+        com.apple.security.application-groups:
+          - group.com.jason.ggcreader
 
   GGCReaderWatch Watch App:
     type: application

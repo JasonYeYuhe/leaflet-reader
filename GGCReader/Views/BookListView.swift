@@ -20,10 +20,13 @@ struct BookListView: View {
     @Binding var selectedBook: Book?
     @State private var showingAddBook = false
     @State private var showingScanner = false
+    @State private var showingISBNScanner = false
     @State private var showingPaywall = false
+    @State private var showingShelves = false
     @State private var searchText = ""
     @State private var sortOption: BookSortOption = .lastRead
     @State private var filterOption: BookFilterOption = .all
+    @Query(sort: \Bookshelf.sortOrder) private var shelves: [Bookshelf]
     var storeManager = StoreManager.shared
 
     private var canAddBook: Bool {
@@ -74,6 +77,28 @@ struct BookListView: View {
 
     var body: some View {
         List(selection: $selectedBook) {
+            if !shelves.isEmpty && searchText.isEmpty {
+                Section("Shelves") {
+                    ForEach(shelves) { shelf in
+                        NavigationLink {
+                            BookshelfDetailView(shelf: shelf)
+                        } label: {
+                            HStack(spacing: 10) {
+                                Image(systemName: shelf.icon)
+                                    .foregroundStyle(colorFor(shelf.colorName))
+                                    .frame(width: 24)
+                                Text(shelf.name)
+                                    .font(.subheadline)
+                                Spacer()
+                                Text("\(shelf.books.count)")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                }
+            }
+
             if readingBooks.isEmpty && finishedBooks.isEmpty {
                 ContentUnavailableView {
                     Label("No Books", systemImage: "book.closed")
@@ -138,6 +163,15 @@ struct BookListView: View {
                     #if os(iOS)
                     Button {
                         if canAddBook {
+                            showingISBNScanner = true
+                        } else {
+                            showingPaywall = true
+                        }
+                    } label: {
+                        Label("Scan ISBN Barcode", systemImage: "barcode.viewfinder")
+                    }
+                    Button {
+                        if canAddBook {
                             showingScanner = true
                         } else {
                             showingPaywall = true
@@ -184,6 +218,13 @@ struct BookListView: View {
                             }
                         }
                     }
+                    Section {
+                        Button {
+                            showingShelves = true
+                        } label: {
+                            Label("Manage Shelves", systemImage: "books.vertical")
+                        }
+                    }
                 } label: {
                     Image(systemName: "line.3.horizontal.decrease.circle")
                 }
@@ -193,12 +234,25 @@ struct BookListView: View {
             BookFormView()
         }
         #if os(iOS)
+        .sheet(isPresented: $showingISBNScanner) {
+            ISBNScannerView()
+        }
         .sheet(isPresented: $showingScanner) {
             BookScannerView()
         }
         #endif
         .sheet(isPresented: $showingPaywall) {
             PaywallView()
+        }
+        .sheet(isPresented: $showingShelves) {
+            NavigationStack {
+                BookshelfListView()
+                    .toolbar {
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Done") { showingShelves = false }
+                        }
+                    }
+            }
         }
         .safeAreaInset(edge: .bottom) {
             if !storeManager.isPro && !books.isEmpty {

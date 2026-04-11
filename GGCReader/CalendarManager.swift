@@ -44,6 +44,7 @@ final class CalendarManager {
                 refreshEvents()
             }
         } catch {
+            print("[CalendarManager] Failed to request access: \(error)")
             hasAccess = false
         }
     }
@@ -78,6 +79,7 @@ final class CalendarManager {
             try eventStore.saveCalendar(newCalendar, commit: true)
             readingCalendar = newCalendar
         } catch {
+            print("[CalendarManager] Failed to create calendar: \(error)")
             // Use default calendar as fallback
             readingCalendar = eventStore.defaultCalendarForNewEvents
         }

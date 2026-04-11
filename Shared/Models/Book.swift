@@ -26,6 +26,8 @@ final class Book {
 
     var isbn: String = ""
     var publisher: String = ""
+    var genre: String = ""
+    var shelves: [Bookshelf] = []
     @Attribute(.externalStorage) var coverImageData: Data?
 
     var progressPercentage: Double {

@@ -9,26 +9,7 @@ struct BookDetailView: View {
     @State private var showingNotes = false
     @State private var showingTimer = false
     @State private var pageInput = ""
-
-    // Decrease confirmation
-    @State private var showingDecreaseConfirmation = false
-    @State private var pendingNewPage: Int?
-
-    // Undo
-    @State private var undoSnapshot: UndoSnapshot?
-    @State private var showingUndoBar = false
-    @State private var undoDismissTask: Task<Void, Never>?
-
-    // Celebration
     @State private var showCelebration = false
-
-    private struct UndoSnapshot {
-        let previousPage: Int
-        let previousLastReadDate: Date?
-        let deletedLogs: [(fromPage: Int, toPage: Int, date: Date, pagesRead: Int)]
-        let mutatedLog: (id: UUID, originalToPage: Int, originalPagesRead: Int)?
-        let createdLogID: UUID?
-    }
 
     var body: some View {
         ScrollView {
@@ -36,10 +17,15 @@ struct BookDetailView: View {
                 headerSection
                 progressSection
                 currentChapterSection
-                quickUpdateSection
+                QuickPageUpdateSection(
+                    book: book,
+                    pageInput: $pageInput,
+                    showCelebration: $showCelebration
+                )
                 if !book.isFinished && book.progressPercentage >= 0.9 {
                     markFinishedButton
                 }
+                shelfBadgesSection
                 actionButtonsSection
                 chaptersPreviewSection
                 notesPreviewSection
@@ -87,26 +73,6 @@ struct BookDetailView: View {
                     }
             }
         }
-        .confirmationDialog(
-            "Confirm Page Decrease",
-            isPresented: $showingDecreaseConfirmation,
-            titleVisibility: .visible
-        ) {
-            Button("Go Back", role: .destructive) {
-                if let page = pendingNewPage {
-                    commitPageUpdate(page)
-                    pendingNewPage = nil
-                }
-            }
-            Button("Cancel", role: .cancel) {
-                pendingNewPage = nil
-                pageInput = String(book.currentPage)
-            }
-        } message: {
-            if let pending = pendingNewPage {
-                Text("This will go back \(book.currentPage - pending) pages and remove that reading history.")
-            }
-        }
         .onAppear {
             pageInput = String(book.currentPage)
         }
@@ -128,6 +94,13 @@ struct BookDetailView: View {
                 Text(book.author)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
+                if !book.genre.isEmpty {
+                    Text(book.genre)
+                        .font(.caption)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 2)
+                        .background(.ultraThinMaterial, in: Capsule())
+                }
                 Text("Added \(book.dateAdded.formatted(.dateTime.month().day().year()))")
                     .font(.caption)
                     .foregroundStyle(.tertiary)
@@ -194,6 +167,54 @@ struct BookDetailView: View {
         }
     }
 
+    // MARK: - Shelf Badges
+
+    @State private var showingShelfPicker = false
+
+    @ViewBuilder
+    private var shelfBadgesSection: some View {
+        if true {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack {
+                    Text("Shelves")
+                        .font(.caption.bold())
+                        .foregroundStyle(.secondary)
+                    Spacer()
+                    Button {
+                        showingShelfPicker = true
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .font(.caption)
+                    }
+                }
+
+                if book.shelves.isEmpty {
+                    Text("Not on any shelf")
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
+                } else {
+                    FlowLayout(spacing: 6) {
+                        ForEach(book.shelves.sorted { $0.name < $1.name }) { shelf in
+                            HStack(spacing: 4) {
+                                Image(systemName: shelf.icon)
+                                    .font(.caption2)
+                                Text(shelf.name)
+                                    .font(.caption)
+                            }
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(colorFor(shelf.colorName).opacity(0.12), in: Capsule())
+                            .foregroundStyle(colorFor(shelf.colorName))
+                        }
+                    }
+                }
+            }
+            .sheet(isPresented: $showingShelfPicker) {
+                BookShelfPickerView(book: book)
+            }
+        }
+    }
+
     // MARK: - Helpers
 
     private var todayPages: Int {
@@ -203,124 +224,20 @@ struct BookDetailView: View {
             .reduce(0) { $0 + $1.pagesRead }
     }
 
-    private func dismissKeyboard() {
-        #if os(iOS)
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-        #endif
-    }
-
-    // MARK: - Quick Update
-
-    private var updateButtonDisabled: Bool {
-        guard let newPage = Int(pageInput) else { return true }
-        if newPage < 0 || newPage > book.totalPages { return true }
-        if newPage == book.currentPage { return true }
-        return false
-    }
-
-    private var validationMessage: String? {
-        guard let newPage = Int(pageInput) else { return nil }
-        if newPage > book.totalPages { return String(localized: "Exceeds total pages (\(book.totalPages))") }
-        if newPage < 0 { return String(localized: "Page cannot be negative") }
-        if newPage == book.currentPage { return String(localized: "Already at this page") }
-        return nil
-    }
-
-    private var decreaseWarning: String? {
-        guard let newPage = Int(pageInput),
-              newPage < book.currentPage,
-              book.currentPage > 0 else { return nil }
-        let decrease = book.currentPage - newPage
-        if decrease > 5 && Double(decrease) / Double(book.currentPage) > 0.05 {
-            return String(localized: "Will remove \(decrease) pages of history")
-        }
-        return nil
-    }
-
-    private var quickUpdateSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("Update Progress")
-                .font(.headline)
-
-            HStack(spacing: 12) {
-                TextField("Page", text: $pageInput)
-                    #if os(iOS)
-                    .keyboardType(.numberPad)
-                    .textFieldStyle(.roundedBorder)
-                    #endif
-                    .frame(width: 80)
-
-                Button("Update") {
-                    updatePage()
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(book.coverColor.color)
-                .disabled(updateButtonDisabled)
-
-                Spacer()
-
-                HStack(spacing: 8) {
-                    Button { stageDecrease(by: -1) } label: {
-                        Image(systemName: "minus.circle")
-                    }
-                    .accessibilityLabel("Decrease 1 page")
-                    .help("Decrease 1 page")
-                    Button { quickIncrement(by: 1) } label: {
-                        Image(systemName: "plus.circle")
-                    }
-                    .accessibilityLabel("Add 1 page")
-                    .help("Add 1 page")
-                    Button { quickIncrement(by: 5) } label: {
-                        Text("+5")
-                            .font(.caption.bold())
-                    }
-                    .accessibilityLabel("Add 5 pages")
-                    Button { quickIncrement(by: 10) } label: {
-                        Text("+10")
-                            .font(.caption.bold())
-                    }
-                    .accessibilityLabel("Add 10 pages")
-                }
-                .buttonStyle(.bordered)
-            }
-
-            if let message = validationMessage {
-                Text(message)
-                    .font(.caption)
-                    .foregroundStyle(.red)
-            } else if let warning = decreaseWarning {
-                Label(warning, systemImage: "exclamationmark.triangle.fill")
-                    .font(.caption)
-                    .foregroundStyle(.orange)
-            }
-
-            if showingUndoBar {
-                HStack {
-                    Text("Updated to page \(book.currentPage)")
-                        .font(.subheadline)
-                    Spacer()
-                    Button("Undo") {
-                        performUndo()
-                    }
-                    .font(.subheadline.bold())
-                    .foregroundStyle(book.coverColor.color)
-                }
-                .padding(10)
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8))
-                .transition(.move(edge: .bottom).combined(with: .opacity))
-            }
-        }
-        .padding()
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
-        .animation(.easeInOut(duration: 0.25), value: showingUndoBar)
-    }
-
     // MARK: - Mark as Finished
 
     private var markFinishedButton: some View {
         Button {
-            dismissKeyboard()
-            commitPageUpdate(book.totalPages)
+            let newPage = book.totalPages
+            let oldPage = book.currentPage
+            guard newPage != oldPage else { return }
+            let log = ReadingLog(fromPage: oldPage, toPage: newPage)
+            log.book = book
+            modelContext.insert(log)
+            book.currentPage = newPage
+            book.lastReadDate = Date()
+            HapticManager.bookFinished()
+            showCelebration = true
         } label: {
             Label("Mark as Finished", systemImage: "checkmark.circle.fill")
                 .frame(maxWidth: .infinity)
@@ -490,11 +407,6 @@ struct BookDetailView: View {
     }
 
     private func deleteLog(_ log: ReadingLog) {
-        // Dismiss any active undo bar since state has changed
-        undoDismissTask?.cancel()
-        withAnimation { showingUndoBar = false }
-        undoSnapshot = nil
-
         modelContext.delete(log)
 
         // Recalculate currentPage from remaining logs
@@ -504,155 +416,6 @@ struct BookDetailView: View {
         book.currentPage = remainingMax
 
         HapticManager.tap()
-    }
-
-    // MARK: - Actions
-
-    private func updatePage() {
-        dismissKeyboard()
-        guard let newPage = Int(pageInput),
-              newPage >= 0,
-              newPage <= book.totalPages else { return }
-
-        let oldPage = book.currentPage
-        guard newPage != oldPage else { return }
-
-        // Check if large decrease needs confirmation
-        if newPage < oldPage {
-            let decrease = oldPage - newPage
-            if decrease > 5 && oldPage > 0 && Double(decrease) / Double(oldPage) > 0.05 {
-                pendingNewPage = newPage
-                showingDecreaseConfirmation = true
-                return
-            }
-        }
-
-        commitPageUpdate(newPage)
-    }
-
-    private func commitPageUpdate(_ newPage: Int) {
-        let oldPage = book.currentPage
-        guard newPage != oldPage else { return }
-        let wasFinished = book.isFinished
-
-        // Capture undo snapshot before mutating
-        var deletedLogs: [(fromPage: Int, toPage: Int, date: Date, pagesRead: Int)] = []
-        var mutatedLog: (id: UUID, originalToPage: Int, originalPagesRead: Int)?
-        var createdLogID: UUID?
-
-        if newPage > oldPage {
-            let log = ReadingLog(fromPage: oldPage, toPage: newPage)
-            log.book = book
-            modelContext.insert(log)
-            createdLogID = log.id
-        } else {
-            // Decrease: remove pages from most recent logs
-            var pagesToRemove = oldPage - newPage
-            let recentLogs = book.readingLogs.sorted { $0.date > $1.date }
-            for log in recentLogs {
-                guard pagesToRemove > 0 else { break }
-                if log.pagesRead <= pagesToRemove {
-                    // Save before deleting
-                    deletedLogs.append((fromPage: log.fromPage, toPage: log.toPage, date: log.date, pagesRead: log.pagesRead))
-                    pagesToRemove -= log.pagesRead
-                    modelContext.delete(log)
-                } else {
-                    // Save before mutating
-                    mutatedLog = (id: log.id, originalToPage: log.toPage, originalPagesRead: log.pagesRead)
-                    log.toPage -= pagesToRemove
-                    log.pagesRead = max(log.toPage - log.fromPage, 0)
-                    pagesToRemove = 0
-                }
-            }
-        }
-
-        let snapshot = UndoSnapshot(
-            previousPage: oldPage,
-            previousLastReadDate: book.lastReadDate,
-            deletedLogs: deletedLogs,
-            mutatedLog: mutatedLog,
-            createdLogID: createdLogID
-        )
-
-        book.currentPage = newPage
-        book.lastReadDate = Date()
-
-        if book.isFinished && !wasFinished {
-            HapticManager.bookFinished()
-            showCelebration = true
-        } else {
-            HapticManager.tap()
-        }
-
-        // Show undo bar
-        undoSnapshot = snapshot
-        undoDismissTask?.cancel()
-        withAnimation { showingUndoBar = true }
-        undoDismissTask = Task {
-            try? await Task.sleep(for: .seconds(6))
-            guard !Task.isCancelled else { return }
-            await MainActor.run {
-                withAnimation { showingUndoBar = false }
-                undoSnapshot = nil
-            }
-        }
-    }
-
-    private func performUndo() {
-        guard let snapshot = undoSnapshot else { return }
-
-        // Restore page and date
-        book.currentPage = snapshot.previousPage
-        book.lastReadDate = snapshot.previousLastReadDate
-
-        // Delete newly created log
-        if let createdID = snapshot.createdLogID,
-           let log = book.readingLogs.first(where: { $0.id == createdID }) {
-            modelContext.delete(log)
-        }
-
-        // Restore mutated log
-        if let mutated = snapshot.mutatedLog,
-           let log = book.readingLogs.first(where: { $0.id == mutated.id }) {
-            log.toPage = mutated.originalToPage
-            log.pagesRead = mutated.originalPagesRead
-        }
-
-        // Re-create deleted logs
-        for entry in snapshot.deletedLogs {
-            let log = ReadingLog(fromPage: entry.fromPage, toPage: entry.toPage)
-            log.date = entry.date
-            log.pagesRead = entry.pagesRead
-            log.book = book
-            modelContext.insert(log)
-        }
-
-        // Clean up undo state
-        undoDismissTask?.cancel()
-        withAnimation { showingUndoBar = false }
-        undoSnapshot = nil
-        showCelebration = false
-        HapticManager.tap()
-    }
-
-    private func quickIncrement(by delta: Int) {
-        dismissKeyboard()
-        let oldPage = book.currentPage
-        let newPage = min(oldPage + delta, book.totalPages)
-        guard newPage != oldPage else { return }
-        commitPageUpdate(newPage)
-    }
-
-    private func stageDecrease(by delta: Int) {
-        // Dismiss undo bar to avoid confusion
-        if showingUndoBar {
-            undoDismissTask?.cancel()
-            withAnimation { showingUndoBar = false }
-            undoSnapshot = nil
-        }
-        let current = Int(pageInput) ?? book.currentPage
-        let newPage = max(current + delta, 0)
-        pageInput = String(newPage)
     }
 }
 
