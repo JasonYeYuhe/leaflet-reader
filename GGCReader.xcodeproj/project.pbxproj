@@ -223,6 +223,7 @@
 		AFF6CBE5B76E21E4A274EF63 /* WeeklyInsightsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyInsightsSection.swift; sourceTree = "<group>"; };
 		B40255AF0AFC83029EB113E4 /* GGCReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGCReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E717862070FFD537B0FC68 /* CelebrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrationView.swift; sourceTree = "<group>"; };
+		B80E88E7266779462A01EF48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		BC6819B18EE56ACE46EB59FE /* WatchBookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBookListView.swift; sourceTree = "<group>"; };
 		BEEBD2FD97F3C9E931DBCEAC /* CalendarTasksSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTasksSection.swift; sourceTree = "<group>"; };
 		C1FD392ED19BEF7EF0ED3781 /* BookFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFormView.swift; sourceTree = "<group>"; };
@@ -282,6 +283,7 @@
 			children = (
 				76609542C146A9F2B7B2EF08 /* GGCReaderWidget.entitlements */,
 				4F6690FE8FFE2BFA725C2742 /* GGCReaderWidget.swift */,
+				B80E88E7266779462A01EF48 /* Info.plist */,
 			);
 			path = GGCReaderWidget;
 			sourceTree = "<group>";
@@ -844,8 +846,8 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GGCReaderWidget/GGCReaderWidget.entitlements;
 				CURRENT_PROJECT_VERSION = 11;
-				INFOPLIST_KEY_CFBundleDisplayName = "æstel Widget";
-				INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier = "com.apple.widgetkit-extension";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = GGCReaderWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
 				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader.widget;
@@ -862,8 +864,8 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GGCReaderWidget/GGCReaderWidget.entitlements;
 				CURRENT_PROJECT_VERSION = 11;
-				INFOPLIST_KEY_CFBundleDisplayName = "æstel Widget";
-				INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier = "com.apple.widgetkit-extension";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = GGCReaderWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
 				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader.widget;

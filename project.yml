@@ -77,6 +77,14 @@ targets:
   GGCReaderWidget:
     type: app-extension
     platform: iOS
+    info:
+      path: GGCReaderWidget/Info.plist
+      properties:
+        CFBundleDisplayName: "æstel Widget"
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
     sources:
       - path: GGCReaderWidget
         excludes:
@@ -92,8 +100,7 @@ targets:
         CURRENT_PROJECT_VERSION: "11"
         CODE_SIGN_ENTITLEMENTS: GGCReaderWidget/GGCReaderWidget.entitlements
         SWIFT_EMIT_LOC_STRINGS: true
-        INFOPLIST_KEY_CFBundleDisplayName: "æstel Widget"
-        INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier: "com.apple.widgetkit-extension"
+        GENERATE_INFOPLIST_FILE: false
         LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/../../Frameworks"
       configs:
         Debug:
