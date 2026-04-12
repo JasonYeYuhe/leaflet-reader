@@ -12,6 +12,7 @@
 		04D9CABC1369731413C280FB /* WidgetDataUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F67D8B9372A1E226BC6961E /* WidgetDataUpdater.swift */; };
 		0652C22061605B592D6952F1 /* BookNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76218D573F1D87037D0B0A94 /* BookNote.swift */; };
 		072A3EBCBE699578142AF4D4 /* BookFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FD392ED19BEF7EF0ED3781 /* BookFormView.swift */; };
+		08FA15C6CC6D465A00A63649 /* QuotesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9571B9B49DA4F8DF12DE34 /* QuotesCollectionView.swift */; };
 		0AF22033BC85DDA55848F035 /* ModelContainer+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA4A2D3F860184988B5267E /* ModelContainer+Shared.swift */; };
 		0AF6C08E4BCBBA3B58297E59 /* Products.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 59AE7E0C67826DC00721586B /* Products.storekit */; };
 		0C0093F077978AE66FD4F5AE /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7067C7329A76708ADA5195 /* Chapter.swift */; };
@@ -20,13 +21,16 @@
 		0DA0B81FD7BC5964D3945E41 /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA37F78A36D4990A7B1E6D4 /* ProgressRingView.swift */; };
 		0EDA320BBFB851CEDAB6E8AA /* WatchBookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6819B18EE56ACE46EB59FE /* WatchBookListView.swift */; };
 		10105FC1531555BC0767658A /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DCFCE7679179918F9FC43D /* BadgesView.swift */; };
+		162A8F3BBAF49356271024BE /* ReadingIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25956CFB246376B3179D3EE8 /* ReadingIntents.swift */; };
 		1686DD8C2AEF8A78993814DB /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0203C858754B8D8C4B09555 /* WidgetData.swift */; };
 		168EBB43EEB261A9B941FC02 /* ReadingLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3745C1749BB94FF5D977F21A /* ReadingLog.swift */; };
 		16E9301C59AA7341A0F73F7C /* GGCReaderWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E030685E9161D3CD618AF3D /* GGCReaderWatchApp.swift */; };
 		1805D80BE4879CCF238D6DB5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4FB8CBB4A9D4CD3F7CDCA2A9 /* Localizable.xcstrings */; };
+		186C07CE6A1DC722B5C36733 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF251770BE2CF468B9ECCC /* ReviewManager.swift */; };
 		189CA08C482BE2C232BB74E2 /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA37F78A36D4990A7B1E6D4 /* ProgressRingView.swift */; };
 		19C40E737D3E339591E8C871 /* ReadingTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8F48FDAAD60EF497DD92C /* ReadingTimerView.swift */; };
 		1A6881AC309A09185A01381E /* CelebrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E717862070FFD537B0FC68 /* CelebrationView.swift */; };
+		1AF3FE45451AC719026C803D /* RatingPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2636D2B22DA394528AB564 /* RatingPromptView.swift */; };
 		1B334CE0441CC908EB3AC8B2 /* ReadingLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3745C1749BB94FF5D977F21A /* ReadingLog.swift */; };
 		1B3CA95A7BD33B21053A4206 /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CEFA29B08ECF606DD6CC5F /* BookCoverView.swift */; };
 		1DFF6959CFB4C143A70D24EB /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7067C7329A76708ADA5195 /* Chapter.swift */; };
@@ -44,9 +48,11 @@
 		3A970CBC2ADD52AC42E1CBA0 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0203C858754B8D8C4B09555 /* WidgetData.swift */; };
 		3BAE9D422A2D53C1153CCA16 /* ChapterFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5114802366E612EBA5DAF99 /* ChapterFormView.swift */; };
 		3BB25AE04F4A1121A8DE3F9F /* ChapterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C518339A8A948B6571200 /* ChapterListView.swift */; };
+		3EE4EDB1D909EB3B4C44CF6E /* JSONImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945A97B3FD1AC7B50DE21443 /* JSONImportView.swift */; };
 		3F36D6726FE7B3DEBB9B8395 /* ReadingCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31047783DC3F8D894E93B12F /* ReadingCalculations.swift */; };
 		3FA1C230D555FE06637B8F74 /* StreakSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D16D33FCAE66E018D53D881 /* StreakSection.swift */; };
 		3FEDD901BDC64B8F6720F70F /* ModelContainer+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA4A2D3F860184988B5267E /* ModelContainer+Shared.swift */; };
+		41511B9A656D572B258B5384 /* ShareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EE4B670BD6CB4CBE191459 /* ShareCardView.swift */; };
 		41974E843B2AE61A09630ECF /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 83F8B0ABE4F9862A6722360D /* InfoPlist.xcstrings */; };
 		41D1A9888944207CED52EFAC /* CalendarTasksSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEBD2FD97F3C9E931DBCEAC /* CalendarTasksSection.swift */; };
 		43BF761225B0C1A27E86D7D1 /* ChapterFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5114802366E612EBA5DAF99 /* ChapterFormView.swift */; };
@@ -75,6 +81,7 @@
 		68ED3F20D0A26F613AC20BD4 /* BookShelfPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978F3E369A421114CDBF3C68 /* BookShelfPickerView.swift */; };
 		690C070E2E5B3CA60F314840 /* CalendarTasksSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEBD2FD97F3C9E931DBCEAC /* CalendarTasksSection.swift */; };
 		69AD4B8184692F3C8254E008 /* BadgeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779062460A664557417EA9B /* BadgeDefinitions.swift */; };
+		6AF0F368E06CEC97FC4458F2 /* QuotesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9571B9B49DA4F8DF12DE34 /* QuotesCollectionView.swift */; };
 		6BF2955D7F2E5324447ACF16 /* GoalRingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE068D73342A3FD87B2FD7 /* GoalRingSection.swift */; };
 		736B2309F011600AF5071EE5 /* ReadingLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3745C1749BB94FF5D977F21A /* ReadingLog.swift */; };
 		7AEE0177D4E48E93DCD43AE3 /* BookNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D6E3A0C4FE9174687811A /* BookNotesView.swift */; };
@@ -91,6 +98,7 @@
 		94ED7BCD05FE2A861639BADA /* CelebrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E717862070FFD537B0FC68 /* CelebrationView.swift */; };
 		98373D6D7EFA6127C6F030F5 /* ReadingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DFB93D3050676807F127A /* ReadingSession.swift */; };
 		9CF69520C8AF85E4FD140EC6 /* CoverColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659577FDD398A0D47CA8FF4 /* CoverColor.swift */; };
+		9D7B5CBEC87ECAB52FAB254A /* ReadingIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25956CFB246376B3179D3EE8 /* ReadingIntents.swift */; };
 		9F41230F6B57304B351946C6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4FB8CBB4A9D4CD3F7CDCA2A9 /* Localizable.xcstrings */; };
 		A08232ADBE7F896F7C4CD3F9 /* BookNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76218D573F1D87037D0B0A94 /* BookNote.swift */; };
 		A12B374ABC88F88196E9084E /* ReadingTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8F48FDAAD60EF497DD92C /* ReadingTimerView.swift */; };
@@ -100,6 +108,7 @@
 		A2E12CF1815FC8AE85816E07 /* BookFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FD392ED19BEF7EF0ED3781 /* BookFormView.swift */; };
 		A32B74F015F52F93444B61F0 /* GGCReaderWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6690FE8FFE2BFA725C2742 /* GGCReaderWidget.swift */; };
 		A3E0DBC0E705F1F64DD6CA48 /* BookshelfListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD4DB13CCEAEB68BFE671E /* BookshelfListView.swift */; };
+		A9E24737081246611D3A9DA0 /* ShareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EE4B670BD6CB4CBE191459 /* ShareCardView.swift */; };
 		AB57F05DED76856141153334 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF84D71E576240B8E91896B7 /* Assets.xcassets */; };
 		AC0C1F369EA106F6BBCA792A /* ColorHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED72FA61EA857F139657D8A /* ColorHelpers.swift */; };
 		ACB12066F922749D75CDB8F7 /* BookScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F2B6D1F10C1E88E20D26E /* BookScannerView.swift */; };
@@ -124,6 +133,7 @@
 		CC8E791F6E5760A6F4C74328 /* ColorHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED72FA61EA857F139657D8A /* ColorHelpers.swift */; };
 		D12325A4E84F4FE420DF01DC /* Bookshelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86086A18524E3DE1B9D800F6 /* Bookshelf.swift */; };
 		D1FAD0403D7229BACC3030EF /* ISBNScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94527B6CFAA54F571BC6DC45 /* ISBNScannerView.swift */; };
+		D261A011EB071CE2F387EE02 /* JSONImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945A97B3FD1AC7B50DE21443 /* JSONImportView.swift */; };
 		D3556CEB762F803429F20548 /* ProgressRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA37F78A36D4990A7B1E6D4 /* ProgressRingView.swift */; };
 		D3A583E6F7A36655BD683757 /* BookLookupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88119B4CD0EEC4001A83F252 /* BookLookupService.swift */; };
 		D4099331C46A0A11240FF0C7 /* Bookshelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86086A18524E3DE1B9D800F6 /* Bookshelf.swift */; };
@@ -132,6 +142,7 @@
 		D8F4749908AF20E209B26D71 /* StreakSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D16D33FCAE66E018D53D881 /* StreakSection.swift */; };
 		D915366750921BFE8DCC64FB /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C4FEC915ED16889ED7FAB /* BookDetailView.swift */; };
 		D96108D40554E4B908D54B6E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77973AEB7E672372B0DC7D9 /* SettingsView.swift */; };
+		DC6058A09CCF96986FAE2FDE /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAF251770BE2CF468B9ECCC /* ReviewManager.swift */; };
 		DC6591945618BB4EFF5E0FDE /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE2A5BC3E256CF7157E4140 /* GoalsView.swift */; };
 		E0D7BEB9D492FFC60AD79136 /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CEFA29B08ECF606DD6CC5F /* BookCoverView.swift */; };
 		E31BBDAD7BD84ED29F8C19A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF19EF5F1D2A89F83644F3B5 /* Assets.xcassets */; };
@@ -144,6 +155,7 @@
 		EEF6D3FAB2FACA1AF309CE82 /* GGCReaderWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EF2B85EB66566C7FEB1B1EDB /* GGCReaderWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F3E57EF63D9C90D41DDACAF3 /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CEFA29B08ECF606DD6CC5F /* BookCoverView.swift */; };
 		F944C86FB4671CA3DFEC778C /* BookshelfListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD4DB13CCEAEB68BFE671E /* BookshelfListView.swift */; };
+		FCF3A8E3B0BF240439D4CF61 /* RatingPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2636D2B22DA394528AB564 /* RatingPromptView.swift */; };
 		FEC8E5F9CB2C42073500C39B /* ColorHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED72FA61EA857F139657D8A /* ColorHelpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -175,11 +187,14 @@
 		0363C571ABB2BFD74B598D5A /* GGCReader.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = GGCReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CA19DD33070DB9CC99E9C0 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		09E88003C43AA286EF7659AC /* ReminderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCard.swift; sourceTree = "<group>"; };
+		0BAF251770BE2CF468B9ECCC /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
 		0E030685E9161D3CD618AF3D /* GGCReaderWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCReaderWatchApp.swift; sourceTree = "<group>"; };
 		10CEFA29B08ECF606DD6CC5F /* BookCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverView.swift; sourceTree = "<group>"; };
 		13C5FE9BB6A67EE2895A3C2B /* WatchBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBookDetailView.swift; sourceTree = "<group>"; };
 		1CA4A2D3F860184988B5267E /* ModelContainer+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelContainer+Shared.swift"; sourceTree = "<group>"; };
 		210F2B6D1F10C1E88E20D26E /* BookScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookScannerView.swift; sourceTree = "<group>"; };
+		24EE4B670BD6CB4CBE191459 /* ShareCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCardView.swift; sourceTree = "<group>"; };
+		25956CFB246376B3179D3EE8 /* ReadingIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingIntents.swift; sourceTree = "<group>"; };
 		31047783DC3F8D894E93B12F /* ReadingCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingCalculations.swift; sourceTree = "<group>"; };
 		33B74ADF5E23062E1027ED15 /* GoodreadsImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodreadsImportView.swift; sourceTree = "<group>"; };
 		347F41F1A0D892F4FFB663E0 /* GGCReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCReaderApp.swift; sourceTree = "<group>"; };
@@ -190,6 +205,7 @@
 		407C4FEC915ED16889ED7FAB /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		4196FF0A9CB59A883EE31AAD /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
 		42F8F48FDAAD60EF497DD92C /* ReadingTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingTimerView.swift; sourceTree = "<group>"; };
+		4C9571B9B49DA4F8DF12DE34 /* QuotesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesCollectionView.swift; sourceTree = "<group>"; };
 		4F6690FE8FFE2BFA725C2742 /* GGCReaderWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCReaderWidget.swift; sourceTree = "<group>"; };
 		4FB8CBB4A9D4CD3F7CDCA2A9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		58394BBD4465EA1B5777EF92 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
@@ -214,12 +230,14 @@
 		88119B4CD0EEC4001A83F252 /* BookLookupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLookupService.swift; sourceTree = "<group>"; };
 		8C7162E1F068D5967138E41D /* GGCReaderMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GGCReaderMac.entitlements; sourceTree = "<group>"; };
 		94527B6CFAA54F571BC6DC45 /* ISBNScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISBNScannerView.swift; sourceTree = "<group>"; };
+		945A97B3FD1AC7B50DE21443 /* JSONImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONImportView.swift; sourceTree = "<group>"; };
 		9516A8CB3CCF8EAAFCAF9864 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 		9659577FDD398A0D47CA8FF4 /* CoverColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverColor.swift; sourceTree = "<group>"; };
 		978F3E369A421114CDBF3C68 /* BookShelfPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookShelfPickerView.swift; sourceTree = "<group>"; };
 		9D16D33FCAE66E018D53D881 /* StreakSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakSection.swift; sourceTree = "<group>"; };
 		9E9E2DA11F969CD23432CAEE /* GGCReaderWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GGCReaderWatch.entitlements; sourceTree = "<group>"; };
 		9ED72FA61EA857F139657D8A /* ColorHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelpers.swift; sourceTree = "<group>"; };
+		AB2636D2B22DA394528AB564 /* RatingPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPromptView.swift; sourceTree = "<group>"; };
 		AFF6CBE5B76E21E4A274EF63 /* WeeklyInsightsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyInsightsSection.swift; sourceTree = "<group>"; };
 		B40255AF0AFC83029EB113E4 /* GGCReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGCReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E717862070FFD537B0FC68 /* CelebrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelebrationView.swift; sourceTree = "<group>"; };
@@ -309,11 +327,15 @@
 				33B74ADF5E23062E1027ED15 /* GoodreadsImportView.swift */,
 				5DA88C7C5AC85E3D6AB02CC4 /* HeatmapSection.swift */,
 				94527B6CFAA54F571BC6DC45 /* ISBNScannerView.swift */,
+				945A97B3FD1AC7B50DE21443 /* JSONImportView.swift */,
 				9516A8CB3CCF8EAAFCAF9864 /* PaywallView.swift */,
 				EB53CDF7DB271C2505BC0E2E /* QuickPageUpdateSection.swift */,
+				4C9571B9B49DA4F8DF12DE34 /* QuotesCollectionView.swift */,
+				AB2636D2B22DA394528AB564 /* RatingPromptView.swift */,
 				42F8F48FDAAD60EF497DD92C /* ReadingTimerView.swift */,
 				09E88003C43AA286EF7659AC /* ReminderCard.swift */,
 				D77973AEB7E672372B0DC7D9 /* SettingsView.swift */,
+				24EE4B670BD6CB4CBE191459 /* ShareCardView.swift */,
 				E730481E795E437A485A4CD8 /* StatsView.swift */,
 				9D16D33FCAE66E018D53D881 /* StreakSection.swift */,
 				AFF6CBE5B76E21E4A274EF63 /* WeeklyInsightsSection.swift */,
@@ -355,6 +377,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BA13E69A69EFECF73653AF13 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				25956CFB246376B3179D3EE8 /* ReadingIntents.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
 		CC17063FF9FF9539030724DD /* GGCReader */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,8 +401,10 @@
 				4FB8CBB4A9D4CD3F7CDCA2A9 /* Localizable.xcstrings */,
 				59AE7E0C67826DC00721586B /* Products.storekit */,
 				4196FF0A9CB59A883EE31AAD /* ReminderManager.swift */,
+				0BAF251770BE2CF468B9ECCC /* ReviewManager.swift */,
 				58394BBD4465EA1B5777EF92 /* StoreManager.swift */,
 				7F67D8B9372A1E226BC6961E /* WidgetDataUpdater.swift */,
+				BA13E69A69EFECF73653AF13 /* Intents */,
 				8B854BA4998BC923A7992DF4 /* Views */,
 			);
 			path = GGCReader;
@@ -608,17 +640,23 @@
 				6294B86B193A1679BC084F7E /* HapticManager.swift in Sources */,
 				49CEF94FC0DFA2133EF1AC6B /* HeatmapSection.swift in Sources */,
 				C1E8B4B64952D46BEFAA69CC /* ISBNScannerView.swift in Sources */,
+				3EE4EDB1D909EB3B4C44CF6E /* JSONImportView.swift in Sources */,
 				D794400072F0BE4FD091B9A8 /* ModelContainer+Shared.swift in Sources */,
 				02E128E22421CE3275C4B34B /* PaywallView.swift in Sources */,
 				D3556CEB762F803429F20548 /* ProgressRingView.swift in Sources */,
 				04A60B56FCA9FAC026F44252 /* QuickPageUpdateSection.swift in Sources */,
+				08FA15C6CC6D465A00A63649 /* QuotesCollectionView.swift in Sources */,
+				1AF3FE45451AC719026C803D /* RatingPromptView.swift in Sources */,
 				3F36D6726FE7B3DEBB9B8395 /* ReadingCalculations.swift in Sources */,
+				9D7B5CBEC87ECAB52FAB254A /* ReadingIntents.swift in Sources */,
 				1B334CE0441CC908EB3AC8B2 /* ReadingLog.swift in Sources */,
 				4635D72B7E39E44C3DFE9F6D /* ReadingSession.swift in Sources */,
 				19C40E737D3E339591E8C871 /* ReadingTimerView.swift in Sources */,
 				932A442D22BE2DA29DA626C9 /* ReminderCard.swift in Sources */,
 				B5CB0C6406A3E50EF57FBA50 /* ReminderManager.swift in Sources */,
+				186C07CE6A1DC722B5C36733 /* ReviewManager.swift in Sources */,
 				D96108D40554E4B908D54B6E /* SettingsView.swift in Sources */,
+				A9E24737081246611D3A9DA0 /* ShareCardView.swift in Sources */,
 				A18391270619D1D25EC5AD66 /* StatsView.swift in Sources */,
 				4799CA384A36B6CD36B30144 /* StoreManager.swift in Sources */,
 				3FA1C230D555FE06637B8F74 /* StreakSection.swift in Sources */,
@@ -686,17 +724,23 @@
 				4E25AE99AFC74E3C4CC9633E /* HapticManager.swift in Sources */,
 				1F1A89685D8B79858DF29C24 /* HeatmapSection.swift in Sources */,
 				D1FAD0403D7229BACC3030EF /* ISBNScannerView.swift in Sources */,
+				D261A011EB071CE2F387EE02 /* JSONImportView.swift in Sources */,
 				1EF4A3FC04DEECD9FB07C821 /* ModelContainer+Shared.swift in Sources */,
 				8D41E48B5164E743E244CCA3 /* PaywallView.swift in Sources */,
 				0DA0B81FD7BC5964D3945E41 /* ProgressRingView.swift in Sources */,
 				E9B9385A36B6124CDB38E6BA /* QuickPageUpdateSection.swift in Sources */,
+				6AF0F368E06CEC97FC4458F2 /* QuotesCollectionView.swift in Sources */,
+				FCF3A8E3B0BF240439D4CF61 /* RatingPromptView.swift in Sources */,
 				4F8591AED0DA1B16984D0F20 /* ReadingCalculations.swift in Sources */,
+				162A8F3BBAF49356271024BE /* ReadingIntents.swift in Sources */,
 				B3AA7B57386FA08C8EF9731E /* ReadingLog.swift in Sources */,
 				E81B8D85DE68009CB6A29140 /* ReadingSession.swift in Sources */,
 				A12B374ABC88F88196E9084E /* ReadingTimerView.swift in Sources */,
 				B6E916F9671887A8D1FCFA4D /* ReminderCard.swift in Sources */,
 				C316D3CC61758A4AB3C4F648 /* ReminderManager.swift in Sources */,
+				DC6058A09CCF96986FAE2FDE /* ReviewManager.swift in Sources */,
 				91A356AAC13FEE50ED5A62E3 /* SettingsView.swift in Sources */,
+				41511B9A656D572B258B5384 /* ShareCardView.swift in Sources */,
 				E5B11A2E702181E356D64413 /* StatsView.swift in Sources */,
 				B777CADCE4F252E21EE8D6EA /* StoreManager.swift in Sources */,
 				D8F4749908AF20E209B26D71 /* StreakSection.swift in Sources */,
@@ -729,7 +773,7 @@
 				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = GGCReader/GGCReader.entitlements;
 				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = GGCReader/GGCReaderMac.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				INFOPLIST_KEY_CFBundleDisplayName = "æstel";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "æstel uses your calendar to sync reading tasks and record goal completion.";
@@ -742,7 +786,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader;
 				PRODUCT_NAME = "æstel";
 				SDKROOT = iphoneos;
@@ -845,11 +889,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GGCReaderWidget/GGCReaderWidget.entitlements;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = GGCReaderWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader.widget;
 				PRODUCT_NAME = GGCReaderWidget;
 				SDKROOT = iphoneos;
@@ -863,11 +907,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GGCReaderWidget/GGCReaderWidget.entitlements;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = GGCReaderWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader.widget;
 				PRODUCT_NAME = GGCReaderWidget;
 				SDKROOT = iphoneos;
@@ -889,7 +933,7 @@
 				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = GGCReader/GGCReader.entitlements;
 				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = GGCReader/GGCReaderMac.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				INFOPLIST_KEY_CFBundleDisplayName = "æstel";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "æstel uses your calendar to sync reading tasks and record goal completion.";
@@ -902,7 +946,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader;
 				PRODUCT_NAME = "æstel";
 				SDKROOT = macosx;
@@ -925,7 +969,7 @@
 				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = GGCReader/GGCReader.entitlements;
 				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = GGCReader/GGCReaderMac.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				INFOPLIST_KEY_CFBundleDisplayName = "æstel";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "æstel uses your calendar to sync reading tasks and record goal completion.";
@@ -938,7 +982,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader;
 				PRODUCT_NAME = "æstel";
 				SDKROOT = macosx;
@@ -1041,7 +1085,7 @@
 				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = GGCReader/GGCReader.entitlements;
 				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = GGCReader/GGCReaderMac.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				INFOPLIST_KEY_CFBundleDisplayName = "æstel";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "æstel uses your calendar to sync reading tasks and record goal completion.";
@@ -1054,7 +1098,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader;
 				PRODUCT_NAME = "æstel";
 				SDKROOT = iphoneos;

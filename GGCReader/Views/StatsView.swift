@@ -38,6 +38,23 @@ struct StatsView: View {
         return Double(totalPagesRead) / Double(days)
     }
 
+    private var monthlyPages: Int {
+        let startOfMonth = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Date())) ?? Date()
+        return allLogs.filter { $0.date >= startOfMonth }.reduce(0) { $0 + $1.pagesRead }
+    }
+
+    private var monthlyBooksFinished: Int {
+        let startOfMonth = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Date())) ?? Date()
+        return books.filter { $0.isFinished && ($0.dateFinished ?? $0.lastReadDate ?? .distantPast) >= startOfMonth }.count
+    }
+
+    private var monthlyDailyAverage: Double {
+        let cal = Calendar.current
+        let dayOfMonth = cal.component(.day, from: Date())
+        guard dayOfMonth > 0 else { return 0 }
+        return Double(monthlyPages) / Double(dayOfMonth)
+    }
+
     private var last7DaysData: [(String, Int)] {
         let calendar = Calendar.current
         return (0..<7).reversed().compactMap { daysAgo in
@@ -91,6 +108,54 @@ struct StatsView: View {
                 }
                 .padding()
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+
+                // Monthly overview (Pro)
+                if storeManager.isPro {
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Text("This Month")
+                                .font(.headline)
+                            Spacer()
+                            Text(Date().formatted(.dateTime.month(.wide).year()))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+
+                        HStack(spacing: 0) {
+                            VStack(spacing: 4) {
+                                Text("\(monthlyPages)")
+                                    .font(.title2.bold())
+                                    .foregroundStyle(.purple)
+                                Text("pages")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            .frame(maxWidth: .infinity)
+
+                            VStack(spacing: 4) {
+                                Text("\(monthlyBooksFinished)")
+                                    .font(.title2.bold())
+                                    .foregroundStyle(.green)
+                                Text("books finished")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            .frame(maxWidth: .infinity)
+
+                            VStack(spacing: 4) {
+                                Text(String(format: "%.1f", monthlyDailyAverage))
+                                    .font(.title2.bold())
+                                    .foregroundStyle(.orange)
+                                Text("avg pages/day")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            .frame(maxWidth: .infinity)
+                        }
+                    }
+                    .padding()
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+                }
 
                 // Reading speed
                 if storeManager.isPro {

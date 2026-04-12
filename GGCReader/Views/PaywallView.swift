@@ -56,16 +56,22 @@ struct PaywallView: View {
 
     private var headerSection: some View {
         VStack(spacing: 12) {
-            Image(systemName: "crown.fill")
-                .font(.system(size: 48))
-                .foregroundStyle(.yellow.gradient)
+            ZStack {
+                Circle()
+                    .fill(.yellow.opacity(0.15))
+                    .frame(width: 88, height: 88)
+                Image(systemName: "crown.fill")
+                    .font(.system(size: 40))
+                    .foregroundStyle(.yellow.gradient)
+            }
 
             Text("Unlock Everything")
                 .font(.title.bold())
 
-            Text("Take your reading to the next level")
+            Text("Build your reading world with\nunlimited books, deep insights & more")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
         }
         .padding(.top, 8)
     }
@@ -89,6 +95,12 @@ struct PaywallView: View {
             featureRow(icon: "note.text", color: .orange,
                        title: "Unlimited Notes",
                        subtitle: "Free plan limited to 3 notes per book")
+            featureRow(icon: "headphones", color: .indigo,
+                       title: "Audiobooks & E-books",
+                       subtitle: "Track listening time and e-book progress")
+            featureRow(icon: "calendar.badge.clock", color: .teal,
+                       title: "Monthly Stats",
+                       subtitle: "Monthly overview, trends & reading speed")
         }
         .padding()
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))

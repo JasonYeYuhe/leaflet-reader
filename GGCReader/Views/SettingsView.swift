@@ -9,10 +9,12 @@ struct SettingsView: View {
     @State private var jsonFile: JSONExportFile?
     @State private var showingExportError = false
     @State private var showingGoodreadsImport = false
+    @State private var showingJSONImport = false
 
     var body: some View {
         List {
             proSection
+            quotesSection
             exportSection
             #if os(iOS)
             appIconSection
@@ -138,6 +140,18 @@ struct SettingsView: View {
     }
     #endif
 
+    // MARK: - Quotes Collection
+
+    private var quotesSection: some View {
+        Section {
+            NavigationLink {
+                QuotesCollectionView()
+            } label: {
+                Label("Quotes & Favorites", systemImage: "text.quote")
+            }
+        }
+    }
+
     // MARK: - Export Data
 
     private var exportSection: some View {
@@ -170,13 +184,21 @@ struct SettingsView: View {
             .sheet(isPresented: $showingGoodreadsImport) {
                 GoodreadsImportView()
             }
+            Button {
+                showingJSONImport = true
+            } label: {
+                Label("Import from JSON Backup", systemImage: "arrow.down.doc.fill")
+            }
+            .sheet(isPresented: $showingJSONImport) {
+                JSONImportView()
+            }
         } header: {
             Text("Data")
         }
     }
 
     private func generateCSV() {
-        var csv = "Title,Author,Genre,Total Pages,Current Page,Progress,Date Added,Finished\n"
+        var csv = "Title,Author,Genre,Total Pages,Current Page,Progress,Date Added,Finished,Rating\n"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
@@ -186,7 +208,8 @@ struct SettingsView: View {
             let genre = book.genre.replacingOccurrences(of: ",", with: ";")
             let progress = String(format: "%.0f%%", book.progressPercentage * 100)
             let added = dateFormatter.string(from: book.dateAdded)
-            csv += "\(title),\(author),\(genre),\(book.totalPages),\(book.currentPage),\(progress),\(added),\(book.isFinished ? "Yes" : "No")\n"
+            let ratingStr = book.rating.map { String($0) } ?? ""
+            csv += "\(title),\(author),\(genre),\(book.totalPages),\(book.currentPage),\(progress),\(added),\(book.isFinished ? "Yes" : "No"),\(ratingStr)\n"
         }
 
         csvFile = CSVFile(content: csv)
@@ -203,10 +226,17 @@ struct SettingsView: View {
                 "currentPage": book.currentPage,
                 "progress": book.progressPercentage,
                 "dateAdded": dateFormatter.string(from: book.dateAdded),
-                "finished": book.isFinished
+                "finished": book.isFinished,
+                "bookType": book.bookType.rawValue
             ]
             if let lastRead = book.lastReadDate {
                 dict["lastReadDate"] = dateFormatter.string(from: lastRead)
+            }
+            if let rating = book.rating {
+                dict["rating"] = rating
+            }
+            if let review = book.review {
+                dict["review"] = review
             }
             dict["readingLogs"] = book.readingLogs
                 .sorted { $0.date > $1.date }
@@ -221,11 +251,14 @@ struct SettingsView: View {
             dict["notes"] = book.notes
                 .sorted { $0.dateCreated > $1.dateCreated }
                 .map { note in
-                    [
+                    let n: [String: Any] = [
                         "content": note.content,
                         "page": note.page,
-                        "dateCreated": dateFormatter.string(from: note.dateCreated)
-                    ] as [String: Any]
+                        "dateCreated": dateFormatter.string(from: note.dateCreated),
+                        "type": note.noteType.rawValue,
+                        "isFavorite": note.isFavorite
+                    ]
+                    return n
                 }
             dict["sessions"] = book.sessions
                 .sorted { $0.startTime > $1.startTime }

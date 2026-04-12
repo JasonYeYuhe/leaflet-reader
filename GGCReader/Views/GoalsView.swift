@@ -194,6 +194,9 @@ struct GoalsView: View {
                 await calendarManager.requestAccess()
                 await reminderManager.checkAuthStatus()
                 previousProgress = todayProgress
+                if currentStreak >= 7 {
+                    ReviewManager.recordStreakIfNewMilestone(currentStreak)
+                }
             }
             .onChange(of: todayProgress) { oldValue, newValue in
                 if oldValue < 1.0 && newValue >= 1.0 {

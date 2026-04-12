@@ -6,6 +6,7 @@ enum SidebarItem: String, CaseIterable, Identifiable {
     case books = "Books"
     case goals = "Goals"
     case stats = "Stats"
+    case quotes = "Quotes"
     case settings = "Settings"
 
     var id: String { rawValue }
@@ -15,6 +16,7 @@ enum SidebarItem: String, CaseIterable, Identifiable {
         case .books: "books.vertical"
         case .goals: "flame"
         case .stats: "chart.bar"
+        case .quotes: "text.quote"
         case .settings: "gearshape"
         }
     }
@@ -60,6 +62,10 @@ struct ContentView: View {
             case .stats:
                 NavigationStack {
                     StatsView()
+                }
+            case .quotes:
+                NavigationStack {
+                    QuotesCollectionView()
                 }
             case .settings:
                 NavigationStack {

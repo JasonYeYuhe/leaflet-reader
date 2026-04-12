@@ -18,6 +18,8 @@ struct BookFormView: View {
     @State private var selectedPhoto: PhotosPickerItem?
     @State private var showingCamera = false
     @State private var genre = ""
+    @State private var selectedBookType: BookType = .physical
+    @State private var showingProForType = false
 
     private static let commonGenres = [
         "Fiction", "Non-Fiction", "Sci-Fi", "Fantasy", "Mystery",
@@ -37,10 +39,29 @@ struct BookFormView: View {
                 Section("Book Info") {
                     TextField("Title", text: $title)
                     TextField("Author", text: $author)
-                    TextField("Total Pages", text: $totalPages)
+                    TextField(selectedBookType == .audiobook ? "Total Minutes" : "Total Pages", text: $totalPages)
                         #if os(iOS)
                         .keyboardType(.numberPad)
                         #endif
+                }
+
+                Section("Format") {
+                    Picker("Type", selection: $selectedBookType) {
+                        ForEach(BookType.allCases, id: \.self) { type in
+                            Label(type.displayName, systemImage: type.icon)
+                                .tag(type)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .onChange(of: selectedBookType) { _, newType in
+                        if newType != .physical && !StoreManager.shared.isPro {
+                            selectedBookType = .physical
+                            showingProForType = true
+                        }
+                    }
+                }
+                .sheet(isPresented: $showingProForType) {
+                    PaywallView()
                 }
 
                 Section("Genre") {
@@ -185,6 +206,7 @@ struct BookFormView: View {
                     selectedColor = book.coverColor
                     coverImageData = book.coverImageData
                     genre = book.genre
+                    selectedBookType = book.bookType
                 }
             }
             .onChange(of: selectedPhoto) { _, newValue in
@@ -216,6 +238,7 @@ struct BookFormView: View {
             book.coverColor = selectedColor
             book.coverImageData = coverImageData
             book.genre = genre.trimmingCharacters(in: .whitespaces)
+            book.bookType = selectedBookType
         } else {
             let store = StoreManager.shared
             guard store.isPro || allBooks.count < StoreManager.freeBookLimit else {
@@ -226,7 +249,8 @@ struct BookFormView: View {
                 title: title.trimmingCharacters(in: .whitespaces),
                 author: author.trimmingCharacters(in: .whitespaces),
                 totalPages: pages,
-                coverColor: selectedColor
+                coverColor: selectedColor,
+                bookType: selectedBookType
             )
             book.coverImageData = coverImageData
             book.genre = genre.trimmingCharacters(in: .whitespaces)

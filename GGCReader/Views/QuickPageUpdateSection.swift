@@ -61,7 +61,7 @@ struct QuickPageUpdateSection: View {
                 .font(.headline)
 
             HStack(spacing: 12) {
-                TextField("Page", text: $pageInput)
+                TextField(book.bookType == .audiobook ? "Minutes" : "Page", text: $pageInput)
                     #if os(iOS)
                     .keyboardType(.numberPad)
                     .textFieldStyle(.roundedBorder)
@@ -114,7 +114,7 @@ struct QuickPageUpdateSection: View {
 
             if showingUndoBar {
                 HStack {
-                    Text("Updated to page \(book.currentPage)")
+                    Text(book.bookType == .audiobook ? "Updated to \(book.currentPage) min" : "Updated to page \(book.currentPage)")
                         .font(.subheadline)
                     Spacer()
                     Button("Undo") {
@@ -233,6 +233,7 @@ struct QuickPageUpdateSection: View {
         book.lastReadDate = Date()
 
         if book.isFinished && !wasFinished {
+            book.dateFinished = Date()
             HapticManager.bookFinished()
             showCelebration = true
         } else {
@@ -243,12 +244,16 @@ struct QuickPageUpdateSection: View {
         undoDismissTask?.cancel()
         withAnimation { showingUndoBar = true }
         WidgetCenter.shared.reloadAllTimelines()
+        let justFinished = book.isFinished && !wasFinished
         undoDismissTask = Task {
-            try? await Task.sleep(for: .seconds(6))
+            try? await Task.sleep(for: .seconds(15))
             guard !Task.isCancelled else { return }
             await MainActor.run {
                 withAnimation { showingUndoBar = false }
                 undoSnapshot = nil
+                if justFinished {
+                    ReviewManager.recordBookFinished()
+                }
             }
         }
     }
@@ -258,6 +263,9 @@ struct QuickPageUpdateSection: View {
 
         book.currentPage = snapshot.previousPage
         book.lastReadDate = snapshot.previousLastReadDate
+        if !book.isFinished {
+            book.dateFinished = nil
+        }
 
         if let createdID = snapshot.createdLogID,
            let log = book.readingLogs.first(where: { $0.id == createdID }) {

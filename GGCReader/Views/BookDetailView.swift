@@ -10,11 +10,16 @@ struct BookDetailView: View {
     @State private var showingTimer = false
     @State private var pageInput = ""
     @State private var showCelebration = false
+    @State private var showingRatingPrompt = false
+    @State private var showingShareCard = false
 
     var body: some View {
         ScrollView {
             VStack(spacing: 24) {
                 headerSection
+                if book.isFinished {
+                    ratingSection
+                }
                 progressSection
                 currentChapterSection
                 QuickPageUpdateSection(
@@ -40,18 +45,36 @@ struct BookDetailView: View {
                 message: "Book Finished!"
             )
         }
+        .onChange(of: showCelebration) { old, new in
+            if old && !new && book.isFinished && book.rating == nil {
+                Task { @MainActor in
+                    try? await Task.sleep(for: .milliseconds(500))
+                    showingRatingPrompt = true
+                }
+            }
+        }
         .navigationTitle(book.title)
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Button {
-                    showingEditBook = true
-                } label: {
-                    Image(systemName: "pencil")
+                HStack(spacing: 12) {
+                    if book.isFinished {
+                        Button {
+                            showingShareCard = true
+                        } label: {
+                            Image(systemName: "square.and.arrow.up")
+                        }
+                        .help("Share Reading Card")
+                    }
+                    Button {
+                        showingEditBook = true
+                    } label: {
+                        Image(systemName: "pencil")
+                    }
+                    .help("Edit Book")
                 }
-                .help("Edit Book")
             }
         }
         .sheet(isPresented: $showingEditBook) {
@@ -72,6 +95,12 @@ struct BookDetailView: View {
                         }
                     }
             }
+        }
+        .sheet(isPresented: $showingRatingPrompt) {
+            RatingPromptView(book: book)
+        }
+        .sheet(isPresented: $showingShareCard) {
+            ShareCardSheet(book: book)
         }
         .onAppear {
             pageInput = String(book.currentPage)
@@ -94,12 +123,21 @@ struct BookDetailView: View {
                 Text(book.author)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                if !book.genre.isEmpty {
-                    Text(book.genre)
-                        .font(.caption)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 2)
-                        .background(.ultraThinMaterial, in: Capsule())
+                HStack(spacing: 6) {
+                    if book.bookType != .physical {
+                        Label(book.bookType.displayName, systemImage: book.bookType.icon)
+                            .font(.caption)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 2)
+                            .background(.ultraThinMaterial, in: Capsule())
+                    }
+                    if !book.genre.isEmpty {
+                        Text(book.genre)
+                            .font(.caption)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 2)
+                            .background(.ultraThinMaterial, in: Capsule())
+                    }
                 }
                 Text("Added \(book.dateAdded.formatted(.dateTime.month().day().year()))")
                     .font(.caption)
@@ -130,11 +168,11 @@ struct BookDetailView: View {
             )
 
             VStack(alignment: .leading, spacing: 12) {
-                StatRow(label: "Current Page", value: "\(book.currentPage)")
-                StatRow(label: "Total Pages", value: "\(book.totalPages)")
-                StatRow(label: "Remaining", value: "\(book.pagesRemaining)")
+                StatRow(label: LocalizedStringKey(book.bookType.currentLabel), value: book.bookType == .audiobook ? formatMinutes(book.currentPage) : "\(book.currentPage)")
+                StatRow(label: LocalizedStringKey(book.bookType.totalLabel), value: book.bookType == .audiobook ? formatMinutes(book.totalPages) : "\(book.totalPages)")
+                StatRow(label: "Remaining", value: book.bookType == .audiobook ? formatMinutes(book.pagesRemaining) : "\(book.pagesRemaining)")
                 if todayPages > 0 {
-                    StatRow(label: "Today", value: "+\(todayPages) pages")
+                    StatRow(label: "Today", value: "+\(todayPages) \(book.bookType.unitName)")
                 }
             }
         }
@@ -215,7 +253,72 @@ struct BookDetailView: View {
         }
     }
 
+    // MARK: - Rating
+
+    private var ratingSection: some View {
+        VStack(spacing: 12) {
+            HStack {
+                Text("My Rating")
+                    .font(.headline)
+                Spacer()
+                if book.rating != nil {
+                    Button {
+                        showingShareCard = true
+                    } label: {
+                        Label("Share", systemImage: "square.and.arrow.up")
+                            .font(.caption)
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.small)
+                }
+            }
+
+            HStack(spacing: 8) {
+                ForEach(1...5, id: \.self) { star in
+                    Image(systemName: star <= (book.rating ?? 0) ? "star.fill" : "star")
+                        .font(.title2)
+                        .foregroundStyle(star <= (book.rating ?? 0) ? .yellow : .secondary.opacity(0.4))
+                        .onTapGesture {
+                            withAnimation(.easeInOut(duration: 0.15)) {
+                                book.rating = (book.rating == star) ? nil : star
+                            }
+                            HapticManager.selection()
+                        }
+                }
+                Spacer()
+            }
+
+            if let review = book.review, !review.isEmpty {
+                Text(review)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(4)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 2)
+            }
+
+            Button {
+                showingRatingPrompt = true
+            } label: {
+                Text(book.review?.isEmpty == false ? "Edit Review" : "Write a Review")
+                    .font(.subheadline)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+            .controlSize(.small)
+        }
+        .padding()
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
+    }
+
     // MARK: - Helpers
+
+    private func formatMinutes(_ minutes: Int) -> String {
+        let h = minutes / 60
+        let m = minutes % 60
+        if h > 0 { return "\(h)h \(m)m" }
+        return "\(m)m"
+    }
 
     private var todayPages: Int {
         let calendar = Calendar.current
@@ -236,8 +339,10 @@ struct BookDetailView: View {
             modelContext.insert(log)
             book.currentPage = newPage
             book.lastReadDate = Date()
+            book.dateFinished = Date()
             HapticManager.bookFinished()
             showCelebration = true
+            ReviewManager.recordBookFinished()
         } label: {
             Label("Mark as Finished", systemImage: "checkmark.circle.fill")
                 .frame(maxWidth: .infinity)
@@ -297,15 +402,30 @@ struct BookDetailView: View {
                 let recent = book.notes.sorted { $0.dateCreated > $1.dateCreated }.prefix(3)
                 ForEach(Array(recent)) { note in
                     HStack {
+                        Image(systemName: note.noteType.icon)
+                            .font(.caption2)
+                            .foregroundStyle(note.noteType == .quote ? .orange : book.coverColor.color)
                         if note.page > 0 {
                             Text("p.\(note.page)")
                                 .font(.caption2.bold())
                                 .foregroundStyle(book.coverColor.color)
                         }
-                        Text(note.content)
-                            .font(.caption)
-                            .lineLimit(2)
+                        if note.noteType == .quote {
+                            Text("\"\(note.content)\"")
+                                .font(.caption)
+                                .italic()
+                                .lineLimit(2)
+                        } else {
+                            Text(note.content)
+                                .font(.caption)
+                                .lineLimit(2)
+                        }
                         Spacer()
+                        if note.isFavorite {
+                            Image(systemName: "heart.fill")
+                                .font(.caption2)
+                                .foregroundStyle(.red)
+                        }
                     }
                 }
             }
