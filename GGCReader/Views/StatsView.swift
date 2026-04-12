@@ -109,6 +109,77 @@ struct StatsView: View {
         return counts.sorted { $0.value > $1.value }.prefix(6).map { ($0.key, $0.value) }
     }
 
+    // MARK: - Reading Time Analysis
+
+    private struct HeatmapCell: Identifiable {
+        let id = UUID()
+        let dayIndex: Int  // 0=Mon ... 6=Sun
+        let hour: Int      // 0-23
+        let count: Int
+    }
+
+    private var readingTimeHeatmapData: [HeatmapCell] {
+        let cal = Calendar.current
+        var grid = [[Int]](repeating: [Int](repeating: 0, count: 24), count: 7)
+
+        for session in allSessions {
+            let weekday = (cal.component(.weekday, from: session.startTime) + 5) % 7 // Mon=0
+            let hour = cal.component(.hour, from: session.startTime)
+            grid[weekday][hour] += 1
+        }
+
+        return (0..<7).flatMap { day in
+            (0..<24).map { hour in
+                HeatmapCell(dayIndex: day, hour: hour, count: grid[day][hour])
+            }
+        }
+    }
+
+    private var bestReadingTime: (day: String, hour: String)? {
+        let data = readingTimeHeatmapData
+        guard let best = data.max(by: { $0.count < $1.count }), best.count > 0 else { return nil }
+        let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        let hourStr = best.hour < 12 ? "\(best.hour == 0 ? 12 : best.hour) AM" : "\(best.hour == 12 ? 12 : best.hour - 12) PM"
+        return (days[best.dayIndex], hourStr)
+    }
+
+    private var readingTimeHeatmap: some View {
+        let data = readingTimeHeatmapData
+        let maxCount = max(data.map(\.count).max() ?? 1, 1)
+        let days = ["M", "T", "W", "T", "F", "S", "S"]
+
+        return VStack(spacing: 2) {
+            // Hour labels on top (every 4 hours)
+            HStack(spacing: 0) {
+                Text("")
+                    .frame(width: 16)
+                ForEach([0, 4, 8, 12, 16, 20], id: \.self) { h in
+                    Text("\(h)")
+                        .font(.system(size: 8))
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity)
+                }
+            }
+
+            ForEach(0..<7, id: \.self) { day in
+                HStack(spacing: 2) {
+                    Text(days[day])
+                        .font(.system(size: 9))
+                        .foregroundStyle(.secondary)
+                        .frame(width: 16)
+                    ForEach(0..<24, id: \.self) { hour in
+                        let cell = data.first { $0.dayIndex == day && $0.hour == hour }
+                        let count = cell?.count ?? 0
+                        let intensity = Double(count) / Double(maxCount)
+                        RoundedRectangle(cornerRadius: 2)
+                            .fill(count == 0 ? Color.gray.opacity(0.1) : Color.orange.opacity(0.2 + intensity * 0.8))
+                            .aspectRatio(1, contentMode: .fit)
+                    }
+                }
+            }
+        }
+    }
+
     private var last7DaysData: [(String, Int)] {
         let calendar = Calendar.current
         return (0..<7).reversed().compactMap { daysAgo in
@@ -336,6 +407,28 @@ struct StatsView: View {
                             }
                             .frame(height: 200)
                             .chartLegend(position: .bottom, spacing: 8)
+                        }
+                        .padding()
+                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+                    }
+
+                    // Reading Time Heatmap
+                    if !allSessions.isEmpty {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("When You Read")
+                                .font(.headline)
+
+                            readingTimeHeatmap
+                                .frame(height: 200)
+
+                            if let bestTime = bestReadingTime {
+                                HStack(spacing: 8) {
+                                    Image(systemName: "clock.fill")
+                                        .foregroundStyle(.orange)
+                                    Text("You read most on **\(bestTime.day)** around **\(bestTime.hour)**")
+                                        .font(.caption)
+                                }
+                            }
                         }
                         .padding()
                         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))

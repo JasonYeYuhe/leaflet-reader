@@ -49,5 +49,9 @@ struct GGCReaderApp: App {
         let books = (try? context.fetch(FetchDescriptor<Book>())) ?? []
         let logs = (try? context.fetch(FetchDescriptor<ReadingLog>())) ?? []
         WidgetDataUpdater.update(books: books, allLogs: logs)
+
+        #if os(iOS) || os(macOS)
+        SpotlightManager.reindexAll(books: books)
+        #endif
     }
 }

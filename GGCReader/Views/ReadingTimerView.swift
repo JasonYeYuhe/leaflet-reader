@@ -126,6 +126,16 @@ struct ReadingTimerView: View {
         .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
             if timerRunning {
                 elapsedSeconds += 1
+                // Update Live Activity every 30 seconds to save battery
+                #if os(iOS)
+                if elapsedSeconds % 30 == 0 {
+                    LiveActivityManager.shared.updateActivity(
+                        elapsedSeconds: elapsedSeconds,
+                        currentPage: book.currentPage,
+                        startPage: activeSession?.startPage ?? book.currentPage
+                    )
+                }
+                #endif
             }
         }
     }
@@ -138,6 +148,10 @@ struct ReadingTimerView: View {
         elapsedSeconds = 0
         endPageInput = ""
         timerRunning = true
+
+        #if os(iOS)
+        LiveActivityManager.shared.startActivity(book: book)
+        #endif
     }
 
     private func stopSession() {
@@ -156,10 +170,20 @@ struct ReadingTimerView: View {
             book.lastReadDate = Date()
         }
 
+        #if os(iOS)
+        LiveActivityManager.shared.endActivity(
+            currentPage: finalEndPage,
+            startPage: activeSession?.startPage ?? book.currentPage,
+            elapsedSeconds: elapsedSeconds
+        )
+        #endif
+
         activeSession = nil
 
         if book.isFinished {
+            book.dateFinished = Date()
             HapticManager.bookFinished()
+            ReviewManager.recordBookFinished()
         } else {
             HapticManager.tap()
         }

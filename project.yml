@@ -46,6 +46,7 @@ targets:
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
         INFOPLIST_KEY_NSCameraUsageDescription: "Camera access is needed to scan book covers and recognize text."
         INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription: "æstel uses your calendar to sync reading tasks and record goal completion."
+        NSSupportsLiveActivities: true
         "CODE_SIGN_ENTITLEMENTS[sdk=iphoneos*]": GGCReader/GGCReader.entitlements
         "CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]": GGCReader/GGCReader.entitlements
         "CODE_SIGN_ENTITLEMENTS[sdk=macosx*]": GGCReader/GGCReaderMac.entitlements

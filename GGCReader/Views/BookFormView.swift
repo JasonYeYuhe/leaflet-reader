@@ -255,6 +255,9 @@ struct BookFormView: View {
             book.coverImageData = coverImageData
             book.genre = genre.trimmingCharacters(in: .whitespaces)
             modelContext.insert(book)
+            #if os(iOS) || os(macOS)
+            SpotlightManager.indexBook(book)
+            #endif
         }
         dismiss()
     }

@@ -296,5 +296,6 @@ struct GGCReaderWidgetBundle: WidgetBundle {
         BookProgressWidget()
         DailyGoalWidget()
         StreakAccessoryWidget()
+        ReadingActivityWidget()
     }
 }
