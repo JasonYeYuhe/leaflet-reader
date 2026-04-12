@@ -1,5 +1,6 @@
 import WidgetKit
 import SwiftUI
+import AppIntents
 
 // MARK: - Timeline Provider
 
@@ -109,9 +110,19 @@ struct BookProgressView: View {
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                     Spacer()
-                    Text("\(book.totalPages - book.currentPage) left")
-                        .font(.caption2.bold())
-                        .foregroundStyle(colorFor(book.colorName))
+                    // Interactive buttons (iOS 17+)
+                    Button(intent: QuickLog10Intent()) {
+                        Text("+10")
+                            .font(.caption2.bold())
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(colorFor(book.colorName))
+                    Button(intent: QuickLog20Intent()) {
+                        Text("+20")
+                            .font(.caption2.bold())
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(colorFor(book.colorName))
                 }
             }
         }
@@ -171,9 +182,14 @@ struct DailyGoalView: View {
                     .font(.caption2.bold())
                     .foregroundStyle(.green)
             } else {
-                Text("\(entry.data.dailyGoal - entry.data.todayPages) pages to go")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
+                HStack(spacing: 8) {
+                    Button(intent: QuickLog10Intent()) {
+                        Text("+10")
+                            .font(.caption2.bold())
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
+                }
             }
         }
     }
