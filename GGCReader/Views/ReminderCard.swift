@@ -59,6 +59,21 @@ struct ReminderCard: View {
                     )
                     .font(.subheadline)
                 }
+
+                Divider()
+
+                Toggle(isOn: Binding(
+                    get: { reminderManager.weeklySummaryEnabled },
+                    set: { reminderManager.weeklySummaryEnabled = $0 }
+                )) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Weekly Summary")
+                            .font(.subheadline)
+                        Text("Sunday at 10 AM")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
             }
         }
         .padding()

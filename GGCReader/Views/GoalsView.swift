@@ -94,6 +94,17 @@ struct GoalsView: View {
         books.filter { !$0.isFinished }
     }
 
+    private var oneYearAgoBook: Book? {
+        let cal = calendar
+        guard let oneYearAgo = cal.date(byAdding: .year, value: -1, to: Date()) else { return nil }
+        let dayStart = cal.startOfDay(for: oneYearAgo)
+        guard let dayEnd = cal.date(byAdding: .day, value: 1, to: dayStart) else { return nil }
+
+        // Find a book that had a reading log on this day last year
+        let logsOnDay = allLogs.filter { $0.date >= dayStart && $0.date < dayEnd }
+        return logsOnDay.first?.book
+    }
+
     // MARK: - Weekly Insights
 
     private var weeklyPages: Int {
@@ -153,6 +164,36 @@ struct GoalsView: View {
         ZStack {
             ScrollView {
                 VStack(spacing: 20) {
+                    // One Year Ago Today
+                    if let agoBook = oneYearAgoBook {
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack {
+                                Image(systemName: "clock.arrow.circlepath")
+                                    .foregroundStyle(.purple)
+                                Text("One Year Ago Today")
+                                    .font(.caption.bold())
+                                    .foregroundStyle(.secondary)
+                            }
+                            HStack(spacing: 12) {
+                                BookCoverView(title: agoBook.title, color: agoBook.coverColor, size: 40, imageData: agoBook.coverImageData)
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("You were reading")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                    Text(agoBook.title)
+                                        .font(.subheadline.bold())
+                                        .lineLimit(1)
+                                    Text(agoBook.author)
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                                Spacer()
+                            }
+                        }
+                        .padding()
+                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
+                    }
+
                     GoalRingSection(
                         todayPages: todayPages,
                         dailyPageGoal: dailyPageGoal,

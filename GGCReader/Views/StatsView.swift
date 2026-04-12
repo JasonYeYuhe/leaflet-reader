@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import Charts
 
 struct StatsView: View {
     @Query private var books: [Book]
@@ -54,6 +55,49 @@ struct StatsView: View {
         let dayOfMonth = cal.component(.day, from: Date())
         guard dayOfMonth > 0 else { return 0 }
         return Double(monthlyPages) / Double(dayOfMonth)
+    }
+
+    // MARK: - Swift Charts Data
+
+    @State private var trendPeriod: TrendPeriod = .month
+
+    enum TrendPeriod: String, CaseIterable {
+        case month = "30D"
+        case quarter = "90D"
+        case year = "1Y"
+
+        var days: Int {
+            switch self {
+            case .month: 30
+            case .quarter: 90
+            case .year: 365
+            }
+        }
+    }
+
+    private func readingTrendData(period: TrendPeriod) -> [(date: Date, pagesPerDay: Double)] {
+        let cal = Calendar.current
+        let today = cal.startOfDay(for: Date())
+        let bucketSize = period == .year ? 7 : 1 // weekly buckets for yearly view
+        let totalBuckets = period.days / bucketSize
+
+        return (0..<totalBuckets).compactMap { bucket in
+            let endOffset = bucket * bucketSize
+            let startOffset = endOffset + bucketSize
+            guard let endDate = cal.date(byAdding: .day, value: -endOffset, to: today),
+                  let startDate = cal.date(byAdding: .day, value: -startOffset, to: today) else { return nil }
+
+            let pages = allLogs.filter { $0.date >= startDate && $0.date < endDate }
+                .reduce(0) { $0 + $1.pagesRead }
+            let avg = Double(pages) / Double(bucketSize)
+            return (endDate, avg)
+        }.reversed()
+    }
+
+    private var genreDistribution: [(genre: String, count: Int)] {
+        let genres = books.filter(\.isFinished).map(\.genre).filter { !$0.isEmpty }
+        let counts = Dictionary(grouping: genres, by: { $0 }).mapValues(\.count)
+        return counts.sorted { $0.value > $1.value }.prefix(6).map { ($0.key, $0.value) }
     }
 
     private var last7DaysData: [(String, Int)] {
@@ -220,6 +264,73 @@ struct StatsView: View {
                     }
                     .padding()
                     .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+
+                    // Reading Speed Trend Chart
+                    VStack(alignment: .leading, spacing: 12) {
+                        HStack {
+                            Text("Reading Trend")
+                                .font(.headline)
+                            Spacer()
+                            Picker("Period", selection: $trendPeriod) {
+                                ForEach(TrendPeriod.allCases, id: \.self) { period in
+                                    Text(period.rawValue).tag(period)
+                                }
+                            }
+                            .pickerStyle(.segmented)
+                            .frame(width: 160)
+                        }
+
+                        let trendData = readingTrendData(period: trendPeriod)
+                        if !trendData.isEmpty {
+                            Chart(trendData, id: \.date) { item in
+                                LineMark(
+                                    x: .value("Date", item.date),
+                                    y: .value("Pages/Day", item.pagesPerDay)
+                                )
+                                .foregroundStyle(.blue.gradient)
+                                .interpolationMethod(.catmullRom)
+
+                                AreaMark(
+                                    x: .value("Date", item.date),
+                                    y: .value("Pages/Day", item.pagesPerDay)
+                                )
+                                .foregroundStyle(.blue.opacity(0.1))
+                                .interpolationMethod(.catmullRom)
+                            }
+                            .chartYAxisLabel("pages/day")
+                            .frame(height: 180)
+                        } else {
+                            Text("Not enough data yet")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .padding(.vertical)
+                        }
+                    }
+                    .padding()
+                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+
+                    // Genre Distribution Chart
+                    if !genreDistribution.isEmpty {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("Genre Distribution")
+                                .font(.headline)
+
+                            Chart(genreDistribution, id: \.genre) { item in
+                                SectorMark(
+                                    angle: .value("Count", item.count),
+                                    innerRadius: .ratio(0.5),
+                                    angularInset: 1.5
+                                )
+                                .foregroundStyle(by: .value("Genre", item.genre))
+                                .cornerRadius(4)
+                            }
+                            .frame(height: 200)
+                            .chartLegend(position: .bottom, spacing: 8)
+                        }
+                        .padding()
+                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+                    }
                 } else {
                     Button {
                         showingPaywall = true

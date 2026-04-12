@@ -76,4 +76,45 @@ final class ReminderManager {
     func cancelReminder() {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [Self.reminderID])
     }
+
+    // MARK: - Weekly Summary (Pro)
+
+    private static let weeklySummaryID = "com.aestel.weeklySummary"
+
+    var weeklySummaryEnabled: Bool {
+        get { UserDefaults.standard.bool(forKey: "weeklySummaryEnabled") }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "weeklySummaryEnabled")
+            if newValue {
+                scheduleWeeklySummary()
+            } else {
+                cancelWeeklySummary()
+            }
+        }
+    }
+
+    func scheduleWeeklySummary() {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [Self.weeklySummaryID])
+
+        let content = UNMutableNotificationContent()
+        content.title = String(localized: "Weekly Reading Summary")
+        content.body = String(localized: "Check out how much you read this week!")
+        content.sound = .default
+
+        // Every Sunday at 10 AM
+        var dateComponents = DateComponents()
+        dateComponents.weekday = 1 // Sunday
+        dateComponents.hour = 10
+        dateComponents.minute = 0
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: Self.weeklySummaryID, content: content, trigger: trigger)
+
+        center.add(request) { _ in }
+    }
+
+    func cancelWeeklySummary() {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [Self.weeklySummaryID])
+    }
 }
