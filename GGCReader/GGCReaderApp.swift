@@ -51,7 +51,13 @@ struct GGCReaderApp: App {
         WidgetDataUpdater.update(books: books, allLogs: logs)
 
         #if os(iOS) || os(macOS)
-        SpotlightManager.reindexAll(books: books)
+        // Only full reindex once per version; incremental updates happen on save
+        let indexedVersion = UserDefaults.standard.string(forKey: "spotlightIndexedVersion") ?? ""
+        let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+        if indexedVersion != currentVersion {
+            SpotlightManager.reindexAll(books: books)
+            UserDefaults.standard.set(currentVersion, forKey: "spotlightIndexedVersion")
+        }
         #endif
     }
 }

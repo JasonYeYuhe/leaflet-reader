@@ -82,14 +82,7 @@ struct ContentView: View {
                 columnVisibility = newValue == .books ? .all : .detailOnly
             }
         }
-        .keyboardShortcut("1", modifiers: .command) // No-op, handled below
         .commands {
-            CommandGroup(after: .newItem) {
-                Button("New Book") {
-                    selectedSidebarItem = .books
-                }
-                .keyboardShortcut("n", modifiers: .command)
-            }
             CommandGroup(replacing: .sidebar) {
                 Button("Books") { selectedSidebarItem = .books }
                     .keyboardShortcut("1", modifiers: .command)
@@ -99,8 +92,6 @@ struct ContentView: View {
                     .keyboardShortcut("3", modifiers: .command)
                 Button("Quotes") { selectedSidebarItem = .quotes }
                     .keyboardShortcut("4", modifiers: .command)
-                Button("Settings") { selectedSidebarItem = .settings }
-                    .keyboardShortcut(",", modifiers: .command)
             }
         }
     }

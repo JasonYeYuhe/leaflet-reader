@@ -118,38 +118,41 @@ struct StatsView: View {
         let count: Int
     }
 
-    private var readingTimeHeatmapData: [HeatmapCell] {
+    private var sessionGrid: [[Int]] {
         let cal = Calendar.current
         var grid = [[Int]](repeating: [Int](repeating: 0, count: 24), count: 7)
-
         for session in allSessions {
-            let weekday = (cal.component(.weekday, from: session.startTime) + 5) % 7 // Mon=0
+            let weekday = (cal.component(.weekday, from: session.startTime) + 5) % 7
             let hour = cal.component(.hour, from: session.startTime)
             grid[weekday][hour] += 1
         }
-
-        return (0..<7).flatMap { day in
-            (0..<24).map { hour in
-                HeatmapCell(dayIndex: day, hour: hour, count: grid[day][hour])
-            }
-        }
+        return grid
     }
 
     private var bestReadingTime: (day: String, hour: String)? {
-        let data = readingTimeHeatmapData
-        guard let best = data.max(by: { $0.count < $1.count }), best.count > 0 else { return nil }
+        let grid = sessionGrid
+        var bestDay = 0, bestHour = 0, bestCount = 0
+        for day in 0..<7 {
+            for hour in 0..<24 {
+                if grid[day][hour] > bestCount {
+                    bestCount = grid[day][hour]
+                    bestDay = day
+                    bestHour = hour
+                }
+            }
+        }
+        guard bestCount > 0 else { return nil }
         let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        let hourStr = best.hour < 12 ? "\(best.hour == 0 ? 12 : best.hour) AM" : "\(best.hour == 12 ? 12 : best.hour - 12) PM"
-        return (days[best.dayIndex], hourStr)
+        let hourStr = bestHour < 12 ? "\(bestHour == 0 ? 12 : bestHour) AM" : "\(bestHour == 12 ? 12 : bestHour - 12) PM"
+        return (days[bestDay], hourStr)
     }
 
     private var readingTimeHeatmap: some View {
-        let data = readingTimeHeatmapData
-        let maxCount = max(data.map(\.count).max() ?? 1, 1)
+        let grid = sessionGrid
+        let maxCount = max(grid.flatMap { $0 }.max() ?? 1, 1)
         let days = ["M", "T", "W", "T", "F", "S", "S"]
 
         return VStack(spacing: 2) {
-            // Hour labels on top (every 4 hours)
             HStack(spacing: 0) {
                 Text("")
                     .frame(width: 16)
@@ -168,8 +171,7 @@ struct StatsView: View {
                         .foregroundStyle(.secondary)
                         .frame(width: 16)
                     ForEach(0..<24, id: \.self) { hour in
-                        let cell = data.first { $0.dayIndex == day && $0.hour == hour }
-                        let count = cell?.count ?? 0
+                        let count = grid[day][hour]
                         let intensity = Double(count) / Double(maxCount)
                         RoundedRectangle(cornerRadius: 2)
                             .fill(count == 0 ? Color.gray.opacity(0.1) : Color.orange.opacity(0.2 + intensity * 0.8))

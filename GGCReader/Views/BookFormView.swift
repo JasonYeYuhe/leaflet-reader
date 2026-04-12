@@ -239,6 +239,9 @@ struct BookFormView: View {
             book.coverImageData = coverImageData
             book.genre = genre.trimmingCharacters(in: .whitespaces)
             book.bookType = selectedBookType
+            #if os(iOS) || os(macOS)
+            SpotlightManager.indexBook(book)
+            #endif
         } else {
             let store = StoreManager.shared
             guard store.isPro || allBooks.count < StoreManager.freeBookLimit else {
