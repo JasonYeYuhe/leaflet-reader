@@ -877,7 +877,7 @@
 				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = GGCReader/GGCReader.entitlements;
 				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = GGCReader/GGCReaderMac.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				INFOPLIST_KEY_CFBundleDisplayName = "æstel";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "æstel uses your calendar to sync reading tasks and record goal completion.";
@@ -890,7 +890,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.0;
+				MARKETING_VERSION = 2.0.0;
 				NSSupportsLiveActivities = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader;
 				PRODUCT_NAME = "æstel";
@@ -994,11 +994,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GGCReaderWidget/GGCReaderWidget.entitlements;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = GGCReaderWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.6.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader.widget;
 				PRODUCT_NAME = GGCReaderWidget;
 				SDKROOT = iphoneos;
@@ -1012,11 +1012,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GGCReaderWidget/GGCReaderWidget.entitlements;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = GGCReaderWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.6.0;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader.widget;
 				PRODUCT_NAME = GGCReaderWidget;
 				SDKROOT = iphoneos;
@@ -1038,7 +1038,7 @@
 				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = GGCReader/GGCReader.entitlements;
 				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = GGCReader/GGCReaderMac.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				INFOPLIST_KEY_CFBundleDisplayName = "æstel";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "æstel uses your calendar to sync reading tasks and record goal completion.";
@@ -1051,7 +1051,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.6.0;
+				MARKETING_VERSION = 2.0.0;
 				NSSupportsLiveActivities = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader;
 				PRODUCT_NAME = "æstel";
@@ -1075,7 +1075,7 @@
 				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = GGCReader/GGCReader.entitlements;
 				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = GGCReader/GGCReaderMac.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				INFOPLIST_KEY_CFBundleDisplayName = "æstel";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "æstel uses your calendar to sync reading tasks and record goal completion.";
@@ -1088,7 +1088,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.6.0;
+				MARKETING_VERSION = 2.0.0;
 				NSSupportsLiveActivities = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader;
 				PRODUCT_NAME = "æstel";
@@ -1192,7 +1192,7 @@
 				"CODE_SIGN_ENTITLEMENTS[sdk=iphonesimulator*]" = GGCReader/GGCReader.entitlements;
 				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = GGCReader/GGCReaderMac.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				INFOPLIST_KEY_CFBundleDisplayName = "æstel";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "æstel uses your calendar to sync reading tasks and record goal completion.";
@@ -1205,7 +1205,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.0;
+				MARKETING_VERSION = 2.0.0;
 				NSSupportsLiveActivities = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader;
 				PRODUCT_NAME = "æstel";

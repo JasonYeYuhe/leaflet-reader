@@ -38,8 +38,8 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.jason.ggcreader
         PRODUCT_NAME: "æstel"
         INFOPLIST_KEY_CFBundleDisplayName: "æstel"
-        MARKETING_VERSION: "1.6.0"
-        CURRENT_PROJECT_VERSION: "12"
+        MARKETING_VERSION: "2.0.0"
+        CURRENT_PROJECT_VERSION: "13"
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: true
         INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: true
         INFOPLIST_KEY_UILaunchScreen_Generation: true
@@ -97,8 +97,8 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.jason.ggcreader.widget
         PRODUCT_NAME: "GGCReaderWidget"
-        MARKETING_VERSION: "1.6.0"
-        CURRENT_PROJECT_VERSION: "12"
+        MARKETING_VERSION: "2.0.0"
+        CURRENT_PROJECT_VERSION: "13"
         CODE_SIGN_ENTITLEMENTS: GGCReaderWidget/GGCReaderWidget.entitlements
         SWIFT_EMIT_LOC_STRINGS: true
         GENERATE_INFOPLIST_FILE: false
