@@ -4,7 +4,12 @@ import SwiftData
 struct GoalsView: View {
     @Query(sort: \ReadingLog.date, order: .reverse) private var allLogs: [ReadingLog]
     @Query(sort: \Book.lastReadDate, order: .reverse) private var books: [Book]
-    @AppStorage("dailyPageGoal") private var dailyPageGoal: Int = 20
+    @AppStorage("dailyPageGoal") private var dailyPageGoal: Int = 20 {
+        didSet {
+            // Sync to app group for widget access
+            UserDefaults(suiteName: WidgetData.appGroupID)?.set(dailyPageGoal, forKey: "dailyPageGoal")
+        }
+    }
     @State private var calendarManager = CalendarManager()
     @State private var reminderManager = ReminderManager()
     @State private var showCelebration = false

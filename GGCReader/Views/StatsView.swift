@@ -78,18 +78,27 @@ struct StatsView: View {
     private func readingTrendData(period: TrendPeriod) -> [(date: Date, pagesPerDay: Double)] {
         let cal = Calendar.current
         let today = cal.startOfDay(for: Date())
-        let bucketSize = period == .year ? 7 : 1 // weekly buckets for yearly view
+        let bucketSize = period == .year ? 7 : 1
         let totalBuckets = period.days / bucketSize
+
+        // Pre-aggregate logs by day once (O(n) instead of O(buckets * n))
+        var dailyMap: [Date: Int] = [:]
+        guard let cutoff = cal.date(byAdding: .day, value: -period.days, to: today) else { return [] }
+        for log in allLogs where log.date >= cutoff {
+            let day = cal.startOfDay(for: log.date)
+            dailyMap[day, default: 0] += log.pagesRead
+        }
 
         return (0..<totalBuckets).compactMap { bucket in
             let endOffset = bucket * bucketSize
-            let startOffset = endOffset + bucketSize
-            guard let endDate = cal.date(byAdding: .day, value: -endOffset, to: today),
-                  let startDate = cal.date(byAdding: .day, value: -startOffset, to: today) else { return nil }
+            guard let endDate = cal.date(byAdding: .day, value: -endOffset, to: today) else { return nil }
 
-            let pages = allLogs.filter { $0.date >= startDate && $0.date < endDate }
-                .reduce(0) { $0 + $1.pagesRead }
-            let avg = Double(pages) / Double(bucketSize)
+            var total = 0
+            for dayOffset in 0..<bucketSize {
+                guard let date = cal.date(byAdding: .day, value: -(endOffset + dayOffset), to: today) else { continue }
+                total += dailyMap[date] ?? 0
+            }
+            let avg = Double(total) / Double(bucketSize)
             return (endDate, avg)
         }.reversed()
     }

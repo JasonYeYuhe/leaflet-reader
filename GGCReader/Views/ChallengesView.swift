@@ -92,6 +92,8 @@ struct ChallengesView: View {
             PaywallView()
         }
         .onAppear { checkCompletions() }
+        .onChange(of: allLogs.count) { _, _ in checkCompletions() }
+        .onChange(of: allBooks.filter(\.isFinished).count) { _, _ in checkCompletions() }
     }
 
     // MARK: - Challenge Row
@@ -150,23 +152,25 @@ struct ChallengesView: View {
     private func currentProgress(for challenge: ReadingChallenge) -> Int {
         let cal = Calendar.current
         let start = cal.startOfDay(for: challenge.startDate)
-        let end = cal.startOfDay(for: min(challenge.endDate, Date()))
+        // Use end of today (start of tomorrow) to include today's data
+        let effectiveEnd = min(challenge.endDate, Date())
+        let end = cal.date(byAdding: .day, value: 1, to: cal.startOfDay(for: effectiveEnd)) ?? effectiveEnd
 
         switch challenge.challengeType {
         case .booksCount:
             return allBooks.filter {
                 $0.isFinished &&
                 ($0.dateFinished ?? $0.lastReadDate ?? .distantFuture) >= start &&
-                ($0.dateFinished ?? $0.lastReadDate ?? .distantFuture) <= end
+                ($0.dateFinished ?? $0.lastReadDate ?? .distantFuture) < end
             }.count
 
         case .pagesCount:
-            return allLogs.filter { $0.date >= start && $0.date <= end }
+            return allLogs.filter { $0.date >= start && $0.date < end }
                 .reduce(0) { $0 + $1.pagesRead }
 
         case .streakDays:
             var daySet = Set<Date>()
-            for log in allLogs where log.date >= start && log.date <= end {
+            for log in allLogs where log.date >= start && log.date < end {
                 daySet.insert(cal.startOfDay(for: log.date))
             }
             var best = 0
@@ -185,7 +189,7 @@ struct ChallengesView: View {
 
         case .readingDays:
             var daySet = Set<Date>()
-            for log in allLogs where log.date >= start && log.date <= end {
+            for log in allLogs where log.date >= start && log.date < end {
                 daySet.insert(cal.startOfDay(for: log.date))
             }
             return daySet.count

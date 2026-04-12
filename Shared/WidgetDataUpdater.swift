@@ -7,7 +7,9 @@ enum WidgetDataUpdater {
     static func update(books: [Book], allLogs: [ReadingLog]) {
         let calendar = Calendar.current
         let startOfDay = calendar.startOfDay(for: Date())
-        let dailyGoal = UserDefaults.standard.integer(forKey: "dailyPageGoal")
+        // Read from app group so widget extension gets the correct value
+        let dailyGoal = UserDefaults(suiteName: WidgetData.appGroupID)?.integer(forKey: "dailyPageGoal")
+            ?? UserDefaults.standard.integer(forKey: "dailyPageGoal")
         let goal = dailyGoal > 0 ? dailyGoal : 20
 
         // Today's pages
