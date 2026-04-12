@@ -77,6 +77,7 @@ final class Book {
     var dateFinished: Date?
     var bookTypeRaw: String = BookType.physical.rawValue
     var shelves: [Bookshelf] = []
+    var tags: [Tag] = []
     @Attribute(.externalStorage) var coverImageData: Data?
 
     var bookType: BookType {

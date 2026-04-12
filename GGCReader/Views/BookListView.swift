@@ -27,11 +27,13 @@ struct BookListView: View {
     @State private var sortOption: BookSortOption = .lastRead
     @State private var filterOption: BookFilterOption = .all
     @AppStorage("bookViewMode") private var viewMode: BookViewMode = .list
+    @State private var selectedTagFilter: Tag?
     @State private var isSelectMode = false
     @State private var selectedBookIDs: Set<UUID> = []
     @State private var showingBatchShelfPicker = false
     @State private var showingBatchDeleteConfirm = false
     @Query(sort: \Bookshelf.sortOrder) private var shelves: [Bookshelf]
+    @Query(sort: \Tag.name) private var allTags: [Tag]
     var storeManager = StoreManager.shared
 
     enum BookViewMode: String {
@@ -59,6 +61,11 @@ struct BookListView: View {
         case .all: break
         case .reading: result = result.filter { !$0.isFinished }
         case .finished: result = result.filter { $0.isFinished }
+        }
+
+        // Tag filter
+        if let tag = selectedTagFilter {
+            result = result.filter { $0.tags.contains { $0.id == tag.id } }
         }
 
         // Sort
@@ -124,9 +131,21 @@ struct BookListView: View {
 
     // MARK: - Grid View
 
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) private var sizeClass
+    #endif
+
+    private var gridMinWidth: CGFloat {
+        #if os(iOS)
+        return sizeClass == .regular ? 120 : 100
+        #else
+        return 120
+        #endif
+    }
+
     private var gridView: some View {
         ScrollView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 16)], spacing: 16) {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: gridMinWidth), spacing: 16)], spacing: 16) {
                 ForEach(filteredBooks) { book in
                     Button {
                         if isSelectMode {
@@ -294,6 +313,31 @@ struct BookListView: View {
                             HStack {
                                 Text(LocalizedStringKey(option.rawValue))
                                 if filterOption == option { Image(systemName: "checkmark") }
+                            }
+                        }
+                    }
+                }
+                if !allTags.isEmpty {
+                    Section("Tags") {
+                        Button {
+                            selectedTagFilter = nil
+                        } label: {
+                            HStack {
+                                Text("All Tags")
+                                if selectedTagFilter == nil { Image(systemName: "checkmark") }
+                            }
+                        }
+                        ForEach(allTags) { tag in
+                            Button {
+                                selectedTagFilter = tag
+                            } label: {
+                                HStack {
+                                    Image(systemName: "circle.fill")
+                                        .font(.caption2)
+                                        .foregroundStyle(tag.color.color)
+                                    Text(tag.name)
+                                    if selectedTagFilter?.id == tag.id { Image(systemName: "checkmark") }
+                                }
                             }
                         }
                     }

@@ -31,6 +31,7 @@ struct BookDetailView: View {
                     markFinishedButton
                 }
                 shelfBadgesSection
+                tagSection
                 actionButtonsSection
                 chaptersPreviewSection
                 notesPreviewSection
@@ -306,6 +307,19 @@ struct BookDetailView: View {
             }
             .buttonStyle(.bordered)
             .controlSize(.small)
+        }
+        .padding()
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
+    }
+
+    // MARK: - Tags
+
+    private var tagSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Tags")
+                .font(.caption.bold())
+                .foregroundStyle(.secondary)
+            TagPickerView(book: book)
         }
         .padding()
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))

@@ -2,18 +2,55 @@ import SwiftUI
 
 // MARK: - Share Card Sheet
 
+enum CardTheme: String, CaseIterable, Identifiable {
+    case standard, dark, minimal, gradient
+
+    var id: String { rawValue }
+
+    var displayName: String {
+        switch self {
+        case .standard: "Standard"
+        case .dark: "Dark"
+        case .minimal: "Minimal"
+        case .gradient: "Gradient"
+        }
+    }
+}
+
 struct ShareCardSheet: View {
     @Environment(\.dismiss) private var dismiss
     let book: Book
     @State private var renderedImage: Image?
     @State private var renderedUIImage: PlatformShareImage?
+    @State private var selectedTheme: CardTheme = .standard
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 20) {
-                ShareCardContent(book: book)
+            VStack(spacing: 16) {
+                ShareCardContent(book: book, theme: selectedTheme)
                     .frame(width: 340, height: 480)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
+
+                // Theme picker
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        ForEach(CardTheme.allCases) { theme in
+                            Button {
+                                selectedTheme = theme
+                                renderCard()
+                            } label: {
+                                Text(theme.displayName)
+                                    .font(.caption)
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 6)
+                                    .background(selectedTheme == theme ? Color.accentColor : Color.accentColor.opacity(0.1), in: Capsule())
+                                    .foregroundStyle(selectedTheme == theme ? .white : .accentColor)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
 
                 if let renderedUIImage {
                     ShareLink(
@@ -45,7 +82,7 @@ struct ShareCardSheet: View {
 
     @MainActor
     private func renderCard() {
-        let cardView = ShareCardContent(book: book)
+        let cardView = ShareCardContent(book: book, theme: selectedTheme)
             .frame(width: 340, height: 480)
 
         let renderer = ImageRenderer(content: cardView)
@@ -69,6 +106,7 @@ struct ShareCardSheet: View {
 
 struct ShareCardContent: View {
     let book: Book
+    var theme: CardTheme = .standard
 
     private var readingDays: Int {
         guard let lastRead = book.lastReadDate else { return 0 }
@@ -82,27 +120,32 @@ struct ShareCardContent: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Top gradient area with cover
+            // Top area with cover
             ZStack {
-                LinearGradient(
-                    colors: [book.coverColor.color, book.coverColor.color.opacity(0.6)],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
+                switch theme {
+                case .standard:
+                    LinearGradient(colors: [book.coverColor.color, book.coverColor.color.opacity(0.6)], startPoint: .topLeading, endPoint: .bottomTrailing)
+                case .dark:
+                    LinearGradient(colors: [Color(white: 0.15), Color(white: 0.08)], startPoint: .topLeading, endPoint: .bottomTrailing)
+                case .minimal:
+                    Color.white
+                case .gradient:
+                    LinearGradient(colors: [.indigo, .purple, .pink], startPoint: .topLeading, endPoint: .bottomTrailing)
+                }
 
                 VStack(spacing: 12) {
                     BookCoverView(title: book.title, color: book.coverColor, size: 70, imageData: book.coverImageData)
 
                     Text(book.title)
                         .font(.system(size: 18, weight: .bold, design: .rounded))
-                        .foregroundStyle(.white)
+                        .foregroundStyle(theme == .minimal ? Color.primary : Color.white)
                         .multilineTextAlignment(.center)
                         .lineLimit(2)
                         .padding(.horizontal, 20)
 
                     Text(book.author)
                         .font(.system(size: 13))
-                        .foregroundStyle(.white.opacity(0.85))
+                        .foregroundStyle(theme == .minimal ? Color.secondary : Color.white.opacity(0.85))
                 }
                 .padding(.vertical, 20)
             }
@@ -176,7 +219,8 @@ struct ShareCardContent: View {
             }
             .padding(.top, 16)
             .frame(maxWidth: .infinity)
-            .background(.white)
+            .background(theme == .dark ? Color(white: 0.12) : .white)
+            .foregroundStyle(theme == .dark ? .white : .primary)
         }
     }
 }
