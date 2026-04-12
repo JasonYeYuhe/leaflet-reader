@@ -4,6 +4,7 @@ import SwiftData
 struct QuotesCollectionView: View {
     @Query(sort: \BookNote.dateCreated, order: .reverse) private var allNotes: [BookNote]
     @State private var filterMode: FilterMode = .favorites
+    @State private var noteToShare: BookNote?
 
     enum FilterMode: String, CaseIterable {
         case favorites, allQuotes
@@ -51,6 +52,9 @@ struct QuotesCollectionView: View {
             }
         }
         .navigationTitle("Quotes & Favorites")
+        .sheet(item: $noteToShare) { note in
+            QuoteShareSheet(note: note)
+        }
     }
 
     private func quoteCard(_ note: BookNote) -> some View {
@@ -92,5 +96,13 @@ struct QuotesCollectionView: View {
             }
         }
         .padding(.vertical, 4)
+        .swipeActions(edge: .leading) {
+            Button {
+                noteToShare = note
+            } label: {
+                Label("Share", systemImage: "square.and.arrow.up")
+            }
+            .tint(.blue)
+        }
     }
 }

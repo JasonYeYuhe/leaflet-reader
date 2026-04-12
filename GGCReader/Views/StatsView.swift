@@ -7,6 +7,7 @@ struct StatsView: View {
     @Query(sort: \ReadingSession.startTime, order: .reverse) private var allSessions: [ReadingSession]
     var storeManager = StoreManager.shared
     @State private var showingPaywall = false
+    @State private var showingYearInReview = false
 
     private var totalBooks: Int { books.count }
     private var finishedBooks: Int { books.filter(\.isFinished).count }
@@ -72,6 +73,37 @@ struct StatsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
+                // Year in Review
+                Button {
+                    showingYearInReview = true
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: "sparkles")
+                            .font(.title2)
+                            .foregroundStyle(.yellow)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("\(String(Calendar.current.component(.year, from: Date()))) Year in Reading")
+                                .font(.headline)
+                                .foregroundStyle(.white)
+                            Text("Your reading journey, wrapped")
+                                .font(.caption)
+                                .foregroundStyle(.white.opacity(0.7))
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundStyle(.white.opacity(0.5))
+                    }
+                    .padding()
+                    .background(
+                        LinearGradient(colors: [.indigo, .purple], startPoint: .leading, endPoint: .trailing)
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                    )
+                }
+                .buttonStyle(.plain)
+                .fullScreenCover(isPresented: $showingYearInReview) {
+                    YearInReviewView(year: Calendar.current.component(.year, from: Date()))
+                }
+
                 // Overview cards
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
                     StatCard(title: "Total Books", value: "\(totalBooks)", icon: "books.vertical", color: .blue)

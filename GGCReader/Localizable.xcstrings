@@ -3840,6 +3840,416 @@
           }
         }
       }
+    },
+    "My Rating" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "マイ評価" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "我的评分" }
+        }
+      }
+    },
+    "Write a Review" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "レビューを書く" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "写一篇短评" }
+        }
+      }
+    },
+    "Edit Review" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "レビューを編集" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "编辑短评" }
+        }
+      }
+    },
+    "Rate Book" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "本を評価" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "评价此书" }
+        }
+      }
+    },
+    "How was this book?" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "この本はいかがでしたか？" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "这本书读得怎样？" }
+        }
+      }
+    },
+    "Review (optional)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "レビュー（任意）" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "短评（选填）" }
+        }
+      }
+    },
+    "Share Card" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "カードを共有" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "分享卡片" }
+        }
+      }
+    },
+    "Quotes & Favorites" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "引用・お気に入り" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "摘录与收藏" }
+        }
+      }
+    },
+    "Favorites" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "お気に入り" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "收藏" }
+        }
+      }
+    },
+    "All Quotes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "すべての引用" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "全部摘录" }
+        }
+      }
+    },
+    "Thought" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "感想" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "随想" }
+        }
+      }
+    },
+    "Quote" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "引用" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "摘录" }
+        }
+      }
+    },
+    "Import Data" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "データをインポート" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "导入数据" }
+        }
+      }
+    },
+    "Import from JSON Backup" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "JSONバックアップからインポート" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "从JSON备份导入" }
+        }
+      }
+    },
+    "Import Complete" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "インポート完了" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "导入完成" }
+        }
+      }
+    },
+    "Physical Book" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "紙の本" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "纸质书" }
+        }
+      }
+    },
+    "E-book" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "電子書籍" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "电子书" }
+        }
+      }
+    },
+    "Audiobook" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "オーディオブック" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "有声书" }
+        }
+      }
+    },
+    "Audiobooks & E-books" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "オーディオブック・電子書籍" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "有声书和电子书" }
+        }
+      }
+    },
+    "Monthly Stats" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "月間統計" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "月度统计" }
+        }
+      }
+    },
+    "This Month" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "今月" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "本月" }
+        }
+      }
+    },
+    "Reading Challenges" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "読書チャレンジ" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "阅读挑战" }
+        }
+      }
+    },
+    "No Challenges" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "チャレンジなし" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "暂无挑战" }
+        }
+      }
+    },
+    "New Challenge" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "新しいチャレンジ" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "新建挑战" }
+        }
+      }
+    },
+    "Year in Reading" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "読書の年" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "年度阅读报告" }
+        }
+      }
+    },
+    "Books Finished" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "読了した本" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "完成书籍" }
+        }
+      }
+    },
+    "Pages Read" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "読んだページ" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "阅读页数" }
+        }
+      }
+    },
+    "Highlights" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "ハイライト" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "亮点" }
+        }
+      }
+    },
+    "Challenges" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "チャレンジ" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "挑战" }
+        }
+      }
+    },
+    "Format" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "フォーマット" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "格式" }
+        }
+      }
+    },
+    "Quotes" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "引用" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "摘录" }
+        }
+      }
+    },
+    "Track Your Reading" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "読書を記録する" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "记录你的阅读" }
+        }
+      }
+    },
+    "Log pages, set goals, and build your personal library" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "ページを記録し、目標を設定し、マイライブラリを作ろう" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "记录页数、设定目标、构建你的个人书库" }
+        }
+      }
+    },
+    "Build Streaks & Habits" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "連続記録と習慣を作ろう" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "打造连续阅读与习惯" }
+        }
+      }
+    },
+    "Daily goals, reading streaks, and achievement badges keep you motivated" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "毎日の目標、連続記録、バッジがモチベーションを維持します" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "每日目标、阅读连续天数和成就徽章让你保持动力" }
+        }
+      }
+    },
+    "Discover Insights" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "読書の洞察を発見" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "发现阅读洞察" }
+        }
+      }
+    },
+    "See your reading stats, monthly trends, and year-in-review reports" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "統計、月間トレンド、年間レポートを確認しよう" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "查看阅读统计、月度趋势和年度报告" }
+        }
+      }
+    },
+    "Get Started" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "始めよう" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "开始使用" }
+        }
+      }
+    },
+    "Skip for Now" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "今はスキップ" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "暂时跳过" }
+        }
+      }
+    },
+    "Set Your Daily Goal" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "毎日の目標を設定" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "设定每日目标" }
+        }
+      }
+    },
+    "How many pages would you like to read each day?" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : { "state" : "translated", "value" : "毎日何ページ読みたいですか？" }
+        },
+        "zh-Hans" : {
+          "stringUnit" : { "state" : "translated", "value" : "你希望每天读多少页？" }
+        }
+      }
     }
   },
   "version" : "1.0"

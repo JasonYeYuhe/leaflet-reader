@@ -9,6 +9,8 @@ struct GoalsView: View {
     @State private var reminderManager = ReminderManager()
     @State private var showCelebration = false
     @State private var previousProgress: Double = 0
+    @AppStorage("hasSetupGoal") private var hasSetupGoal = false
+    @State private var showingGoalSetup = false
 
     private let calendar = Calendar.current
 
@@ -161,6 +163,31 @@ struct GoalsView: View {
                         bestStreak: bestStreak
                     )
                     GoalSettingSection(dailyPageGoal: $dailyPageGoal)
+
+                    // Challenges shortcut
+                    NavigationLink {
+                        ChallengesView()
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "flag.checkered")
+                                .font(.title3)
+                                .foregroundStyle(.orange)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Reading Challenges")
+                                    .font(.subheadline.bold())
+                                Text("Set long-term reading goals")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding()
+                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
+                    }
+                    .buttonStyle(.plain)
                     WeeklyInsightsSection(
                         weeklyPages: weeklyPages,
                         weeklyAverage: weeklyAverage,
@@ -197,6 +224,22 @@ struct GoalsView: View {
                 if currentStreak >= 7 {
                     ReviewManager.recordStreakIfNewMilestone(currentStreak)
                 }
+                if !hasSetupGoal {
+                    // Skip for existing users who already have reading data
+                    if allLogs.isEmpty {
+                        showingGoalSetup = true
+                    } else {
+                        hasSetupGoal = true
+                    }
+                }
+            }
+            .alert("Set Your Daily Goal", isPresented: $showingGoalSetup) {
+                Button("20 pages") { dailyPageGoal = 20; hasSetupGoal = true }
+                Button("30 pages") { dailyPageGoal = 30; hasSetupGoal = true }
+                Button("50 pages") { dailyPageGoal = 50; hasSetupGoal = true }
+                Button("Keep Default", role: .cancel) { hasSetupGoal = true }
+            } message: {
+                Text("How many pages would you like to read each day?")
             }
             .onChange(of: todayProgress) { oldValue, newValue in
                 if oldValue < 1.0 && newValue >= 1.0 {

@@ -26,8 +26,17 @@ struct BookListView: View {
     @State private var searchText = ""
     @State private var sortOption: BookSortOption = .lastRead
     @State private var filterOption: BookFilterOption = .all
+    @AppStorage("bookViewMode") private var viewMode: BookViewMode = .list
+    @State private var isSelectMode = false
+    @State private var selectedBookIDs: Set<UUID> = []
+    @State private var showingBatchShelfPicker = false
+    @State private var showingBatchDeleteConfirm = false
     @Query(sort: \Bookshelf.sortOrder) private var shelves: [Bookshelf]
     var storeManager = StoreManager.shared
+
+    enum BookViewMode: String {
+        case list, grid
+    }
 
     private var canAddBook: Bool {
         storeManager.isPro || books.count < StoreManager.freeBookLimit
@@ -76,6 +85,86 @@ struct BookListView: View {
     }
 
     var body: some View {
+        Group {
+            if viewMode == .grid {
+                gridView
+            } else {
+                listView
+            }
+        }
+        .searchable(text: $searchText, prompt: "Search books, authors, publishers")
+        .navigationTitle("My Books")
+        .toolbar { toolbarContent }
+        .sheet(isPresented: $showingAddBook) { BookFormView() }
+        #if os(iOS)
+        .sheet(isPresented: $showingISBNScanner) { ISBNScannerView() }
+        .sheet(isPresented: $showingScanner) { BookScannerView() }
+        #endif
+        .sheet(isPresented: $showingPaywall) { PaywallView() }
+        .sheet(isPresented: $showingShelves) {
+            NavigationStack {
+                BookshelfListView()
+                    .toolbar {
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Done") { showingShelves = false }
+                        }
+                    }
+            }
+        }
+        .sheet(isPresented: $showingBatchShelfPicker) {
+            BatchShelfPickerView(bookIDs: selectedBookIDs, onDone: {
+                isSelectMode = false
+                selectedBookIDs.removeAll()
+            })
+        }
+        .safeAreaInset(edge: .bottom) {
+            bottomBar
+        }
+    }
+
+    // MARK: - Grid View
+
+    private var gridView: some View {
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 16)], spacing: 16) {
+                ForEach(filteredBooks) { book in
+                    Button {
+                        if isSelectMode {
+                            toggleSelection(book)
+                        } else {
+                            selectedBook = book
+                        }
+                    } label: {
+                        VStack(spacing: 6) {
+                            ZStack(alignment: .topTrailing) {
+                                BookCoverView(title: book.title, color: book.coverColor, size: 90, imageData: book.coverImageData)
+                                if isSelectMode {
+                                    Image(systemName: selectedBookIDs.contains(book.id) ? "checkmark.circle.fill" : "circle")
+                                        .foregroundStyle(selectedBookIDs.contains(book.id) ? .blue : .secondary)
+                                        .background(.white, in: Circle())
+                                        .offset(x: 4, y: -4)
+                                }
+                            }
+                            Text(book.title)
+                                .font(.caption)
+                                .lineLimit(2)
+                                .multilineTextAlignment(.center)
+                            Text("\(Int(book.progressPercentage * 100))%")
+                                .font(.caption2)
+                                .foregroundStyle(book.coverColor.color)
+                        }
+                        .frame(width: 100)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding()
+        }
+    }
+
+    // MARK: - List View
+
+    private var listView: some View {
         List(selection: $selectedBook) {
             if !shelves.isEmpty && searchText.isEmpty {
                 Section("Shelves") {
@@ -146,36 +235,33 @@ struct BookListView: View {
                 }
             }
         }
-        .searchable(text: $searchText, prompt: "Search books, authors, publishers")
-        .navigationTitle("My Books")
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
+    }
+
+    // MARK: - Toolbar
+
+    @ToolbarContentBuilder
+    private var toolbarContent: some ToolbarContent {
+        ToolbarItem(placement: .primaryAction) {
+            if isSelectMode {
+                Button("Done") {
+                    isSelectMode = false
+                    selectedBookIDs.removeAll()
+                }
+            } else {
                 Menu {
                     Button {
-                        if canAddBook {
-                            showingAddBook = true
-                        } else {
-                            showingPaywall = true
-                        }
+                        if canAddBook { showingAddBook = true } else { showingPaywall = true }
                     } label: {
                         Label("Add Manually", systemImage: "pencil")
                     }
                     #if os(iOS)
                     Button {
-                        if canAddBook {
-                            showingISBNScanner = true
-                        } else {
-                            showingPaywall = true
-                        }
+                        if canAddBook { showingISBNScanner = true } else { showingPaywall = true }
                     } label: {
                         Label("Scan ISBN Barcode", systemImage: "barcode.viewfinder")
                     }
                     Button {
-                        if canAddBook {
-                            showingScanner = true
-                        } else {
-                            showingPaywall = true
-                        }
+                        if canAddBook { showingScanner = true } else { showingPaywall = true }
                     } label: {
                         Label("Scan Book Cover", systemImage: "camera")
                     }
@@ -185,100 +271,134 @@ struct BookListView: View {
                 }
                 .help("Add Book")
             }
-            ToolbarItem(placement: .secondaryAction) {
-                Menu {
-                    // Sort options
-                    Section("Sort By") {
-                        ForEach(BookSortOption.allCases, id: \.self) { option in
-                            Button {
-                                sortOption = option
-                            } label: {
-                                HStack {
-                                    Text(LocalizedStringKey(option.rawValue))
-                                    if sortOption == option {
-                                        Image(systemName: "checkmark")
-                                    }
-                                }
+        }
+        ToolbarItem(placement: .secondaryAction) {
+            Menu {
+                Section("Sort By") {
+                    ForEach(BookSortOption.allCases, id: \.self) { option in
+                        Button {
+                            sortOption = option
+                        } label: {
+                            HStack {
+                                Text(LocalizedStringKey(option.rawValue))
+                                if sortOption == option { Image(systemName: "checkmark") }
                             }
                         }
                     }
+                }
+                Section("Filter") {
+                    ForEach(BookFilterOption.allCases, id: \.self) { option in
+                        Button {
+                            filterOption = option
+                        } label: {
+                            HStack {
+                                Text(LocalizedStringKey(option.rawValue))
+                                if filterOption == option { Image(systemName: "checkmark") }
+                            }
+                        }
+                    }
+                }
+                Section("View") {
+                    Button {
+                        viewMode = viewMode == .list ? .grid : .list
+                        isSelectMode = false
+                        selectedBookIDs.removeAll()
+                    } label: {
+                        Label(viewMode == .list ? "Grid View" : "List View",
+                              systemImage: viewMode == .list ? "square.grid.2x2" : "list.bullet")
+                    }
+                    Button {
+                        isSelectMode.toggle()
+                        if !isSelectMode { selectedBookIDs.removeAll() }
+                    } label: {
+                        Label(isSelectMode ? "Cancel Select" : "Select Books", systemImage: "checkmark.circle")
+                    }
+                }
+                Section {
+                    Button { showingShelves = true } label: {
+                        Label("Manage Shelves", systemImage: "books.vertical")
+                    }
+                }
+            } label: {
+                Image(systemName: "line.3.horizontal.decrease.circle")
+            }
+        }
+    }
 
-                    // Filter options
-                    Section("Filter") {
-                        ForEach(BookFilterOption.allCases, id: \.self) { option in
-                            Button {
-                                filterOption = option
-                            } label: {
-                                HStack {
-                                    Text(LocalizedStringKey(option.rawValue))
-                                    if filterOption == option {
-                                        Image(systemName: "checkmark")
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    Section {
-                        Button {
-                            showingShelves = true
-                        } label: {
-                            Label("Manage Shelves", systemImage: "books.vertical")
-                        }
-                    }
+    // MARK: - Bottom Bar
+
+    @ViewBuilder
+    private var bottomBar: some View {
+        if isSelectMode && !selectedBookIDs.isEmpty {
+            HStack(spacing: 16) {
+                Text("\(selectedBookIDs.count) selected")
+                    .font(.subheadline.bold())
+                Spacer()
+                Button {
+                    showingBatchShelfPicker = true
                 } label: {
-                    Image(systemName: "line.3.horizontal.decrease.circle")
-                }
-            }
-        }
-        .sheet(isPresented: $showingAddBook) {
-            BookFormView()
-        }
-        #if os(iOS)
-        .sheet(isPresented: $showingISBNScanner) {
-            ISBNScannerView()
-        }
-        .sheet(isPresented: $showingScanner) {
-            BookScannerView()
-        }
-        #endif
-        .sheet(isPresented: $showingPaywall) {
-            PaywallView()
-        }
-        .sheet(isPresented: $showingShelves) {
-            NavigationStack {
-                BookshelfListView()
-                    .toolbar {
-                        ToolbarItem(placement: .confirmationAction) {
-                            Button("Done") { showingShelves = false }
-                        }
-                    }
-            }
-        }
-        .safeAreaInset(edge: .bottom) {
-            if !storeManager.isPro && !books.isEmpty {
-                HStack {
-                    Image(systemName: "book.closed")
-                        .foregroundStyle(.blue)
-                    Text("\(books.count)/\(StoreManager.freeBookLimit) books")
+                    Label("Add to Shelf", systemImage: "books.vertical")
                         .font(.caption.bold())
-                    Spacer()
-                    if !canAddBook {
-                        Button {
-                            showingPaywall = true
-                        } label: {
-                            Label("Upgrade", systemImage: "crown.fill")
-                                .font(.caption.bold())
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .buttonBorderShape(.capsule)
-                        .controlSize(.small)
-                    }
                 }
-                .padding(.horizontal)
-                .padding(.vertical, 10)
-                .background(.ultraThinMaterial)
+                .buttonStyle(.bordered)
+                Button(role: .destructive) {
+                    showingBatchDeleteConfirm = true
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                        .font(.caption.bold())
+                }
+                .buttonStyle(.bordered)
+                .confirmationDialog("Delete \(selectedBookIDs.count) books?", isPresented: $showingBatchDeleteConfirm, titleVisibility: .visible) {
+                    Button("Delete", role: .destructive) { deleteBatchSelected() }
+                    Button("Cancel", role: .cancel) {}
+                } message: {
+                    Text("This action cannot be undone.")
+                }
             }
+            .padding(.horizontal)
+            .padding(.vertical, 10)
+            .background(.ultraThinMaterial)
+        } else if !storeManager.isPro && !books.isEmpty {
+            HStack {
+                Image(systemName: "book.closed")
+                    .foregroundStyle(.blue)
+                Text("\(books.count)/\(StoreManager.freeBookLimit) books")
+                    .font(.caption.bold())
+                Spacer()
+                if !canAddBook {
+                    Button { showingPaywall = true } label: {
+                        Label("Upgrade", systemImage: "crown.fill")
+                            .font(.caption.bold())
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .buttonBorderShape(.capsule)
+                    .controlSize(.small)
+                }
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 10)
+            .background(.ultraThinMaterial)
         }
+    }
+
+    // MARK: - Batch Actions
+
+    private func toggleSelection(_ book: Book) {
+        if selectedBookIDs.contains(book.id) {
+            selectedBookIDs.remove(book.id)
+        } else {
+            selectedBookIDs.insert(book.id)
+        }
+    }
+
+    private func deleteBatchSelected() {
+        // Only delete books that are currently visible in the filtered list
+        for book in filteredBooks where selectedBookIDs.contains(book.id) {
+            modelContext.delete(book)
+        }
+        selectedBookIDs.removeAll()
+        isSelectMode = false
+        HapticManager.tap()
     }
 
     private func deleteBooks(from list: [Book], at offsets: IndexSet) {

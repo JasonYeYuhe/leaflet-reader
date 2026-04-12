@@ -18,7 +18,7 @@ struct GGCReaderApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
                 .onAppear { updateWidgetData() }
         }
         .modelContainer(modelContainer)
