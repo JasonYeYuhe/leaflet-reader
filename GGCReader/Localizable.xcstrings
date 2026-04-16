@@ -1,4256 +1,5060 @@
 {
-  "sourceLanguage" : "en",
-  "strings" : {
-    "-1" : {
-
-    },
-    "-5" : {
-
-    },
-    "·" : {
-
-    },
-    "· %@" : {
-
-    },
-    "%@ · %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ · %2$@"
+  "sourceLanguage": "en",
+  "strings": {
+    "-1": {},
+    "-5": {},
+    "·": {},
+    "· %@": {},
+    "%@ · %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ · %2$@"
           }
         }
       }
-    },
-    "%@/month" : {
-
     },
-    "%lld" : {
-
+    "%@/month": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@/月"
+          }
+        }
+      }
     },
-    "%lld %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld %2$@"
+    "%lld": {},
+    "%lld %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld %2$@"
           }
         }
       }
     },
-    "%lld active days" : {
-
+    "%lld active days": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 天活跃"
+          }
+        }
+      }
     },
-    "%lld pages" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldページ"
+    "%lld pages": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldページ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld 页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 页"
           }
         }
       }
     },
-    "%lld pages to go" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "残り%lldページ"
+    "%lld pages to go": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "残り%lldページ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "还差 %lld 页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "还差 %lld 页"
           }
         }
       }
-    },
-    "%lld percent progress" : {
-
     },
-    "%lld/%lld" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld/%2$lld"
+    "%lld percent progress": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld%%"
           }
         }
       }
     },
-    "%lld/%lld books" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld/%2$lld books"
+    "%lld/%lld": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld/%2$lld"
           }
         }
       }
     },
-    "%lld%%" : {
-
-    },
-    "+%lld pages" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "+%lldページ"
+    "%lld/%lld books": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld/%2$lld books"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "+%lld 页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld/%lld 本书"
           }
         }
       }
-    },
-    "+1" : {
-
-    },
-    "+5" : {
-
     },
-    "+10" : {
-
-    },
-    "<50%" : {
-
-    },
-    "<100%" : {
-
-    },
-    "0" : {
-
+    "%lld%%": {},
+    "+%lld pages": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+%lldページ"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+%lld 页"
+          }
+        }
+      }
     },
-    "3-day reading streak" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "3日連続読書"
+    "+1": {},
+    "+5": {},
+    "+10": {},
+    "<50%": {},
+    "<100%": {},
+    "0": {},
+    "3-day reading streak": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3日連続読書"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "连续阅读3天"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连续阅读3天"
           }
         }
       }
     },
-    "7-day reading streak" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "7日連続読書"
+    "7-day reading streak": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7日連続読書"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "连续阅读7天"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连续阅读7天"
           }
         }
       }
     },
-    "30-day reading streak" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "30日連続読書"
+    "30-day reading streak": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30日連続読書"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "连续阅读30天"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连续阅读30天"
           }
         }
       }
     },
-    "100-day reading streak" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "100-day reading streak"
+    "100-day reading streak": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "100-day reading streak"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "100日連続読書"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "100日連続読書"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "连续阅读100天"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连续阅读100天"
           }
         }
       }
     },
-    "365-day reading streak" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "365-day reading streak"
+    "365-day reading streak": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "365-day reading streak"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "365日連続読書"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "365日連続読書"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "连续阅读365天"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连续阅读365天"
           }
         }
       }
     },
-    "About" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "について"
+    "About": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "について"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "关于"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关于"
           }
         }
       }
     },
-    "Add" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "追加"
+    "Add": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "追加"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "添加"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加"
           }
         }
       }
     },
-    "Add 1 page" : {
-
+    "Add 1 page": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加1页"
+          }
+        }
+      }
     },
-    "Add 5 books to your shelf" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add 5 books to your shelf"
+    "Add 5 books to your shelf": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add 5 books to your shelf"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本棚に5冊追加"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本棚に5冊追加"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "添加5本书到书架"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加5本书到书架"
           }
         }
       }
     },
-    "Add 5 pages" : {
-
+    "Add 5 pages": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加5页"
+          }
+        }
+      }
     },
-    "Add 10 pages" : {
-
+    "Add 10 pages": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加10页"
+          }
+        }
+      }
     },
-    "Add 20 books to your shelf" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add 20 books to your shelf"
+    "Add 20 books to your shelf": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add 20 books to your shelf"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本棚に20冊追加"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本棚に20冊追加"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "添加20本书到书架"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加20本书到书架"
           }
         }
       }
     },
-    "Add Book" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本を追加"
+    "Add Book": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本を追加"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "添加书籍"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加书籍"
           }
         }
       }
     },
-    "Add Chapter" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チャプターを追加"
+    "Add Chapter": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チャプターを追加"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "添加章节"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加章节"
           }
         }
       }
     },
-    "Add chapters to track your reading by section" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "セクションごとに読書を管理するためにチャプターを追加"
+    "Add chapters to track your reading by section": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "セクションごとに読書を管理するためにチャプターを追加"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "添加章节以按部分跟踪阅读进度"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加章节以按部分跟踪阅读进度"
           }
         }
       }
     },
-    "Add Manually" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "手動で追加"
+    "Add Manually": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "手動で追加"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "手动添加"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "手动添加"
           }
         }
       }
     },
-    "Add Note" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ノートを追加"
+    "Add Note": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ノートを追加"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "添加笔记"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加笔记"
           }
         }
       }
     },
-    "Add notes, highlights, or thoughts while reading" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書中にメモやハイライトを追加"
+    "Add notes, highlights, or thoughts while reading": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書中にメモやハイライトを追加"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "添加笔记、摘录或阅读心得"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加笔记、摘录或阅读心得"
           }
         }
       }
     },
-    "Added %@" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@に追加"
+    "Added %@": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@に追加"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "添加于 %@"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加于 %@"
           }
         }
       }
     },
-    "Advanced Statistics" : {
-
+    "Advanced Statistics": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "高级统计"
+          }
+        }
+      }
     },
-    "æstel" : {
-      "comment" : "Calendar name for reading tasks"
+    "æstel": {
+      "comment": "Calendar name for reading tasks",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "æstel"
+          }
+        }
+      }
     },
-    "æstel Export" : {
-
+    "æstel Export": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "æstel 导出"
+          }
+        }
+      }
     },
-    "æstel Pro" : {
-
+    "æstel Pro": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "æstel Pro"
+          }
+        }
+      }
     },
-    "All Badges" : {
-
+    "All Badges": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有徽章"
+          }
+        }
+      }
     },
-    "All features unlocked" : {
-
+    "All features unlocked": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所有功能已解锁"
+          }
+        }
+      }
     },
-    "Already at this page" : {
-
+    "Already at this page": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前已是该页"
+          }
+        }
+      }
     },
-    "and %lld more..." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "他%lld件..."
+    "and %lld more...": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "他%lld件..."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "还有 %lld 个..."
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "还有 %lld 个..."
           }
         }
       }
     },
-    "App Icon" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アプリアイコン"
+    "App Icon": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アプリアイコン"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "应用图标"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "应用图标"
           }
         }
       }
     },
-    "Author" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "著者"
+    "Author": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "著者"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "作者"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "作者"
           }
         }
       }
     },
-    "Badges" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "バッジ"
+    "Badges": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バッジ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "成就"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "成就"
           }
         }
       }
     },
-    "Best Streak" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最高記録"
+    "Best Streak": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最高記録"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最佳连续"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最佳连续"
           }
         }
       }
     },
-    "Best Value" : {
-
+    "Best Value": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最划算"
+          }
+        }
+      }
     },
-    "Bibliophile" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "愛書家"
+    "Bibliophile": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "愛書家"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "爱书人"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "爱书人"
           }
         }
       }
     },
-    "Blue" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ブルー"
+    "Blue": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ブルー"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "蓝色"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "蓝色"
           }
         }
       }
     },
-    "Book Details" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "書籍の詳細"
+    "Book Details": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "書籍の詳細"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "书籍详情"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "书籍详情"
           }
         }
       }
     },
-    "Book Finished!" : {
-
+    "Book Finished!": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "读完了！"
+          }
+        }
+      }
     },
-    "Book Info" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "書籍情報"
+    "Book Info": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "書籍情報"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "书籍信息"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "书籍信息"
           }
         }
       }
     },
-    "Books" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ブック"
+    "Books": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ブック"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "书架"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "书架"
           }
         }
       }
     },
-    "Bookworm" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本の虫"
+    "Bookworm": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本の虫"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "书虫"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "书虫"
           }
         }
       }
     },
-    "Calendar" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "カレンダー"
+    "Calendar": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カレンダー"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "日历"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日历"
           }
         }
       }
     },
-    "Camera" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "カメラ"
+    "Camera": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カメラ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "相机"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机"
           }
         }
       }
     },
-    "Camera Not Available" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "カメラが利用できません"
+    "Camera Not Available": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カメラが利用できません"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "相机不可用"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机不可用"
           }
         }
       }
     },
-    "Cancel" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "キャンセル"
+    "Cancel": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "キャンセル"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "取消"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消"
           }
         }
       }
     },
-    "Centurion" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "百ページ達成"
+    "Centurion": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "百ページ達成"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "百页达人"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "百页达人"
           }
         }
       }
     },
-    "Centurion Days" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Centurion Days"
+    "Centurion Days": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Centurion Days"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "百日読書"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "百日読書"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "百日读书"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "百日读书"
           }
         }
       }
     },
-    "Chapter Info" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チャプター情報"
+    "Chapter Info": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チャプター情報"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "章节信息"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "章节信息"
           }
         }
       }
     },
-    "Chapter Name" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チャプター名"
+    "Chapter Name": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チャプター名"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "章节名"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "章节名"
           }
         }
       }
     },
-    "Chapters" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チャプター"
+    "Chapters": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チャプター"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "章节"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "章节"
           }
         }
       }
     },
-    "Choose a book from the sidebar to view its details" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "サイドバーから本を選んで詳細を表示"
+    "Choose a book from the sidebar to view its details": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サイドバーから本を選んで詳細を表示"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "从侧边栏选择一本书查看详情"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从侧边栏选择一本书查看详情"
           }
         }
       }
     },
-    "Choose from 6 beautiful icon styles" : {
-
+    "Choose from 6 beautiful icon styles": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从6种精美图标风格中选择"
+          }
+        }
+      }
     },
-    "Close" : {
-
+    "Close": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关闭"
+          }
+        }
+      }
     },
-    "Collector" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Collector"
+    "Collector": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collector"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "コレクター"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "コレクター"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "收藏家"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "收藏家"
           }
         }
       }
     },
-    "Committed" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "継続は力"
+    "Committed": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "継続は力"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "坚持不懈"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "坚持不懈"
           }
         }
       }
     },
-    "Confirm Page Decrease" : {
-
+    "Confirm Page Decrease": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "确认减少页码"
+          }
+        }
+      }
     },
-    "Connect Calendar" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "カレンダーに接続"
+    "Connect Calendar": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カレンダーに接続"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "连接日历"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接日历"
           }
         }
       }
     },
-    "Continue" : {
-
+    "Continue": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "继续"
+          }
+        }
+      }
     },
-    "Cover Color" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "カバーの色"
+    "Cover Color": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カバーの色"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "封面颜色"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "封面颜色"
           }
         }
       }
     },
-    "Cover Photo" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "カバー写真"
+    "Cover Photo": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カバー写真"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "封面照片"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "封面照片"
           }
         }
       }
     },
-    "Current" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "現在"
+    "Current": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現在"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前"
           }
         }
       }
     },
-    "Current Page" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "現在のページ"
+    "Current Page": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現在のページ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前页"
           }
         }
       }
     },
-    "Current Streak" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "連続記録"
+    "Current Streak": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "連続記録"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前连续"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前连续"
           }
         }
       }
     },
-    "Currently Reading" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書中"
+    "Currently Reading": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書中"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在阅读"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在阅读"
           }
         }
       }
     },
-    "Custom App Icons" : {
-
+    "Custom App Icons": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自定义应用图标"
+          }
+        }
+      }
     },
-    "Custom Title" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "カスタムタイトル"
+    "Custom Title": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カスタムタイトル"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自定义标题"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自定义标题"
           }
         }
       }
     },
-    "Daily Avg" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "日平均"
+    "Daily Avg": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日平均"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "日均"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日均"
           }
         }
       }
     },
-    "Daily Goal" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "毎日の目標"
+    "Daily Goal": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "毎日の目標"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "每日目标"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每日目标"
           }
         }
       }
     },
-    "Daily Reminder" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "毎日リマインダー"
+    "Daily Reminder": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "毎日リマインダー"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "每日提醒"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每日提醒"
           }
         }
       }
     },
-    "Dark" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ダーク"
+    "Dark": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ダーク"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "深色"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "深色"
           }
         }
       }
     },
-    "Data" : {
-
+    "Data": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "数据"
+          }
+        }
+      }
     },
-    "Date" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "日付"
+    "Date": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日付"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "日期"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日期"
           }
         }
       }
     },
-    "Decrease 1 page" : {
-
+    "Decrease 1 page": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "减少1页"
+          }
+        }
+      }
     },
-    "Dedicated" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書家"
+    "Dedicated": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書家"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "持之以恒"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "持之以恒"
           }
         }
       }
     },
-    "Delete" : {
-
+    "Delete": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "删除"
+          }
+        }
+      }
     },
-    "Diamond" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Diamond"
+    "Diamond": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diamond"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ダイヤモンド"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ダイヤモンド"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "钻石"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "钻石"
           }
         }
       }
     },
-    "Disciplined" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Disciplined"
+    "Disciplined": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disciplined"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自律者"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自律者"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自律者"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自律者"
           }
         }
       }
     },
-    "Don't forget to reach your daily reading goal." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "毎日の読書目標を忘れずに達成しましょう。"
+    "Don't forget to reach your daily reading goal.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "毎日の読書目標を忘れずに達成しましょう。"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "别忘了完成今天的阅读目标哦。"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "别忘了完成今天的阅读目标哦。"
           }
         }
       }
     },
-    "Done" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "完了"
+    "Done": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完了"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "完成"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
           }
         }
       }
     },
-    "e.g. Read Chapter 5" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "例: 第5章を読む"
+    "e.g. Read Chapter 5": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "例: 第5章を読む"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "例如：读第5章"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "例如：读第5章"
           }
         }
       }
     },
-    "Early Bird" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Early Bird"
+    "Early Bird": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Early Bird"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "早起き鳥"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "早起き鳥"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "早起鸟"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "早起鸟"
           }
         }
       }
     },
-    "Edit Book" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本を編集"
+    "Edit Book": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本を編集"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "编辑书籍"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "编辑书籍"
           }
         }
       }
     },
-    "Edit Chapter" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チャプターを編集"
+    "Edit Chapter": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チャプターを編集"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "编辑章节"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "编辑章节"
           }
         }
       }
     },
-    "Enable Notifications" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "通知を有効にする"
+    "Enable Notifications": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通知を有効にする"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "开启通知"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开启通知"
           }
         }
       }
     },
-    "End Page" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "終了ページ"
+    "End Page": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "終了ページ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "结束页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "结束页"
           }
         }
       }
     },
-    "End page exceeds book total (%lld)" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "終了ページが総ページ数（%lld）を超えています"
+    "End page exceeds book total (%lld)": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "終了ページが総ページ数（%lld）を超えています"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "结束页超过书籍总页数（%lld）"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "结束页超过书籍总页数（%lld）"
           }
         }
       }
     },
-    "Ended at page:" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "終了ページ:"
+    "Ended at page:": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "終了ページ:"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "结束于页码:"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "结束于页码:"
           }
         }
       }
     },
-    "Eternal" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eternal"
+    "Eternal": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eternal"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "永遠"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "永遠"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "永恒"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "永恒"
           }
         }
       }
     },
-    "Exceeds total pages (%lld)" : {
-
+    "Exceeds total pages (%lld)": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "超出总页数（%lld）"
+          }
+        }
+      }
     },
-    "Explorer" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Explorer"
+    "Explorer": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Explorer"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "探検家"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "探検家"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "探索者"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "探索者"
           }
         }
       }
     },
-    "Export Reading Data" : {
-
+    "Export Reading Data": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "导出阅读数据"
+          }
+        }
+      }
     },
-    "Failed to load products" : {
-
+    "Failed to load products": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "加载产品失败"
+          }
+        }
+      }
     },
-    "Filter" : {
-
+    "Filter": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "筛选"
+          }
+        }
+      }
     },
-    "Finish \"%@\" in ~%lld days" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Finish \"%1$@\" in ~%2$lld days"
+    "Finish \"%@\" in ~%lld days": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Finish \"%1$@\" in ~%2$lld days"
           }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "约%lld天读完《%@》"
+          }
         }
       }
     },
-    "Finish 3 books" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "3冊読了"
+    "Finish 3 books": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3冊読了"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "读完3本书"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "读完3本书"
           }
         }
       }
     },
-    "Finish 10 books" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "10冊読了"
+    "Finish 10 books": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "10冊読了"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "读完10本书"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "读完10本书"
           }
         }
       }
     },
-    "Finish 25 books" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Finish 25 books"
+    "Finish 25 books": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finish 25 books"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "25冊読了"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "25冊読了"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "读完25本书"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "读完25本书"
           }
         }
       }
     },
-    "Finish 50 books" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Finish 50 books"
+    "Finish 50 books": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finish 50 books"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "50冊読了"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "50冊読了"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "读完50本书"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "读完50本书"
           }
         }
       }
     },
-    "Finish your first book" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最初の1冊を読了"
+    "Finish your first book": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最初の1冊を読了"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "读完你的第一本书"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "读完你的第一本书"
           }
         }
       }
     },
-    "Finished" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読了"
+    "Finished": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読了"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已读完"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已读完"
           }
         }
       }
     },
-    "First Page" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最初の一歩"
+    "First Page": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最初の一歩"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "第一页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "第一页"
           }
         }
       }
     },
-    "Free plan limited to %lld books" : {
-
+    "Free plan limited to %lld books": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免费版最多添加%lld本书"
+          }
+        }
+      }
     },
-    "Free plan limited to 3 notes per book" : {
-
+    "Free plan limited to 3 notes per book": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免费版每本书最多3条笔记"
+          }
+        }
+      }
     },
-    "Get a daily nudge to keep your reading habit" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "毎日の読書習慣を続けるためのリマインダー"
+    "Get a daily nudge to keep your reading habit": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "毎日の読書習慣を続けるためのリマインダー"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "每天提醒你保持阅读习惯"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每天提醒你保持阅读习惯"
           }
         }
       }
     },
-    "Go Back" : {
-
+    "Go Back": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "返回"
+          }
+        }
+      }
     },
-    "Goal Complete!" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "目標達成！"
+    "Goal Complete!": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目標達成！"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "目标完成！"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标完成！"
           }
         }
       }
     },
-    "Goal Getter" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Goal Getter"
+    "Goal Getter": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Goal Getter"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "目標達成者"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目標達成者"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "达标者"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "达标者"
           }
         }
       }
     },
-    "Goals" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "目標"
+    "Goals": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目標"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "目标"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标"
           }
         }
       }
     },
-    "Graduate" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "卒業"
+    "Graduate": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "卒業"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "毕业"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "毕业"
           }
         }
       }
     },
-    "Green" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "グリーン"
+    "Green": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "グリーン"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "绿色"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "绿色"
           }
         }
       }
     },
-    "Hat Trick" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ハットトリック"
+    "Hat Trick": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ハットトリック"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "帽子戏法"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "帽子戏法"
           }
         }
       }
     },
-    "Home Library" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Home Library"
+    "Home Library": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Home Library"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ホームライブラリ"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ホームライブラリ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "家庭图书馆"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "家庭图书馆"
           }
         }
       }
     },
-    "How Many Pages" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読むページ数"
+    "How Many Pages": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読むページ数"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "阅读页数"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读页数"
           }
         }
       }
     },
-    "Last 7 Days" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "過去7日間"
+    "Last 7 Days": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "過去7日間"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最近7天"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最近7天"
           }
         }
       }
     },
-    "Legend" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Legend"
+    "Legend": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Legend"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "伝説"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "伝説"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "传奇"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "传奇"
           }
         }
       }
     },
-    "Less" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "少"
+    "Less": {
+      "extractionState": "stale",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "少"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "少"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "少"
           }
         }
       }
     },
-    "Lifetime" : {
-
+    "Lifetime": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "终身"
+          }
+        }
+      }
     },
-    "Locked" : {
-
+    "Locked": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已锁定"
+          }
+        }
+      }
     },
-    "Manage" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "管理"
+    "Manage": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "管理"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "管理"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "管理"
           }
         }
       }
     },
-    "Marathon" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Marathon"
+    "Marathon": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marathon"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "マラソン"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "マラソン"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "马拉松"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "马拉松"
           }
         }
       }
     },
-    "Mark as Finished" : {
-
+    "Mark as Finished": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "标记为读完"
+          }
+        }
+      }
     },
-    "Meet daily goal 7 times" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Meet daily goal 7 times"
+    "Meet daily goal 7 times": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meet daily goal 7 times"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "毎日の目標を7回達成"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "毎日の目標を7回達成"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "达成每日目标7次"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "达成每日目标7次"
           }
         }
       }
     },
-    "Meet daily goal 30 times" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Meet daily goal 30 times"
+    "Meet daily goal 30 times": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meet daily goal 30 times"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "毎日の目標を30回達成"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "毎日の目標を30回達成"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "达成每日目标30次"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "达成每日目标30次"
           }
         }
       }
     },
-    "Monthly" : {
-
+    "Monthly": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每月"
+          }
+        }
+      }
     },
-    "More" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "多"
+    "More": {
+      "extractionState": "stale",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "多"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "多"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "多"
           }
         }
       }
     },
-    "Most Active" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最も活発"
+    "Most Active": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最も活発"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最活跃"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最活跃"
           }
         }
       }
     },
-    "My Books" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "マイブック"
+    "My Books": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "マイブック"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我的书架"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "我的书架"
           }
         }
       }
     },
-    "New Reading Task" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "新しい読書タスク"
+    "New Reading Task": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新しい読書タスク"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "新阅读任务"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新阅读任务"
           }
         }
       }
     },
-    "Night Owl" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Night Owl"
+    "Night Owl": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Night Owl"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "夜更かし"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "夜更かし"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "夜猫子"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "夜猫子"
           }
         }
       }
     },
-    "No Books" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本がありません"
+    "No Books": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本がありません"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "没有书籍"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有书籍"
           }
         }
       }
     },
-    "No books in progress" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書中の本がありません"
+    "No books in progress": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書中の本がありません"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "没有正在阅读的书"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有正在阅读的书"
           }
         }
       }
     },
-    "No Chapters" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チャプターなし"
+    "No Chapters": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チャプターなし"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "没有章节"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有章节"
           }
         }
       }
     },
-    "No chapters added yet" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "チャプターはまだありません"
+    "No chapters added yet": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チャプターはまだありません"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "暂未添加章节"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂未添加章节"
           }
         }
       }
     },
-    "No Notes" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ノートなし"
+    "No Notes": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ノートなし"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "没有笔记"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有笔记"
           }
         }
       }
     },
-    "No notes yet" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ノートはまだありません"
+    "No notes yet": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ノートはまだありません"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "暂无笔记"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂无笔记"
           }
         }
       }
     },
-    "No previous purchases found." : {
-
+    "No previous purchases found.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未找到历史购买记录。"
+          }
+        }
+      }
     },
-    "No products available" : {
-
+    "No products available": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂无可用产品"
+          }
+        }
+      }
     },
-    "No reading sessions recorded yet" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書記録はまだありません"
+    "No reading sessions recorded yet": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書記録はまだありません"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "暂无阅读记录"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂无阅读记录"
           }
         }
       }
     },
-    "No reading tasks yet" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書タスクはまだありません"
+    "No reading tasks yet": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書タスクはまだありません"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "暂无阅读任务"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂无阅读任务"
           }
         }
       }
     },
-    "No text detected. Try scanning again." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "テキストが検出されませんでした。もう一度スキャンしてください。"
+    "No text detected. Try scanning again.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "テキストが検出されませんでした。もう一度スキャンしてください。"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "未检测到文字，请重新扫描。"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未检测到文字，请重新扫描。"
           }
         }
       }
     },
-    "Notes" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ノート"
+    "Notes": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ノート"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "笔记"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "笔记"
           }
         }
       }
     },
-    "Notes (%lld)" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ノート (%lld)"
+    "Notes (%lld)": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ノート (%lld)"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "笔记 (%lld)"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "笔记 (%lld)"
           }
         }
       }
     },
-    "On Fire" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "絶好調"
+    "On Fire": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "絶好調"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "势不可挡"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "势不可挡"
           }
         }
       }
     },
-    "One-Time" : {
-
+    "One-Time": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一次性购买"
+          }
+        }
+      }
     },
-    "Or choose a color below" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "または下のカラーを選択"
+    "Or choose a color below": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "または下のカラーを選択"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "或者选择下方的颜色"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "或者选择下方的颜色"
           }
         }
       }
     },
-    "Orange" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "オレンジ"
+    "Orange": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "オレンジ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "橙色"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "橙色"
           }
         }
       }
     },
-    "p.%lld" : {
-
+    "p.%lld": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "第%lld页"
+          }
+        }
+      }
     },
-    "p.%lld -> p.%lld" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "p.%1$lld -> p.%2$lld"
+    "p.%lld -> p.%lld": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "p.%1$lld -> p.%2$lld"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "第%lld页 → 第%lld页"
           }
         }
       }
     },
-    "p.%lld-%lld" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "p.%1$lld-%2$lld"
+    "p.%lld-%lld": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "p.%1$lld-%2$lld"
           }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "第%lld-%lld页"
+          }
         }
       }
     },
-    "p.%lld/%lld · %lld left" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "p.%1$lld/%2$lld · %3$lld left"
+    "p.%lld/%lld · %lld left": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "p.%1$lld/%2$lld · %3$lld left"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "p.%1$lld/%2$lld · 残り%3$lld"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "p.%1$lld/%2$lld · 残り%3$lld"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "p.%1$lld/%2$lld · 还剩 %3$lld"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "p.%1$lld/%2$lld · 还剩 %3$lld"
           }
         }
       }
     },
-    "Page" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ページ"
+    "Page": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ページ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "页码"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "页码"
           }
         }
       }
     },
-    "Page (optional)" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ページ（任意）"
+    "Page (optional)": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ページ（任意）"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "页码（可选）"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "页码（可选）"
           }
         }
       }
     },
-    "Page cannot be negative" : {
-
+    "Page cannot be negative": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "页码不能为负数"
+          }
+        }
+      }
     },
-    "Page must be greater than %lld" : {
-
+    "Page must be greater than %lld": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "页码必须大于%lld"
+          }
+        }
+      }
     },
-    "Page Turner" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "千ページ達成"
+    "Page Turner": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "千ページ達成"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "千页高手"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "千页高手"
           }
         }
       }
     },
-    "pages" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ページ"
+    "pages": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ページ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "页"
           }
         }
       }
     },
-    "Pages" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ページ数"
+    "Pages": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ページ数"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "页数"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "页数"
           }
         }
       }
     },
-    "Pages %lld - %lld (%lld pages)" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld〜%2$lldページ（%3$lldページ）"
+    "Pages %lld - %lld (%lld pages)": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld〜%2$lldページ（%3$lldページ）"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "第 %1$lld - %2$lld 页（共 %3$lld 页）"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "第 %1$lld - %2$lld 页（共 %3$lld 页）"
           }
         }
       }
     },
-    "pages per day" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ページ/日"
+    "pages per day": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ページ/日"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "页/天"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "页/天"
           }
         }
       }
     },
-    "Pages Read" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読了ページ"
+    "Pages Read": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読んだページ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已读页数"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读页数"
           }
         }
       }
     },
-    "pages/day" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ページ/日"
+    "pages/day": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ページ/日"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "页/天"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "页/天"
           }
         }
       }
     },
-    "Photo Library" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "フォトライブラリ"
+    "Photo Library": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "フォトライブラリ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "照片库"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "照片库"
           }
         }
       }
     },
-    "Point camera at book cover" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "カメラを本の表紙に向けてください"
+    "Point camera at book cover": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カメラを本の表紙に向けてください"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "将相机对准书籍封面"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "将相机对准书籍封面"
           }
         }
       }
     },
-    "Preview" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "プレビュー"
+    "Preview": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プレビュー"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "预览"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "预览"
           }
         }
       }
     },
-    "Privacy Policy" : {
-
+    "Privacy Policy": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隐私政策"
+          }
+        }
+      }
     },
-    "Pro only" : {
-
+    "Pro only": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅限Pro"
+          }
+        }
+      }
     },
-    "Purchase" : {
-
+    "Purchase": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "购买"
+          }
+        }
+      }
     },
-    "Purchase is pending approval. You'll get access once it's approved." : {
-
+    "Purchase is pending approval. You'll get access once it's approved.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "购买正在等待审核，审核通过后即可使用。"
+          }
+        }
+      }
     },
-    "Purple" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "パープル"
+    "Purple": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "パープル"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "紫色"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "紫色"
           }
         }
       }
     },
-    "Quick Fill" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "クイック入力"
+    "Quick Fill": {
+      "extractionState": "stale",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "クイック入力"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "快捷填充"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "快捷填充"
           }
         }
       }
     },
-    "Read" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読む"
+    "Read": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読む"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "读"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "读"
           }
         }
       }
     },
-    "Read 1,000 pages total" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "合計1,000ページ読了"
+    "Read 1,000 pages total": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "合計1,000ページ読了"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "累计阅读1000页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "累计阅读1000页"
           }
         }
       }
     },
-    "Read 5,000 pages total" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read 5,000 pages total"
+    "Read 5,000 pages total": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Read 5,000 pages total"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "合計5,000ページ読む"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "合計5,000ページ読む"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "总共阅读5,000页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "总共阅读5,000页"
           }
         }
       }
     },
-    "Read 10,000 pages total" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read 10,000 pages total"
+    "Read 10,000 pages total": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Read 10,000 pages total"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "合計10,000ページ読む"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "合計10,000ページ読む"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "总共阅读10,000页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "总共阅读10,000页"
           }
         }
       }
     },
-    "Read 50 pages in one day" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read 50 pages in one day"
+    "Read 50 pages in one day": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Read 50 pages in one day"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1日に50ページ読む"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1日に50ページ読む"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一天阅读50页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一天阅读50页"
           }
         }
       }
     },
-    "Read 100 pages in one day" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read 100 pages in one day"
+    "Read 100 pages in one day": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Read 100 pages in one day"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1日に100ページ読む"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1日に100ページ読む"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一天阅读100页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一天阅读100页"
           }
         }
       }
     },
-    "Read 100 pages total" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "合計100ページ読了"
+    "Read 100 pages total": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "合計100ページ読了"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "累计阅读100页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "累计阅读100页"
           }
         }
       }
     },
-    "Read 500 pages total" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "合計500ページ読了"
+    "Read 500 pages total": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "合計500ページ読了"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "累计阅读500页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "累计阅读500页"
           }
         }
       }
     },
-    "Read after 10 PM on 3 days" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read after 10 PM on 3 days"
+    "Read after 10 PM on 3 days": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Read after 10 PM on 3 days"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "3日間午後10時以降に読書"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3日間午後10時以降に読書"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "3天在晚上10点后阅读"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3天在晚上10点后阅读"
           }
         }
       }
     },
-    "Read before 9 AM on 3 days" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read before 9 AM on 3 days"
+    "Read before 9 AM on 3 days": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Read before 9 AM on 3 days"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "3日間午前9時前に読書"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3日間午前9時前に読書"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "3天在早上9点前阅读"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3天在早上9点前阅读"
           }
         }
       }
     },
-    "Read books by 5 different authors" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read books by 5 different authors"
+    "Read books by 5 different authors": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Read books by 5 different authors"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "5人の著者の本を読む"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5人の著者の本を読む"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "阅读5位不同作者的书"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读5位不同作者的书"
           }
         }
       }
     },
-    "Read on 7 different days" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "7日間読書"
+    "Read on 7 different days": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "7日間読書"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在7个不同的日子阅读"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在7个不同的日子阅读"
           }
         }
       }
     },
-    "Read on 10 weekend days" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read on 10 weekend days"
+    "Read on 10 weekend days": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Read on 10 weekend days"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "10日の週末に読書"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "10日の週末に読書"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在10个周末日阅读"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在10个周末日阅读"
           }
         }
       }
     },
-    "Read on 30 different days" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "30日間読書"
+    "Read on 30 different days": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30日間読書"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在30个不同的日子阅读"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在30个不同的日子阅读"
           }
         }
       }
     },
-    "Read on 100 different days" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read on 100 different days"
+    "Read on 100 different days": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Read on 100 different days"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "100日読書する"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "100日読書する"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在100个不同的日子阅读"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在100个不同的日子阅读"
           }
         }
       }
     },
-    "Read your first page" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最初のページを読む"
+    "Read your first page": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最初のページを読む"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "读第一页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "读第一页"
           }
         }
       }
     },
-    "Reading" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書中"
+    "Reading": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書中"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在读"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在读"
           }
         }
       }
     },
-    "Reading Activity" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書アクティビティ"
+    "Reading Activity": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書アクティビティ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "阅读活动"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读活动"
           }
         }
       }
     },
-    "Reading activity heatmap showing %lld days" : {
-
+    "Reading activity heatmap showing %lld days": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读活动热力图，显示%lld天"
+          }
+        }
+      }
     },
-    "Reading Log" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書ログ"
+    "Reading Log": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書ログ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "阅读记录"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读记录"
           }
         }
       }
     },
-    "Reading Reminder" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書リマインダー"
+    "Reading Reminder": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書リマインダー"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "阅读提醒"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读提醒"
           }
         }
       }
     },
-    "Reading Royalty" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書の王"
+    "Reading Royalty": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書の王"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "阅读之王"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读之王"
           }
         }
       }
     },
-    "Reading Speed" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書速度"
+    "Reading Speed": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書速度"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "阅读速度"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读速度"
           }
         }
       }
     },
-    "Reading Speed & More" : {
-
+    "Reading Speed & More": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读速度及更多"
+          }
+        }
+      }
     },
-    "Reading speed, trends & insights" : {
-
+    "Reading speed, trends & insights": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读速度、趋势与洞察"
+          }
+        }
+      }
     },
-    "Reading streak: %lld days current, %lld days best" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Reading streak: %1$lld days current, %2$lld days best"
+    "Reading streak: %lld days current, %lld days best": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "new",
+            "value": "Reading streak: %1$lld days current, %2$lld days best"
           }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读连续天数：当前%lld天，最长%lld天"
+          }
         }
       }
     },
-    "Reading..." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書中..."
+    "Reading...": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書中..."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "阅读中..."
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读中..."
           }
         }
       }
     },
-    "Ready" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "準備完了"
+    "Ready": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "準備完了"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "准备就绪"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "准备就绪"
           }
         }
       }
     },
-    "Recent Sessions" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最近のセッション"
+    "Recent Sessions": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最近のセッション"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最近的阅读"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最近的阅读"
           }
         }
       }
     },
-    "Recognized Text" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "認識されたテキスト"
+    "Recognized Text": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "認識されたテキスト"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "识别的文字"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "识别的文字"
           }
         }
       }
     },
-    "Remaining" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "残り"
+    "Remaining": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "残り"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "剩余"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "剩余"
           }
         }
       }
     },
-    "Remind at" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "通知時刻"
+    "Remind at": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "通知時刻"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "提醒时间"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "提醒时间"
           }
         }
       }
     },
-    "Remove Photo" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "写真を削除"
+    "Remove Photo": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "写真を削除"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "移除照片"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除照片"
           }
         }
       }
     },
-    "Restore Purchases" : {
-
+    "Restore Purchases": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复购买"
+          }
+        }
+      }
     },
-    "Retry" : {
-
+    "Retry": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重试"
+          }
+        }
+      }
     },
-    "Sage" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sage"
+    "Sage": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sage"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "賢者"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "賢者"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "贤者"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "贤者"
           }
         }
       }
     },
-    "Save" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "保存"
+    "Save": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "保存"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存"
           }
         }
       }
     },
-    "Scan Again" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "再スキャン"
+    "Scan Again": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再スキャン"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "重新扫描"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重新扫描"
           }
         }
       }
     },
-    "Scan Book" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本をスキャン"
+    "Scan Book": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本をスキャン"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "扫描书籍"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "扫描书籍"
           }
         }
       }
     },
-    "Scan Book Cover" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "表紙をスキャン"
+    "Scan Book Cover": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表紙をスキャン"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "扫描封面"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "扫描封面"
           }
         }
       }
     },
-    "Scan Results" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "スキャン結果"
+    "Scan Results": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "スキャン結果"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "扫描结果"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "扫描结果"
           }
         }
       }
     },
-    "Scholar" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scholar"
+    "Scholar": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scholar"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "学者"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学者"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "学者"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "学者"
           }
         }
       }
     },
-    "Search books" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本を検索"
+    "Search books": {
+      "extractionState": "stale",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本を検索"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "搜索书籍"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索书籍"
           }
         }
       }
     },
-    "Search books, authors, publishers" : {
-
+    "Search books, authors, publishers": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索书名、作者、出版社"
+          }
+        }
+      }
     },
-    "Select a Book" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本を選択"
+    "Select a Book": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本を選択"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "选择一本书"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择一本书"
           }
         }
       }
     },
-    "Select Book" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本を選択"
+    "Select Book": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本を選択"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "选择书籍"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "选择书籍"
           }
         }
       }
     },
-    "Settings" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "設定"
+    "Settings": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设置"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置"
           }
         }
       }
     },
-    "Share CSV" : {
-
+    "Share CSV": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享CSV"
+          }
+        }
+      }
     },
-    "Sort By" : {
-
+    "Sort By": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "排序方式"
+          }
+        }
+      }
     },
-    "Speed Reader" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Speed Reader"
+    "Speed Reader": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Speed Reader"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "速読者"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "速読者"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "速读者"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "速读者"
           }
         }
       }
     },
-    "Start Page" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "開始ページ"
+    "Start Page": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "開始ページ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "起始页"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "起始页"
           }
         }
       }
     },
-    "Start Reading" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書を開始"
+    "Start Reading": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書を開始"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "开始阅读"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开始阅读"
           }
         }
       }
     },
-    "Starting at page %lld" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lldページから開始"
+    "Starting at page %lld": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldページから開始"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "从第 %lld 页开始"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从第 %lld 页开始"
           }
         }
       }
     },
-    "Statistics" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "統計"
+    "Statistics": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "統計"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "统计"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "统计"
           }
         }
       }
     },
-    "Stats" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "統計"
+    "Stats": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "統計"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "统计"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "统计"
           }
         }
       }
     },
-    "Stop Reading" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書を停止"
+    "Stop Reading": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書を停止"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "停止阅读"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "停止阅读"
           }
         }
       }
     },
-    "Subscribe Now" : {
-
+    "Subscribe Now": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "立即订阅"
+          }
+        }
+      }
     },
-    "Subscriptions auto-renew unless cancelled at least 24 hours before the end of the current period. Manage subscriptions in Settings." : {
-
+    "Subscriptions auto-renew unless cancelled at least 24 hours before the end of the current period. Manage subscriptions in Settings.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "除非在当前订阅期结束前至少24小时取消，否则订阅将自动续期。在\"设置\"中管理订阅。"
+          }
+        }
+      }
     },
-    "Summary" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "概要"
+    "Summary": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "概要"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "概要"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "概要"
           }
         }
       }
     },
-    "Sync reading tasks with Apple Calendar" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Appleカレンダーと読書タスクを同期"
+    "Sync reading tasks with Apple Calendar": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Appleカレンダーと読書タスクを同期"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "与 Apple 日历同步阅读任务"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "与 Apple 日历同步阅读任务"
           }
         }
       }
     },
-    "Take your reading to the next level" : {
-
+    "Take your reading to the next level": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "让你的阅读更上一层楼"
+          }
+        }
+      }
     },
-    "Tap + to add your first book" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "+をタップして最初の本を追加"
+    "Tap + to add your first book": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+をタップして最初の本を追加"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "点击 + 添加第一本书"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点击 + 添加第一本书"
           }
         }
       }
     },
-    "Tap the shutter button when ready" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "準備ができたらシャッターボタンをタップ"
+    "Tap the shutter button when ready": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "準備ができたらシャッターボタンをタップ"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "准备好后点击快门按钮"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "准备好后点击快门按钮"
           }
         }
       }
     },
-    "Tap to complete" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "タップで完了"
+    "Tap to complete": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "タップで完了"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "点击完成"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "点击完成"
           }
         }
       }
     },
-    "Task" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "タスク"
+    "Task": {
+      "extractionState": "stale",
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "タスク"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "任务"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "任务"
           }
         }
       }
     },
-    "Task Title" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "タスクタイトル"
+    "Task Title": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "タスクタイトル"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "任务标题"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "任务标题"
           }
         }
       }
     },
-    "Tasks added here also appear in Apple Calendar" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ここで追加したタスクはAppleカレンダーにも表示されます"
+    "Tasks added here also appear in Apple Calendar": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ここで追加したタスクはAppleカレンダーにも表示されます"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在这里添加的任务也会出现在 Apple 日历中"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在这里添加的任务也会出现在 Apple 日历中"
           }
         }
       }
     },
-    "Teal" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ティール"
+    "Teal": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ティール"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "青绿色"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "青绿色"
           }
         }
       }
     },
-    "Terms of Use" : {
-
+    "Terms of Use": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用条款"
+          }
+        }
+      }
     },
-    "This device does not support text scanning. Please enter book details manually." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "このデバイスはテキストスキャンに対応していません。書籍情報を手動で入力してください。"
+    "This device does not support text scanning. Please enter book details manually.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このデバイスはテキストスキャンに対応していません。書籍情報を手動で入力してください。"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "此设备不支持文字扫描，请手动输入书籍信息。"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此设备不支持文字扫描，请手动输入书籍信息。"
           }
         }
       }
     },
-    "This Week" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "今週"
+    "This Week": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今週"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本周"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本周"
           }
         }
       }
     },
-    "This will go back %lld pages and remove that reading history." : {
-
+    "This will go back %lld pages and remove that reading history.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "将退回%lld页并删除对应的阅读记录。"
+          }
+        }
+      }
     },
-    "Time to Read!" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "読書の時間です！"
+    "Time to Read!": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書の時間です！"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "该读书啦！"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "该读书啦！"
           }
         }
       }
     },
-    "Timer" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "タイマー"
+    "Timer": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "タイマー"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "计时"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "计时"
           }
         }
       }
     },
-    "Title" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "タイトル"
+    "Title": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "タイトル"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "书名"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "书名"
           }
         }
       }
     },
-    "Today" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "今日"
+    "Today": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "今天"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今天"
           }
         }
       }
     },
-    "Total Books" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "蔵書数"
+    "Total Books": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "蔵書数"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "总书籍"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "总书籍"
           }
         }
       }
     },
-    "Total Pages" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "総ページ数"
+    "Total Pages": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "総ページ数"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "总页数"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "总页数"
           }
         }
       }
     },
-    "total reading" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "合計読書時間"
+    "total reading": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "合計読書時間"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "总阅读时长"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "总阅读时长"
           }
         }
       }
     },
-    "Trend" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "傾向"
+    "Trend": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "傾向"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "趋势"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "趋势"
           }
         }
       }
     },
-    "Undo" : {
-
+    "Undo": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撤销"
+          }
+        }
+      }
     },
-    "Unlimited Books" : {
-
+    "Unlimited Books": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无限添加书籍"
+          }
+        }
+      }
     },
-    "Unlimited books, all badges & more" : {
-
+    "Unlimited books, all badges & more": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无限书籍、所有徽章及更多"
+          }
+        }
+      }
     },
-    "Unlimited Notes" : {
-
+    "Unlimited Notes": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无限笔记"
+          }
+        }
+      }
     },
-    "Unlock all 29 achievement badges" : {
-
+    "Unlock all 29 achievement badges": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解锁全部29个成就徽章"
+          }
+        }
+      }
     },
-    "Unlock all badges with Pro" : {
-
+    "Unlock all badges with Pro": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用Pro解锁所有徽章"
+          }
+        }
+      }
     },
-    "Unlock Everything" : {
-
+    "Unlock Everything": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解锁全部"
+          }
+        }
+      }
     },
-    "Unlocked" : {
-
+    "Unlocked": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已解锁"
+          }
+        }
+      }
     },
-    "Unstoppable" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "止められない"
+    "Unstoppable": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "止められない"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "锐不可当"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "锐不可当"
           }
         }
       }
     },
-    "Upcoming" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "今後の予定"
+    "Upcoming": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今後の予定"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "即将到来"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "即将到来"
           }
         }
       }
     },
-    "Update" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更新"
+    "Update": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更新"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新"
           }
         }
       }
     },
-    "Update Progress" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "進捗を更新"
+    "Update Progress": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "進捗を更新"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更新进度"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新进度"
           }
         }
       }
     },
-    "Updated to page %lld" : {
-
+    "Updated to page %lld": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已更新到第%lld页"
+          }
+        }
+      }
     },
-    "Upgrade" : {
-
+    "Upgrade": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "升级"
+          }
+        }
+      }
     },
-    "Upgrade to Pro" : {
-
+    "Upgrade to Pro": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "升级到Pro"
+          }
+        }
+      }
     },
-    "Upgrade to Pro for advanced stats" : {
-
+    "Upgrade to Pro for advanced stats": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "升级到Pro以使用高级统计"
+          }
+        }
+      }
     },
-    "Use as Author" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "著者として使用"
+    "Use as Author": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "著者として使用"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "用作作者"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用作作者"
           }
         }
       }
     },
-    "Use as Title" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "タイトルとして使用"
+    "Use as Title": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "タイトルとして使用"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "用作书名"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用作书名"
           }
         }
       }
     },
-    "Version" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "バージョン"
+    "Version": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バージョン"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "版本"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版本"
           }
         }
       }
     },
-    "View All (%lld)" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "すべて表示 (%lld)"
+    "View All (%lld)": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべて表示 (%lld)"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "查看全部 (%lld)"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "查看全部 (%lld)"
           }
         }
       }
     },
-    "vs last week" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "先週比"
+    "vs last week": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "先週比"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "较上周"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "较上周"
           }
         }
       }
     },
-    "Weekend Warrior" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weekend Warrior"
+    "Weekend Warrior": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekend Warrior"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "週末の戦士"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "週末の戦士"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "周末战士"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "周末战士"
           }
         }
       }
     },
-    "Weekly Insights" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "週間レポート"
+    "Weekly Insights": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "週間レポート"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "每周洞察"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每周洞察"
           }
         }
       }
     },
-    "Will remove %lld pages of history" : {
-
+    "Will remove %lld pages of history": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "将删除%lld页的阅读记录"
+          }
+        }
+      }
     },
-    "Wizard" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wizard"
+    "Wizard": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wizard"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "魔法使い"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "魔法使い"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "巫师"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "巫师"
           }
         }
       }
     },
-    "Yearly" : {
-
+    "Yearly": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每年"
+          }
+        }
+      }
     },
-    "Your note..." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ノートを入力..."
+    "Your note...": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ノートを入力..."
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "输入笔记..."
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "输入笔记..."
           }
         }
       }
     },
-    "My Rating" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "マイ評価" }
+    "My Rating": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "マイ評価"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "我的评分" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "我的评分"
+          }
         }
       }
     },
-    "Write a Review" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "レビューを書く" }
+    "Write a Review": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "レビューを書く"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "写一篇短评" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "写一篇短评"
+          }
         }
       }
     },
-    "Edit Review" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "レビューを編集" }
+    "Edit Review": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "レビューを編集"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "编辑短评" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "编辑短评"
+          }
         }
       }
     },
-    "Rate Book" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "本を評価" }
+    "Rate Book": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本を評価"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "评价此书" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "评价此书"
+          }
         }
       }
     },
-    "How was this book?" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "この本はいかがでしたか？" }
+    "How was this book?": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この本はいかがでしたか？"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "这本书读得怎样？" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这本书读得怎样？"
+          }
         }
       }
     },
-    "Review (optional)" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "レビュー（任意）" }
+    "Review (optional)": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "レビュー（任意）"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "短评（选填）" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "短评（选填）"
+          }
         }
       }
     },
-    "Share Card" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "カードを共有" }
+    "Share Card": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カードを共有"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "分享卡片" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享卡片"
+          }
         }
       }
     },
-    "Quotes & Favorites" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "引用・お気に入り" }
+    "Quotes & Favorites": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "引用・お気に入り"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "摘录与收藏" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摘录与收藏"
+          }
         }
       }
     },
-    "Favorites" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "お気に入り" }
+    "Favorites": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "お気に入り"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "收藏" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "收藏"
+          }
         }
       }
     },
-    "All Quotes" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "すべての引用" }
+    "All Quotes": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべての引用"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "全部摘录" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部摘录"
+          }
         }
       }
     },
-    "Thought" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "感想" }
+    "Thought": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "感想"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "随想" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "随想"
+          }
         }
       }
     },
-    "Quote" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "引用" }
+    "Quote": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "引用"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "摘录" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摘录"
+          }
         }
       }
     },
-    "Import Data" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "データをインポート" }
+    "Import Data": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "データをインポート"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "导入数据" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "导入数据"
+          }
         }
       }
     },
-    "Import from JSON Backup" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "JSONバックアップからインポート" }
+    "Import from JSON Backup": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "JSONバックアップからインポート"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "从JSON备份导入" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从JSON备份导入"
+          }
         }
       }
     },
-    "Import Complete" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "インポート完了" }
+    "Import Complete": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "インポート完了"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "导入完成" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "导入完成"
+          }
         }
       }
     },
-    "Physical Book" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "紙の本" }
+    "Physical Book": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "紙の本"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "纸质书" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "纸质书"
+          }
         }
       }
     },
-    "E-book" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "電子書籍" }
+    "E-book": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "電子書籍"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "电子书" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "电子书"
+          }
         }
       }
     },
-    "Audiobook" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "オーディオブック" }
+    "Audiobook": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "オーディオブック"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "有声书" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "有声书"
+          }
         }
       }
     },
-    "Audiobooks & E-books" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "オーディオブック・電子書籍" }
+    "Audiobooks & E-books": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "オーディオブック・電子書籍"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "有声书和电子书" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "有声书和电子书"
+          }
         }
       }
     },
-    "Monthly Stats" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "月間統計" }
+    "Monthly Stats": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "月間統計"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "月度统计" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "月度统计"
+          }
         }
       }
     },
-    "This Month" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "今月" }
+    "This Month": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今月"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "本月" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本月"
+          }
         }
       }
     },
-    "Reading Challenges" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "読書チャレンジ" }
+    "Reading Challenges": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書チャレンジ"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "阅读挑战" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读挑战"
+          }
         }
       }
     },
-    "No Challenges" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "チャレンジなし" }
+    "No Challenges": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チャレンジなし"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "暂无挑战" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂无挑战"
+          }
         }
       }
     },
-    "New Challenge" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "新しいチャレンジ" }
+    "New Challenge": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新しいチャレンジ"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "新建挑战" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新建挑战"
+          }
         }
       }
     },
-    "Year in Reading" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "読書の年" }
+    "Year in Reading": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書の年"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "年度阅读报告" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "年度阅读报告"
+          }
         }
       }
     },
-    "Books Finished" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "読了した本" }
+    "Books Finished": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読了した本"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "完成书籍" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成书籍"
+          }
         }
       }
     },
-    "Pages Read" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "読んだページ" }
+    "Highlights": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ハイライト"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "阅读页数" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "亮点"
+          }
         }
       }
     },
-    "Highlights" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "ハイライト" }
+    "Challenges": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チャレンジ"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "亮点" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "挑战"
+          }
         }
       }
     },
-    "Challenges" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "チャレンジ" }
+    "Format": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "フォーマット"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "挑战" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "格式"
+          }
         }
       }
     },
-    "Format" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "フォーマット" }
+    "Quotes": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "引用"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "格式" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "摘录"
+          }
         }
       }
     },
-    "Quotes" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "引用" }
+    "Track Your Reading": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書を記録する"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "摘录" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "记录你的阅读"
+          }
         }
       }
     },
-    "Track Your Reading" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "読書を記録する" }
+    "Log pages, set goals, and build your personal library": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ページを記録し、目標を設定し、マイライブラリを作ろう"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "记录你的阅读" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "记录页数、设定目标、构建你的个人书库"
+          }
         }
       }
     },
-    "Log pages, set goals, and build your personal library" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "ページを記録し、目標を設定し、マイライブラリを作ろう" }
+    "Build Streaks & Habits": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "連続記録と習慣を作ろう"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "记录页数、设定目标、构建你的个人书库" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打造连续阅读与习惯"
+          }
         }
       }
     },
-    "Build Streaks & Habits" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "連続記録と習慣を作ろう" }
+    "Daily goals, reading streaks, and achievement badges keep you motivated": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "毎日の目標、連続記録、バッジがモチベーションを維持します"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "打造连续阅读与习惯" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每日目标、阅读连续天数和成就徽章让你保持动力"
+          }
         }
       }
     },
-    "Daily goals, reading streaks, and achievement badges keep you motivated" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "毎日の目標、連続記録、バッジがモチベーションを維持します" }
+    "Discover Insights": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書の洞察を発見"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "每日目标、阅读连续天数和成就徽章让你保持动力" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "发现阅读洞察"
+          }
         }
       }
     },
-    "Discover Insights" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "読書の洞察を発見" }
+    "See your reading stats, monthly trends, and year-in-review reports": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "統計、月間トレンド、年間レポートを確認しよう"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "发现阅读洞察" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "查看阅读统计、月度趋势和年度报告"
+          }
         }
       }
     },
-    "See your reading stats, monthly trends, and year-in-review reports" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "統計、月間トレンド、年間レポートを確認しよう" }
+    "Get Started": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "始めよう"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "查看阅读统计、月度趋势和年度报告" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开始使用"
+          }
         }
       }
     },
-    "Get Started" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "始めよう" }
+    "Skip for Now": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今はスキップ"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "开始使用" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂时跳过"
+          }
         }
       }
     },
-    "Skip for Now" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "今はスキップ" }
+    "Set Your Daily Goal": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "毎日の目標を設定"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "暂时跳过" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设定每日目标"
+          }
         }
       }
     },
-    "Set Your Daily Goal" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "毎日の目標を設定" }
+    "How many pages would you like to read each day?": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "毎日何ページ読みたいですか？"
+          }
         },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "设定每日目标" }
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你希望每天读多少页？"
+          }
         }
       }
     },
-    "How many pages would you like to read each day?" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : { "state" : "translated", "value" : "毎日何ページ読みたいですか？" }
-        },
-        "zh-Hans" : {
-          "stringUnit" : { "state" : "translated", "value" : "你希望每天读多少页？" }
+    "Daily reading goal complete. %lld of %lld pages read today.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日阅读目标已完成！共阅读 %1$lld/%2$lld 页。"
+          }
+        }
+      }
+    },
+    "Daily reading goal: %lld of %lld pages, %lld percent complete.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日阅读目标：%1$lld/%2$lld 页，已完成 %3$lld%%。"
+          }
+        }
+      }
+    },
+    "Decrease goal by 5": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标减少5页"
+          }
+        }
+      }
+    },
+    "Decrease goal by 1": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标减少1页"
+          }
+        }
+      }
+    },
+    "Increase goal by 1": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标增加1页"
+          }
+        }
+      }
+    },
+    "Increase goal by 5": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标增加5页"
+          }
+        }
+      }
+    },
+    "%lld pages per day": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每天%lld页"
+          }
         }
       }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }
