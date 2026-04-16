@@ -41,7 +41,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "%lld 活跃天数"
+            "value": "%lld 天活跃"
           }
         }
       }
@@ -1960,7 +1960,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "标记为已读"
+            "value": "标记为读完"
           }
         }
       }
@@ -4000,7 +4000,7 @@
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "无限书籍"
+            "value": "无限添加书籍"
           }
         }
       }
@@ -4981,6 +4981,76 @@
           "stringUnit": {
             "state": "translated",
             "value": "你希望每天读多少页？"
+          }
+        }
+      }
+    },
+    "Daily reading goal complete. %lld of %lld pages read today.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日阅读目标已完成！共阅读 %1$lld/%2$lld 页。"
+          }
+        }
+      }
+    },
+    "Daily reading goal: %lld of %lld pages, %lld percent complete.": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今日阅读目标：%1$lld/%2$lld 页，已完成 %3$lld%%。"
+          }
+        }
+      }
+    },
+    "Decrease goal by 5": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标减少5页"
+          }
+        }
+      }
+    },
+    "Decrease goal by 1": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标减少1页"
+          }
+        }
+      }
+    },
+    "Increase goal by 1": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标增加1页"
+          }
+        }
+      }
+    },
+    "Increase goal by 5": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标增加5页"
+          }
+        }
+      }
+    },
+    "%lld pages per day": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每天%lld页"
           }
         }
       }

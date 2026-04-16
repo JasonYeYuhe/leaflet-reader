@@ -32,9 +32,11 @@ struct GoalRingSection: View {
         .padding()
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel(Text(todayProgress >= 1.0
-            ? "Daily reading goal complete. \(todayPages) of \(dailyPageGoal) pages read today."
-            : "Daily reading goal: \(todayPages) of \(dailyPageGoal) pages, \(Int(todayProgress * 100)) percent complete."))
+        .accessibilityLabel(
+            todayProgress >= 1.0
+                ? Text("Daily reading goal complete. \(todayPages) of \(dailyPageGoal) pages read today.")
+                : Text("Daily reading goal: \(todayPages) of \(dailyPageGoal) pages, \(Int(todayProgress * 100)) percent complete.")
+        )
     }
 }
 
