@@ -31,6 +31,10 @@ struct GoalRingSection: View {
         .frame(maxWidth: .infinity)
         .padding()
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16))
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(Text(todayProgress >= 1.0
+            ? "Daily reading goal complete. \(todayPages) of \(dailyPageGoal) pages read today."
+            : "Daily reading goal: \(todayPages) of \(dailyPageGoal) pages, \(Int(todayProgress * 100)) percent complete."))
     }
 }
 
@@ -53,6 +57,7 @@ struct GoalSettingSection: View {
                 }
                 .buttonStyle(.plain)
                 .foregroundStyle(.blue)
+                .accessibilityLabel("Decrease goal by 5")
 
                 Button {
                     if dailyPageGoal > 1 { dailyPageGoal -= 1 }
@@ -64,11 +69,13 @@ struct GoalSettingSection: View {
                 }
                 .buttonStyle(.plain)
                 .foregroundStyle(.blue)
+                .accessibilityLabel("Decrease goal by 1")
 
                 Text("\(dailyPageGoal)")
                     .font(.system(size: 36, weight: .bold, design: .rounded))
                     .monospacedDigit()
                     .frame(width: 80)
+                    .accessibilityLabel("\(dailyPageGoal) pages per day")
 
                 Button {
                     dailyPageGoal += 1
@@ -80,6 +87,7 @@ struct GoalSettingSection: View {
                 }
                 .buttonStyle(.plain)
                 .foregroundStyle(.blue)
+                .accessibilityLabel("Increase goal by 1")
 
                 Button {
                     dailyPageGoal += 5
@@ -91,6 +99,7 @@ struct GoalSettingSection: View {
                 }
                 .buttonStyle(.plain)
                 .foregroundStyle(.blue)
+                .accessibilityLabel("Increase goal by 5")
             }
 
             Text("pages per day")
