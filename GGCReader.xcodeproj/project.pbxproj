@@ -49,6 +49,7 @@
 		2EDEAA2F70B5E29D695D34B8 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7067C7329A76708ADA5195 /* Chapter.swift */; };
 		2F84586D1297C43F4ABBB445 /* Products.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 59AE7E0C67826DC00721586B /* Products.storekit */; };
 		33A5688D4E23D31AB2DBBE92 /* GoodreadsImporterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3727937E04B42D0D7057B87C /* GoodreadsImporterTests.swift */; };
+		B8E4C21A9F3D7056E8A14B73 /* ReadingSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C7D8E2A14B6951C7038E4F /* ReadingSessionTests.swift */; };
 		37A886E1CC08F2E257BC572D /* BookShelfPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978F3E369A421114CDBF3C68 /* BookShelfPickerView.swift */; };
 		37CC18085DB46DC76FB0BFE2 /* BadgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DCFCE7679179918F9FC43D /* BadgesView.swift */; };
 		3A970CBC2ADD52AC42E1CBA0 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0203C858754B8D8C4B09555 /* WidgetData.swift */; };
@@ -246,6 +247,7 @@
 		33B74ADF5E23062E1027ED15 /* GoodreadsImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodreadsImportView.swift; sourceTree = "<group>"; };
 		347F41F1A0D892F4FFB663E0 /* GGCReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCReaderApp.swift; sourceTree = "<group>"; };
 		3727937E04B42D0D7057B87C /* GoodreadsImporterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodreadsImporterTests.swift; sourceTree = "<group>"; };
+		F3C7D8E2A14B6951C7038E4F /* ReadingSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSessionTests.swift; sourceTree = "<group>"; };
 		3745C1749BB94FF5D977F21A /* ReadingLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingLog.swift; sourceTree = "<group>"; };
 		3B03BEB655F245B55A73A4FB /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		3C3DFB93D3050676807F127A /* ReadingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSession.swift; sourceTree = "<group>"; };
@@ -435,6 +437,7 @@
 				3727937E04B42D0D7057B87C /* GoodreadsImporterTests.swift */,
 				A32C0AE8A6BD7D495CBDFD3E /* ReadingCalculationsTests.swift */,
 				452809EAC07091BCAB78F9F2 /* TaskMetadataTests.swift */,
+				F3C7D8E2A14B6951C7038E4F /* ReadingSessionTests.swift */,
 			);
 			path = GGCReaderTests;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 				33A5688D4E23D31AB2DBBE92 /* GoodreadsImporterTests.swift in Sources */,
 				D0135112361164C9145686E5 /* ReadingCalculationsTests.swift in Sources */,
 				6BEC55DFF8A115997B435350 /* TaskMetadataTests.swift in Sources */,
+				B8E4C21A9F3D7056E8A14B73 /* ReadingSessionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
