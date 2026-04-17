@@ -158,3 +158,16 @@ targets:
         TEST_HOST: $(BUILT_PRODUCTS_DIR)/æstel.app/æstel
     dependencies:
       - target: GGCReader_iOS
+
+schemes:
+  GGCReader_iOS:
+    build:
+      targets:
+        GGCReader_iOS: all
+        GGCReaderTests: [test]
+    test:
+      targets:
+        - GGCReaderTests
+    run:
+      targets:
+        - GGCReader_iOS

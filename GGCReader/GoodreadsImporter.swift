@@ -61,10 +61,12 @@ enum GoodreadsImporter {
 
             var isbn = ""
             if let idx = isbnIdx, row.count > idx {
-                // Goodreads wraps ISBN in ="0123456789" format
+                // Goodreads uses Excel formula notation: ="9780441013593"
+                // After CSV parsing quotes are stripped, leaving =9780441013593
                 isbn = row[idx]
                     .replacingOccurrences(of: "=\"", with: "")
                     .replacingOccurrences(of: "\"", with: "")
+                    .replacingOccurrences(of: "=", with: "")
                     .trimmingCharacters(in: .whitespaces)
             }
 
