@@ -55,7 +55,7 @@ struct YearInReviewView: View {
             let pages = yearLogs.filter {
                 cal.component(.month, from: $0.date) == month
             }.reduce(0) { $0 + $1.pagesRead }
-            let date = cal.date(from: DateComponents(year: year, month: month, day: 1))!
+            let date = cal.date(from: DateComponents(year: year, month: month, day: 1)) ?? Date()
             return (formatter.string(from: date), pages)
         }
     }
@@ -66,8 +66,8 @@ struct YearInReviewView: View {
 
     private var longestStreak: Int {
         let cal = Calendar.current
-        let startOfYear = cal.date(from: DateComponents(year: year, month: 1, day: 1))!
-        let endOfYear = cal.date(from: DateComponents(year: year, month: 12, day: 31))!
+        guard let startOfYear = cal.date(from: DateComponents(year: year, month: 1, day: 1)),
+              let endOfYear = cal.date(from: DateComponents(year: year, month: 12, day: 31)) else { return 0 }
         let totalDays = (cal.dateComponents([.day], from: startOfYear, to: endOfYear).day ?? 0) + 1
 
         var daySet = Set<Date>()
