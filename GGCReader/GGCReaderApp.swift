@@ -3,14 +3,15 @@ import SwiftData
 
 @main
 struct GGCReaderApp: App {
-    let modelContainer: ModelContainer
+    let modelContainer: ModelContainer?
     @Environment(\.scenePhase) private var scenePhase
 
     init() {
         do {
             modelContainer = try SharedModelContainer.create()
         } catch {
-            fatalError("Failed to create ModelContainer: \(error)")
+            print("[GGCReader] Failed to create ModelContainer: \(error)")
+            modelContainer = nil
         }
         // Start StoreKit transaction listener early
         _ = StoreManager.shared
@@ -18,10 +19,18 @@ struct GGCReaderApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootView()
-                .onAppear { updateWidgetData() }
+            if let container = modelContainer {
+                RootView()
+                    .onAppear { updateWidgetData() }
+                    .modelContainer(container)
+            } else {
+                ContentUnavailableView(
+                    "Unable to Load Data",
+                    systemImage: "exclamationmark.triangle",
+                    description: Text("Please restart the app or check your iCloud settings.")
+                )
+            }
         }
-        .modelContainer(modelContainer)
         .onChange(of: scenePhase) { _, newPhase in
             if newPhase == .background || newPhase == .inactive {
                 updateWidgetData()
@@ -37,15 +46,17 @@ struct GGCReaderApp: App {
 
         #if os(macOS)
         Settings {
-            SettingsView()
-                .modelContainer(modelContainer)
+            if let container = modelContainer {
+                SettingsView()
+                    .modelContainer(container)
+            }
         }
         #endif
     }
 
     @MainActor
     private func updateWidgetData() {
-        let context = modelContainer.mainContext
+        guard let context = modelContainer?.mainContext else { return }
         let books = (try? context.fetch(FetchDescriptor<Book>())) ?? []
         let logs = (try? context.fetch(FetchDescriptor<ReadingLog>())) ?? []
         WidgetDataUpdater.update(books: books, allLogs: logs)
