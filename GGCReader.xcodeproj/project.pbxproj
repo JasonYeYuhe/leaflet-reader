@@ -95,6 +95,7 @@
 		69AD4B8184692F3C8254E008 /* BadgeDefinitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779062460A664557417EA9B /* BadgeDefinitions.swift */; };
 		6A51F2C64D45C6F1010C99E7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB8738E0C025739E92DB78 /* OnboardingView.swift */; };
 		6AF0F368E06CEC97FC4458F2 /* QuotesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9571B9B49DA4F8DF12DE34 /* QuotesCollectionView.swift */; };
+		6BEC55DFF8A115997B435350 /* TaskMetadataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452809EAC07091BCAB78F9F2 /* TaskMetadataTests.swift */; };
 		6BF2955D7F2E5324447ACF16 /* GoalRingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CE068D73342A3FD87B2FD7 /* GoalRingSection.swift */; };
 		736B2309F011600AF5071EE5 /* ReadingLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3745C1749BB94FF5D977F21A /* ReadingLog.swift */; };
 		7AEE0177D4E48E93DCD43AE3 /* BookNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D6E3A0C4FE9174687811A /* BookNotesView.swift */; };
@@ -159,6 +160,7 @@
 		C5F97EF796CEE8F094FB9DF3 /* ReadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A796E00CC7C4C9EB5D760863 /* ReadingActivity.swift */; };
 		C98D9B3A7D2B7E31FBA80B51 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0203C858754B8D8C4B09555 /* WidgetData.swift */; };
 		CC8E791F6E5760A6F4C74328 /* ColorHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED72FA61EA857F139657D8A /* ColorHelpers.swift */; };
+		D0135112361164C9145686E5 /* ReadingCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C0AE8A6BD7D495CBDFD3E /* ReadingCalculationsTests.swift */; };
 		D12325A4E84F4FE420DF01DC /* Bookshelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86086A18524E3DE1B9D800F6 /* Bookshelf.swift */; };
 		D1FAD0403D7229BACC3030EF /* ISBNScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94527B6CFAA54F571BC6DC45 /* ISBNScannerView.swift */; };
 		D261A011EB071CE2F387EE02 /* JSONImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945A97B3FD1AC7B50DE21443 /* JSONImportView.swift */; };
@@ -201,6 +203,13 @@
 			remoteGlobalIDString = 2D7B8E8A6927261652D2F815;
 			remoteInfo = GGCReaderWidget;
 		};
+		57DDE06FF638F3BA9E7FB3F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 68ED06170841E17CCFF89E11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77BFE22CD0C22CE9771E956B;
+			remoteInfo = GGCReader_iOS;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -242,6 +251,8 @@
 		407C4FEC915ED16889ED7FAB /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
 		4196FF0A9CB59A883EE31AAD /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
 		42F8F48FDAAD60EF497DD92C /* ReadingTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingTimerView.swift; sourceTree = "<group>"; };
+		452809EAC07091BCAB78F9F2 /* TaskMetadataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMetadataTests.swift; sourceTree = "<group>"; };
+		47256321C979BD83FD12B842 /* GGCReaderTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = GGCReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9571B9B49DA4F8DF12DE34 /* QuotesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesCollectionView.swift; sourceTree = "<group>"; };
 		4F6690FE8FFE2BFA725C2742 /* GGCReaderWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCReaderWidget.swift; sourceTree = "<group>"; };
 		4FB8CBB4A9D4CD3F7CDCA2A9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -278,6 +289,7 @@
 		9E9E2DA11F969CD23432CAEE /* GGCReaderWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GGCReaderWatch.entitlements; sourceTree = "<group>"; };
 		9ED72FA61EA857F139657D8A /* ColorHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelpers.swift; sourceTree = "<group>"; };
 		9FE1C016FDF9BA36AC03D771 /* ReadingActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingActivityAttributes.swift; sourceTree = "<group>"; };
+		A32C0AE8A6BD7D495CBDFD3E /* ReadingCalculationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingCalculationsTests.swift; sourceTree = "<group>"; };
 		A796E00CC7C4C9EB5D760863 /* ReadingActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingActivity.swift; sourceTree = "<group>"; };
 		AB2636D2B22DA394528AB564 /* RatingPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPromptView.swift; sourceTree = "<group>"; };
 		AFF6CBE5B76E21E4A274EF63 /* WeeklyInsightsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyInsightsSection.swift; sourceTree = "<group>"; };
@@ -326,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				CC17063FF9FF9539030724DD /* GGCReader */,
+				9BF13E5607D70B0C3342527B /* GGCReaderTests */,
 				523E013E0CAEBDD903026FF0 /* GGCReaderWatch */,
 				695E7B9EA6E7D6EB45007AA9 /* GGCReaderWidget */,
 				3D1A2FAAF2F6B32307C014A7 /* Shared */,
@@ -407,10 +420,20 @@
 			children = (
 				0363C571ABB2BFD74B598D5A /* GGCReader.app */,
 				B40255AF0AFC83029EB113E4 /* GGCReader.app */,
+				47256321C979BD83FD12B842 /* GGCReaderTests.xctest */,
 				8352910D4A9FB711DA3AB099 /* GGCReaderWatch Watch App.app */,
 				EF2B85EB66566C7FEB1B1EDB /* GGCReaderWidget.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		9BF13E5607D70B0C3342527B /* GGCReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				A32C0AE8A6BD7D495CBDFD3E /* ReadingCalculationsTests.swift */,
+				452809EAC07091BCAB78F9F2 /* TaskMetadataTests.swift */,
+			);
+			path = GGCReaderTests;
 			sourceTree = "<group>";
 		};
 		9DEDC8D0A1DF36D5219FDA0C /* Models */ = {
@@ -511,6 +534,24 @@
 			productReference = EF2B85EB66566C7FEB1B1EDB /* GGCReaderWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		55EBD98AB539F5686FF7EB5F /* GGCReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95AE71C0DFE526FB9E0CE493 /* Build configuration list for PBXNativeTarget "GGCReaderTests" */;
+			buildPhases = (
+				F8DCACF9B28F2834B75AAB3F /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				417F67125F3D80D31E54E04E /* PBXTargetDependency */,
+			);
+			name = GGCReaderTests;
+			packageProductDependencies = (
+			);
+			productName = GGCReaderTests;
+			productReference = 47256321C979BD83FD12B842 /* GGCReaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		77BFE22CD0C22CE9771E956B /* GGCReader_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D46D5EE8AB392D2C21A6A8 /* Build configuration list for PBXNativeTarget "GGCReader_iOS" */;
@@ -580,6 +621,10 @@
 						DevelopmentTeam = KHMK6Q3L3K;
 						ProvisioningStyle = Automatic;
 					};
+					55EBD98AB539F5686FF7EB5F = {
+						DevelopmentTeam = KHMK6Q3L3K;
+						ProvisioningStyle = Automatic;
+					};
 					77BFE22CD0C22CE9771E956B = {
 						DevelopmentTeam = KHMK6Q3L3K;
 						ProvisioningStyle = Automatic;
@@ -610,6 +655,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				55EBD98AB539F5686FF7EB5F /* GGCReaderTests */,
 				E1ED93F5F80018C47302AC05 /* GGCReaderWatch Watch App */,
 				2D7B8E8A6927261652D2F815 /* GGCReaderWidget */,
 				77BFE22CD0C22CE9771E956B /* GGCReader_iOS */,
@@ -854,6 +900,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F8DCACF9B28F2834B75AAB3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0135112361164C9145686E5 /* ReadingCalculationsTests.swift in Sources */,
+				6BEC55DFF8A115997B435350 /* TaskMetadataTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -861,6 +916,11 @@
 			isa = PBXTargetDependency;
 			target = 2D7B8E8A6927261652D2F815 /* GGCReaderWidget */;
 			targetProxy = 0AA5D700AA7C5C4A79231462 /* PBXContainerItemProxy */;
+		};
+		417F67125F3D80D31E54E04E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77BFE22CD0C22CE9771E956B /* GGCReader_iOS */;
+			targetProxy = 57DDE06FF638F3BA9E7FB3F4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -893,6 +953,7 @@
 				MARKETING_VERSION = 2.0.0;
 				NSSupportsLiveActivities = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader;
+				PRODUCT_MODULE_NAME = GGCReader;
 				PRODUCT_NAME = "æstel";
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -1054,6 +1115,7 @@
 				MARKETING_VERSION = 2.0.0;
 				NSSupportsLiveActivities = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader;
+				PRODUCT_MODULE_NAME = GGCReader;
 				PRODUCT_NAME = "æstel";
 				SDKROOT = macosx;
 				SUPPORTS_MACCATALYST = NO;
@@ -1091,6 +1153,7 @@
 				MARKETING_VERSION = 2.0.0;
 				NSSupportsLiveActivities = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader;
+				PRODUCT_MODULE_NAME = GGCReader;
 				PRODUCT_NAME = "æstel";
 				SDKROOT = macosx;
 				SUPPORTS_MACCATALYST = NO;
@@ -1099,6 +1162,22 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
+		};
+		7D7CEF3429E91ECC1713E89B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/æstel.app/æstel";
+			};
+			name = Debug;
 		};
 		D7ED91AE5D7DE3A72CA69191 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1161,6 +1240,22 @@
 			};
 			name = Release;
 		};
+		E1FF5C38C6974EFD48E62488 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/æstel.app/æstel";
+			};
+			name = Release;
+		};
 		FC65A79017A21665519E50C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1208,6 +1303,7 @@
 				MARKETING_VERSION = 2.0.0;
 				NSSupportsLiveActivities = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jason.ggcreader;
+				PRODUCT_MODULE_NAME = GGCReader;
 				PRODUCT_NAME = "æstel";
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
@@ -1235,6 +1331,15 @@
 			buildConfigurations = (
 				797A04D1E320BC692F4444EE /* Debug */,
 				7C09FDCEB9FACF984A745012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		95AE71C0DFE526FB9E0CE493 /* Build configuration list for PBXNativeTarget "GGCReaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D7CEF3429E91ECC1713E89B /* Debug */,
+				E1FF5C38C6974EFD48E62488 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

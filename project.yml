@@ -37,6 +37,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.jason.ggcreader
         PRODUCT_NAME: "æstel"
+        PRODUCT_MODULE_NAME: GGCReader
         INFOPLIST_KEY_CFBundleDisplayName: "æstel"
         MARKETING_VERSION: "2.0.0"
         CURRENT_PROJECT_VERSION: "13"
@@ -142,3 +143,18 @@ targets:
           SWIFT_COMPILATION_MODE: wholemodule
     entitlements:
       path: GGCReaderWatch/GGCReaderWatch.entitlements
+
+  GGCReaderTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: GGCReaderTests
+        excludes:
+          - "**/.DS_Store"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jason.ggcreader.tests
+        BUNDLE_LOADER: $(TEST_HOST)
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/æstel.app/æstel
+    dependencies:
+      - target: GGCReader_iOS
