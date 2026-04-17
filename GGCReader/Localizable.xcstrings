@@ -2,14 +2,7 @@
   "sourceLanguage": "en",
   "strings": {
     "%@ · %@": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "%1$@ · %2$@"
-          }
-        }
-      }
+      "shouldTranslate": false
     },
     "%@/month": {
       "localizations": {
@@ -27,16 +20,11 @@
         }
       }
     },
-    "%lld": {},
+    "%lld": {
+      "shouldTranslate": false
+    },
     "%lld %@": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "%1$lld %2$@"
-          }
-        }
-      }
+      "shouldTranslate": false
     },
     "%lld active days": {
       "localizations": {
@@ -118,16 +106,11 @@
         }
       }
     },
-    "%lld%%": {},
+    "%lld%%": {
+      "shouldTranslate": false
+    },
     "%lld/%lld": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "new",
-            "value": "%1$lld/%2$lld"
-          }
-        }
-      }
+      "shouldTranslate": false
     },
     "%lld/%lld books": {
       "localizations": {
@@ -167,12 +150,24 @@
         }
       }
     },
-    "+1": {},
-    "+10": {},
-    "+5": {},
-    "-1": {},
-    "-5": {},
-    "0": {},
+    "+1": {
+      "shouldTranslate": false
+    },
+    "+10": {
+      "shouldTranslate": false
+    },
+    "+5": {
+      "shouldTranslate": false
+    },
+    "-1": {
+      "shouldTranslate": false
+    },
+    "-5": {
+      "shouldTranslate": false
+    },
+    "0": {
+      "shouldTranslate": false
+    },
     "100-day reading streak": {
       "localizations": {
         "en": {
@@ -313,8 +308,12 @@
         }
       }
     },
-    "<100%": {},
-    "<50%": {},
+    "<100%": {
+      "shouldTranslate": false
+    },
+    "<50%": {
+      "shouldTranslate": false
+    },
     "About": {
       "localizations": {
         "ja": {
@@ -563,6 +562,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "高度な統計"
+          }
+        }
+      }
+    },
+    "All": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべて"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全部"
           }
         }
       }
@@ -1471,6 +1486,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "日期"
+          }
+        }
+      }
+    },
+    "Date Added": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "追加日"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加日期"
           }
         }
       }
@@ -2559,6 +2590,22 @@
         }
       }
     },
+    "Last Read": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最近読んだ"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最近阅读"
+          }
+        }
+      }
+    },
     "Legend": {
       "localizations": {
         "en": {
@@ -3375,6 +3422,22 @@
         }
       }
     },
+    "Please restart the app or check your iCloud settings.": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アプリを再起動するか、iCloud の設定を確認してください。"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请重启应用或检查您的 iCloud 设置。"
+          }
+        }
+      }
+    },
     "Point camera at book cover": {
       "localizations": {
         "ja": {
@@ -3451,6 +3514,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "Proのみ"
+          }
+        }
+      }
+    },
+    "Progress": {
+      "localizations": {
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書進捗"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读进度"
           }
         }
       }
@@ -5838,8 +5917,12 @@
         }
       }
     },
-    "·": {},
-    "· %@": {},
+    "·": {
+      "shouldTranslate": false
+    },
+    "· %@": {
+      "shouldTranslate": false
+    },
     "æstel": {
       "comment": "Calendar name for reading tasks",
       "localizations": {
@@ -5885,70 +5968,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "拾葉 Pro"
-          }
-        }
-      }
-    },
-    "Last Read": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最近読んだ"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最近阅读"
-          }
-        }
-      }
-    },
-    "Date Added": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "追加日"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "添加日期"
-          }
-        }
-      }
-    },
-    "Progress": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "読書進捗"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "阅读进度"
-          }
-        }
-      }
-    },
-    "All": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "すべて"
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "全部"
           }
         }
       }
