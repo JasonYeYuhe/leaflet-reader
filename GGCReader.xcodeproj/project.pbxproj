@@ -170,6 +170,7 @@
 		C316D3CC61758A4AB3C4F648 /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196FF0A9CB59A883EE31AAD /* ReminderManager.swift */; };
 		C3AE726B370A5C57431D4765 /* ReadingChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E91889A4805A8F0EAA2A8C5 /* ReadingChallenge.swift */; };
 		C5F97EF796CEE8F094FB9DF3 /* ReadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A796E00CC7C4C9EB5D760863 /* ReadingActivity.swift */; };
+		C6671F8E5836DAA60B58521E /* ChallengeTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3258D705EB5CAFCCAAA927 /* ChallengeTypeTests.swift */; };
 		C98D9B3A7D2B7E31FBA80B51 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0203C858754B8D8C4B09555 /* WidgetData.swift */; };
 		CC8E791F6E5760A6F4C74328 /* ColorHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED72FA61EA857F139657D8A /* ColorHelpers.swift */; };
 		D0135112361164C9145686E5 /* ReadingCalculationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32C0AE8A6BD7D495CBDFD3E /* ReadingCalculationsTests.swift */; };
@@ -301,6 +302,7 @@
 		86086A18524E3DE1B9D800F6 /* Bookshelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookshelf.swift; sourceTree = "<group>"; };
 		88119B4CD0EEC4001A83F252 /* BookLookupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLookupService.swift; sourceTree = "<group>"; };
 		887C0663BC52C870DAA9FB69 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		8B3258D705EB5CAFCCAAA927 /* ChallengeTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTypeTests.swift; sourceTree = "<group>"; };
 		8B55D809351D70BDE6D784DD /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		8C7162E1F068D5967138E41D /* GGCReaderMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GGCReaderMac.entitlements; sourceTree = "<group>"; };
 		94527B6CFAA54F571BC6DC45 /* ISBNScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISBNScannerView.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 				56EE7207B58A2F0FC0FD4960 /* BookNoteTests.swift */,
 				5D4C4E03702C5F472CA990FB /* BookshelfTests.swift */,
 				22F84DEA0D500192926BAC47 /* BookTypeTests.swift */,
+				8B3258D705EB5CAFCCAAA927 /* ChallengeTypeTests.swift */,
 				EBD57257A686BF8E7A6DC815 /* ChapterTests.swift */,
 				631C063D585628902929853E /* CoverColorTests.swift */,
 				3727937E04B42D0D7057B87C /* GoodreadsImporterTests.swift */,
@@ -948,6 +951,7 @@
 				2A5B1707E0B6F1622D535254 /* BookNoteTests.swift in Sources */,
 				991EDBB18D37B81360B6DFA3 /* BookTypeTests.swift in Sources */,
 				7E412061E5E2F659646AF7E3 /* BookshelfTests.swift in Sources */,
+				C6671F8E5836DAA60B58521E /* ChallengeTypeTests.swift in Sources */,
 				461AFF782EEC5D3B80FE5CA0 /* ChapterTests.swift in Sources */,
 				6063543BD97524B87DE00B36 /* CoverColorTests.swift in Sources */,
 				33A5688D4E23D31AB2DBBE92 /* GoodreadsImporterTests.swift in Sources */,
