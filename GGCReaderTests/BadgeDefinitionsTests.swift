@@ -35,7 +35,7 @@ final class BadgeDefinitionsTests: XCTestCase {
 
     func testBadgeCount() {
         let badges = buildBadges(from: makeStats())
-        XCTAssertEqual(badges.count, 28)
+        XCTAssertEqual(badges.count, 29)
     }
 
     // MARK: - Pages badges
