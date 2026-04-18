@@ -330,6 +330,22 @@
         }
       }
     },
+    "Active": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "进行中"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "進行中"
+          }
+        }
+      }
+    },
     "Add": {
       "localizations": {
         "ja": {
@@ -726,6 +742,22 @@
         }
       }
     },
+    "Average Rating": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "平均评分"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "平均評価"
+          }
+        }
+      }
+    },
     "Badges": {
       "localizations": {
         "ja": {
@@ -738,6 +770,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "成就"
+          }
+        }
+      }
+    },
+    "Best Month": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最佳月份"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ベスト月"
           }
         }
       }
@@ -866,6 +914,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "书架"
+          }
+        }
+      }
+    },
+    "Books Added": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新加书籍"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "追加した本"
           }
         }
       }
@@ -1020,6 +1084,22 @@
         }
       }
     },
+    "Challenge Details": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "挑战详情"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "チャレンジ詳細"
+          }
+        }
+      }
+    },
     "Challenges": {
       "localizations": {
         "ja": {
@@ -1170,6 +1250,22 @@
         }
       }
     },
+    "Completed": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已完成"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完了"
+          }
+        }
+      }
+    },
     "Confirm Page Decrease": {
       "localizations": {
         "zh-Hans": {
@@ -1246,6 +1342,38 @@
           "stringUnit": {
             "state": "translated",
             "value": "封面照片"
+          }
+        }
+      }
+    },
+    "Create": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "创建"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "作成"
+          }
+        }
+      }
+    },
+    "Create a reading challenge to stay motivated": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "创建阅读挑战，保持动力"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書チャレンジを作成してモチベーションを維持しよう"
           }
         }
       }
@@ -1502,6 +1630,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "添加日期"
+          }
+        }
+      }
+    },
+    "Day Longest Streak": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "天最长连续"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "日間最長連続"
           }
         }
       }
@@ -1882,6 +2026,22 @@
         }
       }
     },
+    "Expired": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已过期"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "期限切れ"
+          }
+        }
+      }
+    },
     "Explorer": {
       "localizations": {
         "en": {
@@ -1932,6 +2092,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "製品の読み込みに失敗しました"
+          }
+        }
+      }
+    },
+    "Favorite Author": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最爱作者"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "好きな著者"
           }
         }
       }
@@ -2162,6 +2338,22 @@
         }
       }
     },
+    "Genre Distribution": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "类型分布"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ジャンル分布"
+          }
+        }
+      }
+    },
     "Get Started": {
       "localizations": {
         "ja": {
@@ -2292,6 +2484,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "绿色"
+          }
+        }
+      }
+    },
+    "Grid View": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "网格视图"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "グリッド表示"
           }
         }
       }
@@ -2661,6 +2869,22 @@
         }
       }
     },
+    "List View": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "列表视图"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "リスト表示"
+          }
+        }
+      }
+    },
     "Locked": {
       "localizations": {
         "zh-Hans": {
@@ -2803,6 +3027,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "月額"
+          }
+        }
+      }
+    },
+    "Monthly Breakdown": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "月度细分"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "月別内訳"
           }
         }
       }
@@ -3134,6 +3374,22 @@
         }
       }
     },
+    "Not enough data yet": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂无足够数据"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "データがまだ足りません"
+          }
+        }
+      }
+    },
     "Not on any shelf": {
       "localizations": {
         "zh-Hans": {
@@ -3162,6 +3418,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "笔记"
+          }
+        }
+      }
+    },
+    "Notes & Quotes": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "笔记和引文"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "メモと引用"
           }
         }
       }
@@ -3450,6 +3722,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "将相机对准书籍封面"
+          }
+        }
+      }
+    },
+    "Presets": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "预设"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プリセット"
           }
         }
       }
@@ -4097,6 +4385,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "読書速度など"
+          }
+        }
+      }
+    },
+    "Reading Trend": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读趋势"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書トレンド"
           }
         }
       }
@@ -4846,6 +5150,22 @@
         }
       }
     },
+    "Swipe to explore": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "滑动探索"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "スワイプして探索"
+          }
+        }
+      }
+    },
     "Sync reading tasks with Apple Calendar": {
       "localizations": {
         "ja": {
@@ -5179,6 +5499,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "今天"
+          }
+        }
+      }
+    },
+    "Top Genres": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最多类型"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "人気ジャンル"
           }
         }
       }
@@ -5551,6 +5887,22 @@
         }
       }
     },
+    "View": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "视图"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表示"
+          }
+        }
+      }
+    },
     "View All (%lld)": {
       "localizations": {
         "ja": {
@@ -5601,6 +5953,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "每周洞察"
+          }
+        }
+      }
+    },
+    "When You Read": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阅读时段"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "読書時間帯"
           }
         }
       }
@@ -5723,6 +6091,22 @@
         }
       }
     },
+    "Your reading journey, wrapped": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "你的阅读旅程，年度回顾"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "あなたの読書の旅"
+          }
+        }
+      }
+    },
     "and %lld more...": {
       "localizations": {
         "ja": {
@@ -5735,6 +6119,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "还有 %lld 个..."
+          }
+        }
+      }
+    },
+    "avg/day": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "均/天"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "平均/日"
           }
         }
       }
@@ -5901,6 +6301,22 @@
         }
       }
     },
+    "total time": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "总时长"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "合計時間"
+          }
+        }
+      }
+    },
     "vs last week": {
       "localizations": {
         "ja": {
@@ -5968,198 +6384,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "拾葉 Pro"
-          }
-        }
-      }
-    },
-    "Average Rating": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "平均评分"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "平均評価"
-          }
-        }
-      }
-    },
-    "avg/day": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "均/天"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "平均/日"
-          }
-        }
-      }
-    },
-    "Best Month": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最佳月份"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ベスト月"
-          }
-        }
-      }
-    },
-    "Books Added": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "新加书籍"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "追加した本"
-          }
-        }
-      }
-    },
-    "Day Longest Streak": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "天最长连续"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "日間最長連続"
-          }
-        }
-      }
-    },
-    "Favorite Author": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最爱作者"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "好きな著者"
-          }
-        }
-      }
-    },
-    "Monthly Breakdown": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "月度细分"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "月別内訳"
-          }
-        }
-      }
-    },
-    "Notes & Quotes": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "笔记和引文"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "メモと引用"
-          }
-        }
-      }
-    },
-    "Swipe to explore": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "滑动探索"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "スワイプして探索"
-          }
-        }
-      }
-    },
-    "Top Genres": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最多类型"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "人気ジャンル"
-          }
-        }
-      }
-    },
-    "total time": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "总时长"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "合計時間"
-          }
-        }
-      }
-    },
-    "Your reading journey, wrapped": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "你的阅读旅程，年度回顾"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "あなたの読書の旅"
           }
         }
       }
