@@ -58,4 +58,45 @@ final class ReadingSessionTests: XCTestCase {
         s.endTime = Date()
         XCTAssertFalse(s.isActive)
     }
+
+    // MARK: - init stored fields
+
+    func testStartPageStoredAtInit() {
+        let s = ReadingSession(startPage: 42)
+        XCTAssertEqual(s.startPage, 42)
+    }
+
+    func testEndPageDefaultsToZero() {
+        let s = ReadingSession(startPage: 10)
+        XCTAssertEqual(s.endPage, 0)
+    }
+
+    // MARK: - stop(endPage:)
+
+    func testStopSetsEndPage() {
+        let s = ReadingSession(startPage: 10)
+        s.stop(endPage: 75)
+        XCTAssertEqual(s.endPage, 75)
+    }
+
+    func testStopSetsEndTime() {
+        let s = ReadingSession(startPage: 0)
+        XCTAssertNil(s.endTime)
+        s.stop(endPage: 50)
+        XCTAssertNotNil(s.endTime)
+    }
+
+    func testStopMakesSessionInactive() {
+        let s = ReadingSession(startPage: 0)
+        s.stop(endPage: 50)
+        XCTAssertFalse(s.isActive)
+    }
+
+    func testStopCalculatesDurationFromStartTime() {
+        let s = ReadingSession(startPage: 0)
+        s.startTime = Date(timeIntervalSinceNow: -90)
+        s.stop(endPage: 100)
+        XCTAssertGreaterThanOrEqual(s.durationSeconds, 89)
+        XCTAssertLessThanOrEqual(s.durationSeconds, 95)
+    }
 }
