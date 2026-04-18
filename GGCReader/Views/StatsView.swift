@@ -142,15 +142,24 @@ struct StatsView: View {
             }
         }
         guard bestCount > 0 else { return nil }
-        let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        let hourStr = bestHour < 12 ? "\(bestHour == 0 ? 12 : bestHour) AM" : "\(bestHour == 12 ? 12 : bestHour - 12) PM"
-        return (days[bestDay], hourStr)
+        // Use locale-aware weekday names (weekdaySymbols: [Sun, Mon, ..., Sat]; grid: 0=Mon…6=Sun)
+        let weekdaySymbols = Calendar.current.weekdaySymbols
+        let dayName = weekdaySymbols[(bestDay + 1) % 7]
+        var comps = DateComponents()
+        comps.hour = bestHour
+        comps.minute = 0
+        let hourDate = Calendar.current.date(from: comps) ?? Date()
+        let df = DateFormatter()
+        df.dateFormat = DateFormatter.dateFormat(fromTemplate: "ha", options: 0, locale: .current)
+        return (dayName, df.string(from: hourDate))
     }
 
     private var readingTimeHeatmap: some View {
         let grid = sessionGrid
         let maxCount = max(grid.flatMap { $0 }.max() ?? 1, 1)
-        let days = ["M", "T", "W", "T", "F", "S", "S"]
+        // Locale-aware very short weekday labels, Mon-Sun order (grid index 0=Mon, 6=Sun)
+        let allSymbols = Calendar.current.veryShortStandaloneWeekdaySymbols
+        let days = (1..<7).map { allSymbols[$0] } + [allSymbols[0]]
 
         return VStack(spacing: 2) {
             HStack(spacing: 0) {
