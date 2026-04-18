@@ -80,4 +80,108 @@ final class BookModelTests: XCTestCase {
         b.currentPage = 120
         XCTAssertTrue(b.isFinished)
     }
+
+    // MARK: - progressPercentage
+
+    func testProgressPercentageZeroTotalPages() {
+        let b = Book(title: "Test", author: "Author", totalPages: 0)
+        XCTAssertEqual(b.progressPercentage, 0.0)
+    }
+
+    func testProgressPercentageZeroProgress() {
+        let b = Book(title: "Test", author: "Author", totalPages: 200)
+        XCTAssertEqual(b.progressPercentage, 0.0)
+    }
+
+    func testProgressPercentageHalfway() {
+        let b = Book(title: "Test", author: "Author", totalPages: 200)
+        b.currentPage = 100
+        XCTAssertEqual(b.progressPercentage, 0.5, accuracy: 0.001)
+    }
+
+    func testProgressPercentageComplete() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        b.currentPage = 100
+        XCTAssertEqual(b.progressPercentage, 1.0, accuracy: 0.001)
+    }
+
+    func testProgressPercentageClampedAtOne() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        b.currentPage = 150
+        XCTAssertEqual(b.progressPercentage, 1.0, accuracy: 0.001)
+    }
+
+    // MARK: - pagesRemaining
+
+    func testPagesRemainingNormal() {
+        let b = Book(title: "Test", author: "Author", totalPages: 300)
+        b.currentPage = 100
+        XCTAssertEqual(b.pagesRemaining, 200)
+    }
+
+    func testPagesRemainingAtEnd() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        b.currentPage = 100
+        XCTAssertEqual(b.pagesRemaining, 0)
+    }
+
+    func testPagesRemainingNoNegative() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        b.currentPage = 120
+        XCTAssertEqual(b.pagesRemaining, 0)
+    }
+
+    // MARK: - currentChapter
+
+    func testCurrentChapterEmptyReturnsNil() {
+        let b = Book(title: "Test", author: "Author", totalPages: 200)
+        b.currentPage = 50
+        XCTAssertNil(b.currentChapter)
+    }
+
+    func testCurrentChapterSelectsCurrentByStartPage() {
+        let b = Book(title: "Test", author: "Author", totalPages: 300)
+        let ch1 = Chapter(name: "Part I", startPage: 1, endPage: 100)
+        let ch2 = Chapter(name: "Part II", startPage: 101, endPage: 200)
+        let ch3 = Chapter(name: "Part III", startPage: 201, endPage: 300)
+        b.chapters = [ch1, ch2, ch3]
+        b.currentPage = 150
+        XCTAssertEqual(b.currentChapter?.name, "Part II")
+    }
+
+    func testCurrentChapterPageBeforeFirstReturnsNil() {
+        let b = Book(title: "Test", author: "Author", totalPages: 200)
+        let ch = Chapter(name: "Ch 1", startPage: 10, endPage: 200)
+        b.chapters = [ch]
+        b.currentPage = 5
+        XCTAssertNil(b.currentChapter)
+    }
+
+    // MARK: - bookType get/set
+
+    func testBookTypeDefaultIsPhysical() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        XCTAssertEqual(b.bookType, .physical)
+    }
+
+    func testBookTypeSetterUpdatesRaw() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        b.bookType = .audiobook
+        XCTAssertEqual(b.bookTypeRaw, BookType.audiobook.rawValue)
+        XCTAssertEqual(b.bookType, .audiobook)
+    }
+
+    // MARK: - coverColor get/set
+
+    func testCoverColorDefaultIsBlue() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        XCTAssertEqual(b.coverColor, .blue)
+    }
+
+    func testCoverColorSetterUpdatesName() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        b.coverColor = .red
+        XCTAssertEqual(b.coverColorName, CoverColor.red.rawValue)
+        XCTAssertEqual(b.coverColor, .red)
+    }
 }
