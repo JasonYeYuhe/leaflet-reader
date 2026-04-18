@@ -154,4 +154,54 @@ final class GoodreadsImporterTests: XCTestCase {
         let books = try GoodreadsImporter.parse(csv: csv)
         XCTAssertEqual(books.count, 2)
     }
+
+    // MARK: - dateAdded field
+
+    func testParsesDateAddedSlashFormat() throws {
+        let csv = makeCSV(header: fullHeader, rows: ["Dune,Frank Herbert,,604,,2022/01/10,to-read,"])
+        let books = try GoodreadsImporter.parse(csv: csv)
+        XCTAssertNotNil(books[0].dateAdded)
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: books[0].dateAdded!)
+        XCTAssertEqual(components.year, 2022)
+        XCTAssertEqual(components.month, 1)
+        XCTAssertEqual(components.day, 10)
+    }
+
+    func testParsesDateAddedDashFormat() throws {
+        let csv = makeCSV(header: fullHeader, rows: ["Dune,Frank Herbert,,604,,2022-03-25,to-read,"])
+        let books = try GoodreadsImporter.parse(csv: csv)
+        XCTAssertNotNil(books[0].dateAdded)
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: books[0].dateAdded!)
+        XCTAssertEqual(components.year, 2022)
+        XCTAssertEqual(components.month, 3)
+        XCTAssertEqual(components.day, 25)
+    }
+
+    // MARK: - Row length edge cases
+
+    func testSkipsWhitespaceTitleRow() throws {
+        let csv = makeCSV(header: "Title,Author", rows: ["   ,Frank Herbert", "Dune,Frank Herbert"])
+        let books = try GoodreadsImporter.parse(csv: csv)
+        XCTAssertEqual(books.count, 1)
+        XCTAssertEqual(books[0].title, "Dune")
+    }
+
+    func testHandlesRowShorterThanHeader() throws {
+        // Row has fewer fields than expected — should not crash, short rows are skipped or parsed with defaults
+        let csv = makeCSV(header: fullHeader, rows: ["Dune", "Foundation,Isaac Asimov"])
+        let books = try GoodreadsImporter.parse(csv: csv)
+        // "Dune" alone (1 field) is shorter than header (8 fields, titleIdx=0, authorIdx=1)
+        // row.count <= max(0, 1) so it is skipped; Foundation row has no author at idx=1 → author=""
+        XCTAssertEqual(books.count, 1)
+        XCTAssertEqual(books[0].title, "Foundation")
+    }
+
+    // MARK: - Shelf defaults
+
+    func testToReadShelfDefaultValues() throws {
+        let csv = makeCSV(header: fullHeader, rows: ["Dune,Frank Herbert,,604,,2022/01/10,to-read,"])
+        let books = try GoodreadsImporter.parse(csv: csv)
+        XCTAssertEqual(books[0].shelf, "to-read")
+        XCTAssertNil(books[0].dateRead)
+    }
 }
