@@ -42,4 +42,25 @@ final class ReadingLogTests: XCTestCase {
         let log = ReadingLog(fromPage: 42, toPage: 100)
         XCTAssertEqual(log.toPage, 100)
     }
+
+    // MARK: - id + date
+
+    func testIDIsAssigned() {
+        let log = ReadingLog(fromPage: 0, toPage: 10)
+        XCTAssertNotNil(log.id)
+    }
+
+    func testTwoInstancesHaveDifferentIDs() {
+        let a = ReadingLog(fromPage: 0, toPage: 10)
+        let b = ReadingLog(fromPage: 0, toPage: 10)
+        XCTAssertNotEqual(a.id, b.id)
+    }
+
+    func testDateIsCurrentTime() {
+        let before = Date()
+        let log = ReadingLog(fromPage: 0, toPage: 10)
+        let after = Date()
+        XCTAssertGreaterThanOrEqual(log.date, before)
+        XCTAssertLessThanOrEqual(log.date, after)
+    }
 }

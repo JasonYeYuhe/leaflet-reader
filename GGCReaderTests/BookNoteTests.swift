@@ -83,6 +83,27 @@ final class BookNoteTests: XCTestCase {
         XCTAssertFalse(note.isFavorite)
     }
 
+    // MARK: - id + dateCreated
+
+    func testIDIsAssigned() {
+        let note = BookNote(content: "Test")
+        XCTAssertNotNil(note.id)
+    }
+
+    func testTwoInstancesHaveDifferentIDs() {
+        let a = BookNote(content: "A")
+        let b = BookNote(content: "B")
+        XCTAssertNotEqual(a.id, b.id)
+    }
+
+    func testDateCreatedIsRecent() {
+        let before = Date()
+        let note = BookNote(content: "Test")
+        let after = Date()
+        XCTAssertGreaterThanOrEqual(note.dateCreated, before)
+        XCTAssertLessThanOrEqual(note.dateCreated, after)
+    }
+
     // MARK: - NoteType.displayName
 
     func testThoughtDisplayNameNonEmpty() {

@@ -68,4 +68,27 @@ final class ChapterTests: XCTestCase {
         let c = Chapter(name: "Two", startPage: 11, endPage: 20, sortOrder: 1)
         XCTAssertEqual(c.sortOrder, 1)
     }
+
+    // MARK: - id + name
+
+    func testIDIsAssigned() {
+        let c = Chapter(name: "One", startPage: 1, endPage: 10)
+        XCTAssertNotNil(c.id)
+    }
+
+    func testTwoInstancesHaveDifferentIDs() {
+        let a = Chapter(name: "One", startPage: 1, endPage: 10)
+        let b = Chapter(name: "One", startPage: 1, endPage: 10)
+        XCTAssertNotEqual(a.id, b.id)
+    }
+
+    func testNameStoredCorrectly() {
+        let c = Chapter(name: "Epilogue", startPage: 400, endPage: 420)
+        XCTAssertEqual(c.name, "Epilogue")
+    }
+
+    func testUnicodeNameStoredCorrectly() {
+        let c = Chapter(name: "第一章", startPage: 1, endPage: 50)
+        XCTAssertEqual(c.name, "第一章")
+    }
 }
