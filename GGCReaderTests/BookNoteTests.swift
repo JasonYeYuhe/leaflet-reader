@@ -82,4 +82,18 @@ final class BookNoteTests: XCTestCase {
         let note = BookNote(content: "Test")
         XCTAssertFalse(note.isFavorite)
     }
+
+    // MARK: - NoteType.displayName
+
+    func testThoughtDisplayNameNonEmpty() {
+        XCTAssertFalse(NoteType.thought.displayName.isEmpty)
+    }
+
+    func testQuoteDisplayNameNonEmpty() {
+        XCTAssertFalse(NoteType.quote.displayName.isEmpty)
+    }
+
+    func testDisplayNamesDiffer() {
+        XCTAssertNotEqual(NoteType.thought.displayName, NoteType.quote.displayName)
+    }
 }

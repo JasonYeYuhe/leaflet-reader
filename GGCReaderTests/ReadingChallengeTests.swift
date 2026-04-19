@@ -66,4 +66,31 @@ final class ReadingChallengeTests: XCTestCase {
         c.challengeTypeRaw = "invalid"
         XCTAssertEqual(c.challengeType, .booksCount)
     }
+
+    // MARK: - init field storage
+
+    func testInitStoresTitle() {
+        let c = ReadingChallenge(title: "Read 10 Books", type: .booksCount, target: 10, endDate: futureDate())
+        XCTAssertEqual(c.title, "Read 10 Books")
+    }
+
+    func testInitStoresTarget() {
+        let c = ReadingChallenge(title: "T", type: .pagesCount, target: 500, endDate: futureDate())
+        XCTAssertEqual(c.targetValue, 500)
+    }
+
+    func testInitDefaultsIsCompletedFalse() {
+        let c = ReadingChallenge(title: "T", type: .booksCount, target: 5, endDate: futureDate())
+        XCTAssertFalse(c.isCompleted)
+    }
+
+    func testInitDefaultsDateCompletedNil() {
+        let c = ReadingChallenge(title: "T", type: .booksCount, target: 5, endDate: futureDate())
+        XCTAssertNil(c.dateCompleted)
+    }
+
+    func testDaysRemainingWhenEndDateIsToday() {
+        let c = ReadingChallenge(title: "T", type: .booksCount, target: 5, endDate: Date())
+        XCTAssertEqual(c.daysRemaining, 0)
+    }
 }
