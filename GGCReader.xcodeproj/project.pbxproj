@@ -140,6 +140,7 @@
 		A2B8E4A77FF98CA5DB6D2212 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7067C7329A76708ADA5195 /* Chapter.swift */; };
 		A2E12CF1815FC8AE85816E07 /* BookFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FD392ED19BEF7EF0ED3781 /* BookFormView.swift */; };
 		A305AAEF354634C84C486A35 /* AppIconOptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA4F00CCB5B441B1768465A /* AppIconOptionTests.swift */; };
+		D749340F56064F48B2EC4A5B /* StoreManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72452D6CA9C045179C4F83EC /* StoreManagerTests.swift */; };
 		A32B74F015F52F93444B61F0 /* GGCReaderWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6690FE8FFE2BFA725C2742 /* GGCReaderWidget.swift */; };
 		A3E0DBC0E705F1F64DD6CA48 /* BookshelfListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD4DB13CCEAEB68BFE671E /* BookshelfListView.swift */; };
 		A43C4F65CF8D5A782EB54A99 /* ReadingActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AADD4934B609FE106076F62 /* ReadingActivityWidget.swift */; };
@@ -332,6 +333,7 @@
 		C3DCFCE7679179918F9FC43D /* BadgesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesView.swift; sourceTree = "<group>"; };
 		C5114802366E612EBA5DAF99 /* ChapterFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterFormView.swift; sourceTree = "<group>"; };
 		CCA4F00CCB5B441B1768465A /* AppIconOptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconOptionTests.swift; sourceTree = "<group>"; };
+		72452D6CA9C045179C4F83EC /* StoreManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManagerTests.swift; sourceTree = "<group>"; };
 		CF84D71E576240B8E91896B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0E1076757620571B1DD857F /* ReadingSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSessionTests.swift; sourceTree = "<group>"; };
 		D779062460A664557417EA9B /* BadgeDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDefinitions.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				CCA4F00CCB5B441B1768465A /* AppIconOptionTests.swift */,
+				72452D6CA9C045179C4F83EC /* StoreManagerTests.swift */,
 				7F31326389A59A535C6503FE /* BadgeDefinitionsTests.swift */,
 				F99A7B26FE7EFCD8F5A0B51E /* BookLookupErrorTests.swift */,
 				504584EA97F262A5CBF820CC /* BookModelTests.swift */,
@@ -953,6 +956,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A305AAEF354634C84C486A35 /* AppIconOptionTests.swift in Sources */,
+				D749340F56064F48B2EC4A5B /* StoreManagerTests.swift in Sources */,
 				2F907EF4B0953C7479B5C31C /* BadgeDefinitionsTests.swift in Sources */,
 				CE1391EA2F6FDCC146D49405 /* BookLookupErrorTests.swift in Sources */,
 				470D56E0184E54ADA41B7186 /* BookModelTests.swift in Sources */,
