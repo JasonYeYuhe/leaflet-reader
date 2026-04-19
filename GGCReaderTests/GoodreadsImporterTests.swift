@@ -221,4 +221,27 @@ final class GoodreadsImporterTests: XCTestCase {
         XCTAssertEqual(books[0].shelf, "to-read")
         XCTAssertNil(books[0].dateRead)
     }
+
+    func testParsesCurrentlyReadingShelf() throws {
+        let csv = makeCSV(header: fullHeader, rows: ["Dune,Frank Herbert,,604,,,currently-reading,"])
+        let books = try GoodreadsImporter.parse(csv: csv)
+        XCTAssertEqual(books[0].shelf, "currently-reading")
+    }
+
+    // MARK: - ISBN column fallback
+
+    func testParsesISBNFallbackColumnWhenISBN13Absent() throws {
+        // Goodreads older exports use "ISBN" not "ISBN13"; parser uses ?? fallback
+        let altHeader = "Title,Author,ISBN,Number of Pages,Date Read,Date Added,Exclusive Shelf,Publisher"
+        let csv = makeCSV(header: altHeader, rows: ["Dune,Frank Herbert,9780441013593,604,,,read,"])
+        let books = try GoodreadsImporter.parse(csv: csv)
+        XCTAssertEqual(books[0].isbn, "9780441013593")
+    }
+
+    func testISBNEmptyWhenNeitherColumnPresent() throws {
+        let noISBNHeader = "Title,Author,Number of Pages,Date Read,Date Added,Exclusive Shelf,Publisher"
+        let csv = makeCSV(header: noISBNHeader, rows: ["Dune,Frank Herbert,604,,,read,"])
+        let books = try GoodreadsImporter.parse(csv: csv)
+        XCTAssertEqual(books[0].isbn, "")
+    }
 }
