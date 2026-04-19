@@ -196,6 +196,23 @@ final class GoodreadsImporterTests: XCTestCase {
         XCTAssertEqual(books[0].title, "Foundation")
     }
 
+    // MARK: - ImportError descriptions
+
+    func testInvalidFormatErrorDescriptionNonNil() {
+        XCTAssertNotNil(GoodreadsImporter.ImportError.invalidFormat.errorDescription)
+    }
+
+    func testNoBooksErrorDescriptionNonNil() {
+        XCTAssertNotNil(GoodreadsImporter.ImportError.noBooks.errorDescription)
+    }
+
+    func testErrorDescriptionsDiffer() {
+        XCTAssertNotEqual(
+            GoodreadsImporter.ImportError.invalidFormat.errorDescription,
+            GoodreadsImporter.ImportError.noBooks.errorDescription
+        )
+    }
+
     // MARK: - Shelf defaults
 
     func testToReadShelfDefaultValues() throws {

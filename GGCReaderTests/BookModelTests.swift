@@ -171,6 +171,43 @@ final class BookModelTests: XCTestCase {
         XCTAssertEqual(b.bookType, .audiobook)
     }
 
+    // MARK: - init optional field defaults
+
+    func testRatingDefaultsToNil() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        XCTAssertNil(b.rating)
+    }
+
+    func testReviewDefaultsToNil() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        XCTAssertNil(b.review)
+    }
+
+    func testDateFinishedDefaultsToNil() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        XCTAssertNil(b.dateFinished)
+    }
+
+    func testLastReadDateDefaultsToNil() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        XCTAssertNil(b.lastReadDate)
+    }
+
+    func testISBNDefaultsToEmpty() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        XCTAssertEqual(b.isbn, "")
+    }
+
+    func testPublisherDefaultsToEmpty() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        XCTAssertEqual(b.publisher, "")
+    }
+
+    func testGenreDefaultsToEmpty() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        XCTAssertEqual(b.genre, "")
+    }
+
     // MARK: - coverColor get/set
 
     func testCoverColorDefaultIsBlue() {
