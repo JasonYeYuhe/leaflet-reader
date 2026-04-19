@@ -124,6 +124,130 @@ final class BadgeDefinitionsTests: XCTestCase {
         XCTAssertTrue(b.isUnlocked)
     }
 
+    // MARK: - Pages badges (additional thresholds)
+
+    func testBookwormUnlockedAt500() {
+        let badges = buildBadges(from: makeStats(totalPages: 500))
+        let b = badges.first { $0.id == "bookworm" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    func testPageTurnerUnlockedAt1000() {
+        let badges = buildBadges(from: makeStats(totalPages: 1000))
+        let b = badges.first { $0.id == "thousand" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    func testSageUnlockedAt5000() {
+        let badges = buildBadges(from: makeStats(totalPages: 5000))
+        let b = badges.first { $0.id == "five_thousand" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    // MARK: - Streak badges (additional thresholds)
+
+    func testStreak30UnlockedAt30() {
+        let badges = buildBadges(from: makeStats(bestStreak: 30))
+        let b = badges.first { $0.id == "streak30" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    func testStreak100UnlockedAt100() {
+        let badges = buildBadges(from: makeStats(bestStreak: 100))
+        let b = badges.first { $0.id == "streak100" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    // MARK: - Finished books (additional thresholds)
+
+    func testHatTrickUnlockedAt3() {
+        let badges = buildBadges(from: makeStats(finishedBooks: 3))
+        let b = badges.first { $0.id == "three_books" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    func testBibliophileUnlockedAt10() {
+        let badges = buildBadges(from: makeStats(finishedBooks: 10))
+        let b = badges.first { $0.id == "ten_books" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    func testScholarUnlockedAt25() {
+        let badges = buildBadges(from: makeStats(finishedBooks: 25))
+        let b = badges.first { $0.id == "twentyfive_books" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    // MARK: - Reading days
+
+    func testDedicatedUnlockedAt7Days() {
+        let badges = buildBadges(from: makeStats(daysRead: 7))
+        let b = badges.first { $0.id == "week_reader" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    func testCommittedUnlockedAt30Days() {
+        let badges = buildBadges(from: makeStats(daysRead: 30))
+        let b = badges.first { $0.id == "month_reader" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    func testCenturionDaysUnlockedAt100() {
+        let badges = buildBadges(from: makeStats(daysRead: 100))
+        let b = badges.first { $0.id == "hundred_days" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    // MARK: - Daily records
+
+    func testSpeedReaderUnlockedAt50() {
+        let badges = buildBadges(from: makeStats(bestSingleDay: 50))
+        let b = badges.first { $0.id == "fifty_day" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    func testMarathonUnlockedAt100() {
+        let badges = buildBadges(from: makeStats(bestSingleDay: 100))
+        let b = badges.first { $0.id == "hundred_day" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    // MARK: - Goal badges
+
+    func testGoalGetterUnlockedAt7() {
+        let badges = buildBadges(from: makeStats(goalMetDays: 7))
+        let b = badges.first { $0.id == "goal_7" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    func testDisciplinedUnlockedAt30() {
+        let badges = buildBadges(from: makeStats(goalMetDays: 30))
+        let b = badges.first { $0.id == "goal_30" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    // MARK: - Collection badges
+
+    func testCollectorUnlockedAt5() {
+        let badges = buildBadges(from: makeStats(totalBooks: 5))
+        let b = badges.first { $0.id == "five_books_shelf" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    func testHomeLibraryUnlockedAt20() {
+        let badges = buildBadges(from: makeStats(totalBooks: 20))
+        let b = badges.first { $0.id == "twenty_books_shelf" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
+    // MARK: - Night owl
+
+    func testNightOwlUnlockedAt3Days() {
+        let badges = buildBadges(from: makeStats(nightOwlDays: 3))
+        let b = badges.first { $0.id == "night_owl" }!
+        XCTAssertTrue(b.isUnlocked)
+    }
+
     // MARK: - All locked at zero stats
 
     func testAllLockedAtZeroStats() {
