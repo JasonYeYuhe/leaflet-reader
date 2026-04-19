@@ -63,6 +63,29 @@ final class ChallengeTypeTests: XCTestCase {
         XCTAssertNotEqual(ChallengeType.booksCount.unitName, ChallengeType.pagesCount.unitName)
     }
 
+    // MARK: - displayName
+
+    func testDisplayNameBooksCountNonEmpty() {
+        XCTAssertFalse(ChallengeType.booksCount.displayName.isEmpty)
+    }
+
+    func testDisplayNamePagesCountNonEmpty() {
+        XCTAssertFalse(ChallengeType.pagesCount.displayName.isEmpty)
+    }
+
+    func testDisplayNameStreakDaysNonEmpty() {
+        XCTAssertFalse(ChallengeType.streakDays.displayName.isEmpty)
+    }
+
+    func testDisplayNameReadingDaysNonEmpty() {
+        XCTAssertFalse(ChallengeType.readingDays.displayName.isEmpty)
+    }
+
+    func testDisplayNamesAllDistinct() {
+        let names = ChallengeType.allCases.map { $0.displayName }
+        XCTAssertEqual(names.count, Set(names).count)
+    }
+
     // MARK: - ReadingChallenge.color
 
     func testChallengeColorDefaultIsBlue() {
