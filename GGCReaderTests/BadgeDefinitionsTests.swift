@@ -267,4 +267,56 @@ final class BadgeDefinitionsTests: XCTestCase {
         let badges = buildBadges(from: makeStats())
         XCTAssertTrue(badges.allSatisfy { !$0.icon.isEmpty })
     }
+
+    // MARK: - Lower boundary (threshold - 1 remains locked)
+
+    func testStreak7UnlockedAtExactThreshold() {
+        let badges = buildBadges(from: makeStats(bestStreak: 7))
+        XCTAssertTrue(badges.first { $0.id == "streak7" }?.isUnlocked == true)
+    }
+
+    func testCenturionLockedAt99Pages() {
+        let badges = buildBadges(from: makeStats(totalPages: 99))
+        XCTAssertFalse(badges.first { $0.id == "centurion" }?.isUnlocked == true)
+    }
+
+    func testStreak365LockedAt364Days() {
+        let badges = buildBadges(from: makeStats(bestStreak: 364))
+        XCTAssertFalse(badges.first { $0.id == "streak365" }?.isUnlocked == true)
+    }
+
+    func testHatTrickLockedAt2Books() {
+        let badges = buildBadges(from: makeStats(finishedBooks: 2))
+        XCTAssertFalse(badges.first { $0.id == "three_books" }?.isUnlocked == true)
+    }
+
+    func testSpeedReaderLockedAt49Pages() {
+        let badges = buildBadges(from: makeStats(bestSingleDay: 49))
+        XCTAssertFalse(badges.first { $0.id == "fifty_day" }?.isUnlocked == true)
+    }
+
+    func testWeekendWarriorLockedAt9Days() {
+        let badges = buildBadges(from: makeStats(weekendDaysRead: 9))
+        XCTAssertFalse(badges.first { $0.id == "weekend_warrior" }?.isUnlocked == true)
+    }
+
+    func testGoalGetterLockedAt6Days() {
+        let badges = buildBadges(from: makeStats(goalMetDays: 6))
+        XCTAssertFalse(badges.first { $0.id == "goal_7" }?.isUnlocked == true)
+    }
+
+    func testCollectorLockedAt4Books() {
+        let badges = buildBadges(from: makeStats(totalBooks: 4))
+        XCTAssertFalse(badges.first { $0.id == "five_books_shelf" }?.isUnlocked == true)
+    }
+
+    func testExplorerLockedAt4Authors() {
+        let badges = buildBadges(from: makeStats(distinctAuthors: 4))
+        XCTAssertFalse(badges.first { $0.id == "diverse_reader" }?.isUnlocked == true)
+    }
+
+    func testEarlyBirdLockedAt2Days() {
+        let badges = buildBadges(from: makeStats(earlyBirdDays: 2))
+        XCTAssertFalse(badges.first { $0.id == "early_bird" }?.isUnlocked == true)
+    }
 }
