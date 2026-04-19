@@ -29,4 +29,28 @@ final class TaskMetadataTests: XCTestCase {
     func testParseMissingLeafletPrefix() {
         XCTAssertNil(TaskMetadata.parse(from: "12345678-1234-1234-1234-123456789012:42"))
     }
+
+    func testParseTextBeforePrefix() {
+        // EKEvent.notes may contain user text before the embedded metadata
+        let id = UUID(uuidString: "12345678-1234-1234-1234-123456789012")!
+        let meta = TaskMetadata(bookID: id, pages: 42)
+        let notes = "Some user notes. " + meta.encoded
+        let parsed = TaskMetadata.parse(from: notes)
+        XCTAssertNotNil(parsed)
+        XCTAssertEqual(parsed?.bookID, id)
+        XCTAssertEqual(parsed?.pages, 42)
+    }
+
+    func testParseInvalidUUIDReturnsNil() {
+        XCTAssertNil(TaskMetadata.parse(from: "leaflet:notauuid:42"))
+    }
+
+    func testParseNonIntegerPagesReturnsNil() {
+        let id = UUID()
+        XCTAssertNil(TaskMetadata.parse(from: "leaflet:\(id.uuidString):notanumber"))
+    }
+
+    func testParseEmptyStringReturnsNil() {
+        XCTAssertNil(TaskMetadata.parse(from: ""))
+    }
 }
