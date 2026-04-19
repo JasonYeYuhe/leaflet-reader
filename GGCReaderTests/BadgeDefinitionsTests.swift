@@ -254,4 +254,17 @@ final class BadgeDefinitionsTests: XCTestCase {
         let badges = buildBadges(from: makeStats())
         XCTAssertTrue(badges.allSatisfy { !$0.isUnlocked })
     }
+
+    // MARK: - Badge struct integrity
+
+    func testAllBadgeIDsAreUnique() {
+        let badges = buildBadges(from: makeStats())
+        let ids = badges.map { $0.id }
+        XCTAssertEqual(ids.count, Set(ids).count)
+    }
+
+    func testAllBadgeIconsAreNonEmpty() {
+        let badges = buildBadges(from: makeStats())
+        XCTAssertTrue(badges.allSatisfy { !$0.icon.isEmpty })
+    }
 }
