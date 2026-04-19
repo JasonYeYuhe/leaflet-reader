@@ -5,6 +5,39 @@ final class BookModelTests: XCTestCase {
 
     // MARK: - formattedProgress (physical / ebook)
 
+    func testFormattedProgressEbook() {
+        let b = Book(title: "Test", author: "Author", totalPages: 200, bookType: .ebook)
+        b.currentPage = 30
+        XCTAssertEqual(b.formattedProgress, "30/200")
+    }
+
+    func testFormattedProgressEbookZeroStart() {
+        let b = Book(title: "Test", author: "Author", totalPages: 300, bookType: .ebook)
+        XCTAssertEqual(b.formattedProgress, "0/300")
+    }
+
+    // MARK: - formattedRemaining (ebook)
+
+    func testFormattedRemainingEbook() {
+        let b = Book(title: "Test", author: "Author", totalPages: 200, bookType: .ebook)
+        b.currentPage = 130
+        XCTAssertEqual(b.formattedRemaining, "70 pages left")
+    }
+
+    func testFormattedRemainingEbookAtEnd() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100, bookType: .ebook)
+        b.currentPage = 100
+        XCTAssertEqual(b.formattedRemaining, "0 pages left")
+    }
+
+    func testFormattedRemainingEbookMatchesPhysical() {
+        let physical = Book(title: "Test", author: "Author", totalPages: 200)
+        let ebook = Book(title: "Test", author: "Author", totalPages: 200, bookType: .ebook)
+        physical.currentPage = 80
+        ebook.currentPage = 80
+        XCTAssertEqual(physical.formattedRemaining, ebook.formattedRemaining)
+    }
+
     func testFormattedProgressPhysical() {
         let b = Book(title: "Test", author: "Author", totalPages: 200)
         b.currentPage = 30

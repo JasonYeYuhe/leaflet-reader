@@ -33,6 +33,18 @@
             "state" : "new",
             "value" : "æstel"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拾葉"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拾叶记"
+          }
         }
       }
     },
