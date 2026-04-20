@@ -89,6 +89,32 @@ final class BookModelTests: XCTestCase {
         XCTAssertEqual(b.formattedRemaining, "2h 30m left")
     }
 
+    func testFormattedRemainingAudiobookAtEnd() {
+        let b = Book(title: "Test", author: "Author", totalPages: 180, bookType: .audiobook)
+        b.currentPage = 180  // remaining = 0 → "0m left"
+        XCTAssertEqual(b.formattedRemaining, "0m left")
+    }
+
+    func testFormattedRemainingAudiobookExactlyOneHour() {
+        let b = Book(title: "Test", author: "Author", totalPages: 240, bookType: .audiobook)
+        b.currentPage = 180  // remaining = 60 → "1h 0m left"
+        XCTAssertEqual(b.formattedRemaining, "1h 0m left")
+    }
+
+    func testFormattedRemainingAudiobookLargeValue() {
+        let b = Book(title: "Test", author: "Author", totalPages: 420, bookType: .audiobook)
+        b.currentPage = 0  // remaining = 420 → 7h 0m left
+        XCTAssertEqual(b.formattedRemaining, "7h 0m left")
+    }
+
+    // MARK: - formattedProgress audiobook start
+
+    func testFormattedProgressAudiobookAtStart() {
+        let b = Book(title: "Test", author: "Author", totalPages: 120, bookType: .audiobook)
+        // currentPage defaults to 0 → "0m"
+        XCTAssertEqual(b.formattedProgress, "0m")
+    }
+
     // MARK: - isFinished
 
     func testIsFinishedAtLastPage() {
