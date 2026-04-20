@@ -150,50 +150,7 @@ struct ChallengesView: View {
     // MARK: - Progress Calculation
 
     private func currentProgress(for challenge: ReadingChallenge) -> Int {
-        let cal = Calendar.current
-        let start = cal.startOfDay(for: challenge.startDate)
-        // Use end of today (start of tomorrow) to include today's data
-        let effectiveEnd = min(challenge.endDate, Date())
-        let end = cal.date(byAdding: .day, value: 1, to: cal.startOfDay(for: effectiveEnd)) ?? effectiveEnd
-
-        switch challenge.challengeType {
-        case .booksCount:
-            return allBooks.filter {
-                $0.isFinished &&
-                ($0.dateFinished ?? $0.lastReadDate ?? .distantFuture) >= start &&
-                ($0.dateFinished ?? $0.lastReadDate ?? .distantFuture) < end
-            }.count
-
-        case .pagesCount:
-            return allLogs.filter { $0.date >= start && $0.date < end }
-                .reduce(0) { $0 + $1.pagesRead }
-
-        case .streakDays:
-            var daySet = Set<Date>()
-            for log in allLogs where log.date >= start && log.date < end {
-                daySet.insert(cal.startOfDay(for: log.date))
-            }
-            var best = 0
-            var current = 0
-            let totalDays = max((cal.dateComponents([.day], from: start, to: end).day ?? 0) + 1, 1)
-            for offset in 0..<totalDays {
-                guard let date = cal.date(byAdding: .day, value: offset, to: start) else { continue }
-                if daySet.contains(date) {
-                    current += 1
-                    best = max(best, current)
-                } else {
-                    current = 0
-                }
-            }
-            return best
-
-        case .readingDays:
-            var daySet = Set<Date>()
-            for log in allLogs where log.date >= start && log.date < end {
-                daySet.insert(cal.startOfDay(for: log.date))
-            }
-            return daySet.count
-        }
+        ReadingCalculations.challengeProgress(challenge: challenge, logs: allLogs, books: allBooks)
     }
 
     private func checkCompletions() {
