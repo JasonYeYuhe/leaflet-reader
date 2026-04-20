@@ -188,3 +188,85 @@ final class CardThemeTests: XCTestCase {
         }
     }
 }
+
+// MARK: - StatsView.TrendPeriod
+
+final class TrendPeriodTests: XCTestCase {
+
+    func testAllCasesCount() {
+        XCTAssertEqual(StatsView.TrendPeriod.allCases.count, 3)
+    }
+
+    func testMonthRawValue() {
+        XCTAssertEqual(StatsView.TrendPeriod.month.rawValue, "30D")
+    }
+
+    func testQuarterRawValue() {
+        XCTAssertEqual(StatsView.TrendPeriod.quarter.rawValue, "90D")
+    }
+
+    func testYearRawValue() {
+        XCTAssertEqual(StatsView.TrendPeriod.year.rawValue, "1Y")
+    }
+
+    func testAllRawValuesAreDistinct() {
+        let raws = StatsView.TrendPeriod.allCases.map(\.rawValue)
+        XCTAssertEqual(Set(raws).count, raws.count)
+    }
+
+    func testMonthDays() {
+        XCTAssertEqual(StatsView.TrendPeriod.month.days, 30)
+    }
+
+    func testQuarterDays() {
+        XCTAssertEqual(StatsView.TrendPeriod.quarter.days, 90)
+    }
+
+    func testYearDays() {
+        XCTAssertEqual(StatsView.TrendPeriod.year.days, 365)
+    }
+
+    func testAllDaysArePositive() {
+        for period in StatsView.TrendPeriod.allCases {
+            XCTAssertGreaterThan(period.days, 0, "days should be positive for \(period)")
+        }
+    }
+
+    func testAllDaysAreDistinct() {
+        let days = StatsView.TrendPeriod.allCases.map(\.days)
+        XCTAssertEqual(Set(days).count, days.count)
+    }
+}
+
+// MARK: - QuotesCollectionView.FilterMode
+
+final class FilterModeTests: XCTestCase {
+
+    func testAllCasesCount() {
+        XCTAssertEqual(QuotesCollectionView.FilterMode.allCases.count, 2)
+    }
+
+    func testFavoritesRawValue() {
+        XCTAssertEqual(QuotesCollectionView.FilterMode.favorites.rawValue, "favorites")
+    }
+
+    func testAllQuotesRawValue() {
+        XCTAssertEqual(QuotesCollectionView.FilterMode.allQuotes.rawValue, "allQuotes")
+    }
+
+    func testAllRawValuesAreDistinct() {
+        let raws = QuotesCollectionView.FilterMode.allCases.map(\.rawValue)
+        XCTAssertEqual(Set(raws).count, raws.count)
+    }
+
+    func testAllLabelsAreNonEmpty() {
+        for mode in QuotesCollectionView.FilterMode.allCases {
+            XCTAssertFalse(mode.label.isEmpty, "label should not be empty for \(mode)")
+        }
+    }
+
+    func testAllLabelsAreDistinct() {
+        let labels = QuotesCollectionView.FilterMode.allCases.map(\.label)
+        XCTAssertEqual(Set(labels).count, labels.count)
+    }
+}
