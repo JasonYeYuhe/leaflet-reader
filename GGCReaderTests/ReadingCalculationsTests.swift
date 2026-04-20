@@ -103,4 +103,38 @@ final class ReadingCalculationsTests: XCTestCase {
         let speed = ReadingCalculations.readingSpeed(logs: [recent, old], days: 7)
         XCTAssertEqual(speed, 50.0 / 7.0, accuracy: 0.001)
     }
+
+    func testReadingSpeedOneDayWindow() {
+        let log = ReadingLog(fromPage: 0, toPage: 60)
+        let speed = ReadingCalculations.readingSpeed(logs: [log], days: 1)
+        XCTAssertEqual(speed, 60.0, accuracy: 0.001)
+    }
+
+    func testReadingSpeedNegativeDaysReturnsZero() {
+        let log = ReadingLog(fromPage: 0, toPage: 100)
+        let speed = ReadingCalculations.readingSpeed(logs: [log], days: -5)
+        XCTAssertEqual(speed, 0.0)
+    }
+
+    func testReadingSpeedLogJustOutsideWindowExcluded() {
+        // A log 8 days ago should fall outside the 7-day window and be excluded
+        let old = ReadingLog(fromPage: 0, toPage: 80)
+        old.date = Date().addingTimeInterval(-8 * 24 * 3600)
+        let speed = ReadingCalculations.readingSpeed(logs: [old], days: 7)
+        XCTAssertEqual(speed, 0.0)
+    }
+
+    func testReadingSpeedThirtyDayWindow() {
+        let log = ReadingLog(fromPage: 0, toPage: 90)
+        let speed = ReadingCalculations.readingSpeed(logs: [log], days: 30)
+        XCTAssertEqual(speed, 90.0 / 30.0, accuracy: 0.001)
+    }
+
+    func testReadingSpeedCustomWindowMultipleLogs() {
+        let log1 = ReadingLog(fromPage: 0, toPage: 40)
+        let log2 = ReadingLog(fromPage: 40, toPage: 70)
+        // Both logs created just now, well within a 14-day window
+        let speed = ReadingCalculations.readingSpeed(logs: [log1, log2], days: 14)
+        XCTAssertEqual(speed, 70.0 / 14.0, accuracy: 0.001)
+    }
 }
