@@ -3,6 +3,20 @@ import XCTest
 
 final class WidgetDataTests: XCTestCase {
 
+    private let widgetDataKey = "widgetData"
+
+    override func setUp() {
+        super.setUp()
+        UserDefaults(suiteName: WidgetData.appGroupID)?.removeObject(forKey: widgetDataKey)
+        UserDefaults.standard.removeObject(forKey: widgetDataKey)
+    }
+
+    override func tearDown() {
+        UserDefaults(suiteName: WidgetData.appGroupID)?.removeObject(forKey: widgetDataKey)
+        UserDefaults.standard.removeObject(forKey: widgetDataKey)
+        super.tearDown()
+    }
+
     // MARK: - WidgetBookData
 
     func testWidgetBookDataInit() {
@@ -95,5 +109,52 @@ final class WidgetDataTests: XCTestCase {
 
     func testAppGroupIDFormat() {
         XCTAssertTrue(WidgetData.appGroupID.hasPrefix("group."))
+    }
+
+    // MARK: - save + load
+
+    func testLoadReturnsNilWhenNothingSaved() {
+        XCTAssertNil(WidgetData.load())
+    }
+
+    func testSaveAndLoadRoundtrip() {
+        let book = WidgetBookData(title: "Dune", author: "Herbert",
+                                  currentPage: 100, totalPages: 412,
+                                  colorName: "orange", progressPercentage: 0.24)
+        let original = WidgetData(currentBook: book, todayPages: 42, dailyGoal: 20,
+                                   currentStreak: 5,
+                                   lastUpdated: Date(timeIntervalSince1970: 1_700_000_000))
+        WidgetData.save(original)
+        guard let loaded = WidgetData.load() else {
+            XCTFail("load() returned nil after save() — app group may be inaccessible in this environment")
+            return
+        }
+        XCTAssertEqual(loaded.todayPages, 42)
+        XCTAssertEqual(loaded.dailyGoal, 20)
+        XCTAssertEqual(loaded.currentStreak, 5)
+        XCTAssertEqual(loaded.currentBook?.title, "Dune")
+        XCTAssertEqual(loaded.lastUpdated.timeIntervalSince1970, 1_700_000_000, accuracy: 0.001)
+    }
+
+    func testSaveAndLoadNilBookRoundtrip() {
+        let original = WidgetData(currentBook: nil, todayPages: 0, dailyGoal: 30,
+                                   currentStreak: 0, lastUpdated: Date())
+        WidgetData.save(original)
+        guard let loaded = WidgetData.load() else { return }
+        XCTAssertNil(loaded.currentBook)
+        XCTAssertEqual(loaded.todayPages, 0)
+        XCTAssertEqual(loaded.dailyGoal, 30)
+    }
+
+    func testSecondSaveOverwritesFirst() {
+        let first = WidgetData(currentBook: nil, todayPages: 10, dailyGoal: 20,
+                                currentStreak: 1, lastUpdated: Date())
+        WidgetData.save(first)
+        let second = WidgetData(currentBook: nil, todayPages: 99, dailyGoal: 20,
+                                 currentStreak: 7, lastUpdated: Date())
+        WidgetData.save(second)
+        guard let loaded = WidgetData.load() else { return }
+        XCTAssertEqual(loaded.todayPages, 99)
+        XCTAssertEqual(loaded.currentStreak, 7)
     }
 }
