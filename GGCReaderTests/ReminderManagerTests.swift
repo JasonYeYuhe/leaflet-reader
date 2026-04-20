@@ -89,10 +89,37 @@ final class ReminderManagerTests: XCTestCase {
         XCTAssertEqual(m.reminderMinute, 30)
     }
 
+    // MARK: - reminderEnabled setter to true
+
+    func testReminderEnabledSetterToTrueIsReflected() {
+        let m = ReminderManager()
+        m.reminderEnabled = true
+        XCTAssertTrue(m.reminderEnabled)
+    }
+
     // MARK: - weeklySummaryEnabled
 
     func testWeeklySummaryEnabledDefaultsFalse() {
         let m = ReminderManager()
         XCTAssertFalse(m.weeklySummaryEnabled)
+    }
+
+    func testWeeklySummaryEnabledSetterToTrueIsReflected() {
+        let m = ReminderManager()
+        m.weeklySummaryEnabled = true
+        XCTAssertTrue(m.weeklySummaryEnabled)
+    }
+
+    func testWeeklySummaryEnabledSetterToFalseAfterTrue() {
+        let m = ReminderManager()
+        m.weeklySummaryEnabled = true
+        m.weeklySummaryEnabled = false
+        XCTAssertFalse(m.weeklySummaryEnabled)
+    }
+
+    func testWeeklySummaryEnabledSetterPersistsToUserDefaults() {
+        let m = ReminderManager()
+        m.weeklySummaryEnabled = true
+        XCTAssertTrue(UserDefaults.standard.bool(forKey: weeklySummaryKey))
     }
 }
