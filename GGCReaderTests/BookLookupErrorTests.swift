@@ -26,4 +26,16 @@ final class BookLookupErrorTests: XCTestCase {
         let unique = Set(descriptions.compactMap { $0 })
         XCTAssertEqual(unique.count, 3)
     }
+
+    func testInvalidISBNErrorDescriptionNonEmpty() {
+        XCTAssertFalse(BookLookupService.LookupError.invalidISBN.errorDescription?.isEmpty ?? true)
+    }
+
+    func testNotFoundErrorDescriptionNonEmpty() {
+        XCTAssertFalse(BookLookupService.LookupError.notFound.errorDescription?.isEmpty ?? true)
+    }
+
+    func testNetworkErrorDescriptionNonEmpty() {
+        XCTAssertFalse(BookLookupService.LookupError.networkError.errorDescription?.isEmpty ?? true)
+    }
 }
