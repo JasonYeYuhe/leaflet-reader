@@ -12,6 +12,7 @@
 		04A60B56FCA9FAC026F44252 /* QuickPageUpdateSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53CDF7DB271C2505BC0E2E /* QuickPageUpdateSection.swift */; };
 		052F18E466D2C8CC7973A40F /* QuoteShareCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C7547B7AD1C7731A4CD4E /* QuoteShareCardView.swift */; };
 		0652C22061605B592D6952F1 /* BookNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76218D573F1D87037D0B0A94 /* BookNote.swift */; };
+		06F340752EE3AE91185F4586 /* ReminderManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA872D368ED816C26A90FCBB /* ReminderManagerTests.swift */; };
 		072A3EBCBE699578142AF4D4 /* BookFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FD392ED19BEF7EF0ED3781 /* BookFormView.swift */; };
 		08FA15C6CC6D465A00A63649 /* QuotesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9571B9B49DA4F8DF12DE34 /* QuotesCollectionView.swift */; };
 		0AE0D2D44CDCDE6B65B7898C /* ReadingActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE1C016FDF9BA36AC03D771 /* ReadingActivityAttributes.swift */; };
@@ -205,6 +206,7 @@
 		E9EA79E4D2F9B07226A0D3DF /* ChallengesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D2421FA0D8388534151E3 /* ChallengesView.swift */; };
 		ED102DC59C2E63D86345F547 /* ColorHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED72FA61EA857F139657D8A /* ColorHelpers.swift */; };
 		EEF6D3FAB2FACA1AF309CE82 /* GGCReaderWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = EF2B85EB66566C7FEB1B1EDB /* GGCReaderWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F29E85A1B4C3CEBBDD1AAE1B /* ColorHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E42A47604D5D8562AA612C /* ColorHelpersTests.swift */; };
 		F3E57EF63D9C90D41DDACAF3 /* BookCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CEFA29B08ECF606DD6CC5F /* BookCoverView.swift */; };
 		F7C15CB00C08FFA8D92C54D0 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887C0663BC52C870DAA9FB69 /* Tag.swift */; };
 		F944C86FB4671CA3DFEC778C /* BookshelfListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBD4DB13CCEAEB68BFE671E /* BookshelfListView.swift */; };
@@ -253,6 +255,7 @@
 		0BAF251770BE2CF468B9ECCC /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
 		0E030685E9161D3CD618AF3D /* GGCReaderWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGCReaderWatchApp.swift; sourceTree = "<group>"; };
 		10CEFA29B08ECF606DD6CC5F /* BookCoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverView.swift; sourceTree = "<group>"; };
+		11E42A47604D5D8562AA612C /* ColorHelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelpersTests.swift; sourceTree = "<group>"; };
 		13C5FE9BB6A67EE2895A3C2B /* WatchBookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBookDetailView.swift; sourceTree = "<group>"; };
 		1A5D2421FA0D8388534151E3 /* ChallengesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesView.swift; sourceTree = "<group>"; };
 		1CA4A2D3F860184988B5267E /* ModelContainer+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelContainer+Shared.swift"; sourceTree = "<group>"; };
@@ -340,6 +343,7 @@
 		D0E1076757620571B1DD857F /* ReadingSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingSessionTests.swift; sourceTree = "<group>"; };
 		D779062460A664557417EA9B /* BadgeDefinitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDefinitions.swift; sourceTree = "<group>"; };
 		D77973AEB7E672372B0DC7D9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DA872D368ED816C26A90FCBB /* ReminderManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManagerTests.swift; sourceTree = "<group>"; };
 		DAF3FBE67B24928C7D03339A /* GoodreadsImporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodreadsImporter.swift; sourceTree = "<group>"; };
 		DB1433E26A3CE90CD6339560 /* GGCReader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GGCReader.entitlements; sourceTree = "<group>"; };
 		DCA37F78A36D4990A7B1E6D4 /* ProgressRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRingView.swift; sourceTree = "<group>"; };
@@ -475,12 +479,14 @@
 				22F84DEA0D500192926BAC47 /* BookTypeTests.swift */,
 				8B3258D705EB5CAFCCAAA927 /* ChallengeTypeTests.swift */,
 				EBD57257A686BF8E7A6DC815 /* ChapterTests.swift */,
+				11E42A47604D5D8562AA612C /* ColorHelpersTests.swift */,
 				631C063D585628902929853E /* CoverColorTests.swift */,
 				3727937E04B42D0D7057B87C /* GoodreadsImporterTests.swift */,
 				A32C0AE8A6BD7D495CBDFD3E /* ReadingCalculationsTests.swift */,
 				503311A90CDCC733EB5AEEF9 /* ReadingChallengeTests.swift */,
 				3AB1658F2266704B0248CBA7 /* ReadingLogTests.swift */,
 				D0E1076757620571B1DD857F /* ReadingSessionTests.swift */,
+				DA872D368ED816C26A90FCBB /* ReminderManagerTests.swift */,
 				359D3C10FD96868E02077363 /* ReviewManagerTests.swift */,
 				CA56848BD7532EF1EDC757D3 /* StoreManagerTests.swift */,
 				BC416EBE10A35CF18B9D9C29 /* TagTests.swift */,
@@ -967,12 +973,14 @@
 				7E412061E5E2F659646AF7E3 /* BookshelfTests.swift in Sources */,
 				C6671F8E5836DAA60B58521E /* ChallengeTypeTests.swift in Sources */,
 				461AFF782EEC5D3B80FE5CA0 /* ChapterTests.swift in Sources */,
+				F29E85A1B4C3CEBBDD1AAE1B /* ColorHelpersTests.swift in Sources */,
 				6063543BD97524B87DE00B36 /* CoverColorTests.swift in Sources */,
 				33A5688D4E23D31AB2DBBE92 /* GoodreadsImporterTests.swift in Sources */,
 				D0135112361164C9145686E5 /* ReadingCalculationsTests.swift in Sources */,
 				D5D535A3F316845A3C733CDB /* ReadingChallengeTests.swift in Sources */,
 				0B399A379713A6CE33312E77 /* ReadingLogTests.swift in Sources */,
 				B73A273CE08D9F6CAD83D0F1 /* ReadingSessionTests.swift in Sources */,
+				06F340752EE3AE91185F4586 /* ReminderManagerTests.swift in Sources */,
 				3C0F5CAC3D0537F29347311A /* ReviewManagerTests.swift in Sources */,
 				8E43D266069A18B9AAB87D02 /* StoreManagerTests.swift in Sources */,
 				0C195EB64F31BB78799F8643 /* TagTests.swift in Sources */,
