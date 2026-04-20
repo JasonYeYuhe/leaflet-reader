@@ -82,6 +82,7 @@
 		4D134F2D2CB9BE878EEA730B /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B55D809351D70BDE6D784DD /* RootView.swift */; };
 		4E25AE99AFC74E3C4CC9633E /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD81C3A449B958F6D54C66F /* HapticManager.swift */; };
 		4F8591AED0DA1B16984D0F20 /* ReadingCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31047783DC3F8D894E93B12F /* ReadingCalculations.swift */; };
+		52CBD598ABC654FD877EAA7F /* ChallengeProgressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A3B27CEEABB0F1D719F815 /* ChallengeProgressTests.swift */; };
 		53E95B3A36788131521A2171 /* ChapterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3C518339A8A948B6571200 /* ChapterListView.swift */; };
 		5569A67B17B8F4DB9FCC1E39 /* CoverColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9659577FDD398A0D47CA8FF4 /* CoverColor.swift */; };
 		57DA37F8532EBA013A73530C /* Bookshelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86086A18524E3DE1B9D800F6 /* Bookshelf.swift */; };
@@ -284,6 +285,7 @@
 		4FB8CBB4A9D4CD3F7CDCA2A9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		503311A90CDCC733EB5AEEF9 /* ReadingChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingChallengeTests.swift; sourceTree = "<group>"; };
 		504584EA97F262A5CBF820CC /* BookModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModelTests.swift; sourceTree = "<group>"; };
+		53A3B27CEEABB0F1D719F815 /* ChallengeProgressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeProgressTests.swift; sourceTree = "<group>"; };
 		56EE7207B58A2F0FC0FD4960 /* BookNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookNoteTests.swift; sourceTree = "<group>"; };
 		58394BBD4465EA1B5777EF92 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		59A569A6D9AC5DC4FD1628B9 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				56EE7207B58A2F0FC0FD4960 /* BookNoteTests.swift */,
 				5D4C4E03702C5F472CA990FB /* BookshelfTests.swift */,
 				22F84DEA0D500192926BAC47 /* BookTypeTests.swift */,
+				53A3B27CEEABB0F1D719F815 /* ChallengeProgressTests.swift */,
 				8B3258D705EB5CAFCCAAA927 /* ChallengeTypeTests.swift */,
 				EBD57257A686BF8E7A6DC815 /* ChapterTests.swift */,
 				11E42A47604D5D8562AA612C /* ColorHelpersTests.swift */,
@@ -971,6 +974,7 @@
 				2A5B1707E0B6F1622D535254 /* BookNoteTests.swift in Sources */,
 				991EDBB18D37B81360B6DFA3 /* BookTypeTests.swift in Sources */,
 				7E412061E5E2F659646AF7E3 /* BookshelfTests.swift in Sources */,
+				52CBD598ABC654FD877EAA7F /* ChallengeProgressTests.swift in Sources */,
 				C6671F8E5836DAA60B58521E /* ChallengeTypeTests.swift in Sources */,
 				461AFF782EEC5D3B80FE5CA0 /* ChapterTests.swift in Sources */,
 				F29E85A1B4C3CEBBDD1AAE1B /* ColorHelpersTests.swift in Sources */,
