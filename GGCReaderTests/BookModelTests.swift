@@ -280,4 +280,40 @@ final class BookModelTests: XCTestCase {
         XCTAssertEqual(b.coverColorName, CoverColor.red.rawValue)
         XCTAssertEqual(b.coverColor, .red)
     }
+
+    // MARK: - init field storage
+
+    func testTitleStoredInInit() {
+        let b = Book(title: "Dune", author: "Herbert", totalPages: 604)
+        XCTAssertEqual(b.title, "Dune")
+    }
+
+    func testAuthorStoredInInit() {
+        let b = Book(title: "Dune", author: "Frank Herbert", totalPages: 604)
+        XCTAssertEqual(b.author, "Frank Herbert")
+    }
+
+    func testTotalPagesStoredInInit() {
+        let b = Book(title: "Dune", author: "Herbert", totalPages: 604)
+        XCTAssertEqual(b.totalPages, 604)
+    }
+
+    func testIDIsAssignedOnInit() {
+        let b = Book(title: "Test", author: "Author", totalPages: 100)
+        XCTAssertNotNil(b.id)
+    }
+
+    func testTwoInstancesHaveDifferentIDs() {
+        let a = Book(title: "A", author: "Author", totalPages: 100)
+        let b = Book(title: "B", author: "Author", totalPages: 100)
+        XCTAssertNotEqual(a.id, b.id)
+    }
+
+    func testDateAddedIsRecent() {
+        let before = Date()
+        let book = Book(title: "Test", author: "Author", totalPages: 100)
+        let after = Date()
+        XCTAssertGreaterThanOrEqual(book.dateAdded, before)
+        XCTAssertLessThanOrEqual(book.dateAdded, after)
+    }
 }
