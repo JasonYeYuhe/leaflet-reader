@@ -174,6 +174,7 @@
 		C2EBC16864FDF466400EF95A /* WidgetDataUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFB3AE8220AAC93C5FBD0E8 /* WidgetDataUpdater.swift */; };
 		C316D3CC61758A4AB3C4F648 /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196FF0A9CB59A883EE31AAD /* ReminderManager.swift */; };
 		C3AE726B370A5C57431D4765 /* ReadingChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E91889A4805A8F0EAA2A8C5 /* ReadingChallenge.swift */; };
+		C59778B0AB1F290E1EFBFDA3 /* UiEnumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D015185A3B48ADCBE0BF90 /* UiEnumTests.swift */; };
 		C5F97EF796CEE8F094FB9DF3 /* ReadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A796E00CC7C4C9EB5D760863 /* ReadingActivity.swift */; };
 		C6671F8E5836DAA60B58521E /* ChallengeTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3258D705EB5CAFCCAAA927 /* ChallengeTypeTests.swift */; };
 		C98D9B3A7D2B7E31FBA80B51 /* WidgetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0203C858754B8D8C4B09555 /* WidgetData.swift */; };
@@ -359,6 +360,7 @@
 		EF19EF5F1D2A89F83644F3B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF2B85EB66566C7FEB1B1EDB /* GGCReaderWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = GGCReaderWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0203C858754B8D8C4B09555 /* WidgetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetData.swift; sourceTree = "<group>"; };
+		F0D015185A3B48ADCBE0BF90 /* UiEnumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiEnumTests.swift; sourceTree = "<group>"; };
 		F99A7B26FE7EFCD8F5A0B51E /* BookLookupErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLookupErrorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -494,6 +496,7 @@
 				CA56848BD7532EF1EDC757D3 /* StoreManagerTests.swift */,
 				BC416EBE10A35CF18B9D9C29 /* TagTests.swift */,
 				452809EAC07091BCAB78F9F2 /* TaskMetadataTests.swift */,
+				F0D015185A3B48ADCBE0BF90 /* UiEnumTests.swift */,
 				20313FE28E6B209B6E01806E /* WidgetDataTests.swift */,
 			);
 			path = GGCReaderTests;
@@ -989,6 +992,7 @@
 				8E43D266069A18B9AAB87D02 /* StoreManagerTests.swift in Sources */,
 				0C195EB64F31BB78799F8643 /* TagTests.swift in Sources */,
 				6BEC55DFF8A115997B435350 /* TaskMetadataTests.swift in Sources */,
+				C59778B0AB1F290E1EFBFDA3 /* UiEnumTests.swift in Sources */,
 				219C8A79F2559E16801FA302 /* WidgetDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
