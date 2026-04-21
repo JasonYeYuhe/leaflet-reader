@@ -162,4 +162,59 @@ final class ChallengeProgressTests: XCTestCase {
         let logs = [log(fromPage: 0, toPage: 100, daysAgo: 3)]
         XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: logs, books: []), 0)
     }
+
+    // MARK: - booksCount: date fallback paths
+
+    func testBooksCountUsesLastReadDateWhenDateFinishedNil() {
+        // dateFinished ?? lastReadDate ?? .distantFuture — lastReadDate branch
+        let c = challenge(type: .booksCount, startDaysAgo: 10, endDaysFromNow: 10)
+        c.startDate = date(daysAgo: 10)
+        let book = Book(title: "Dune", author: "Herbert", totalPages: 100)
+        book.currentPage = 100   // isFinished = true
+        book.dateFinished = nil
+        book.lastReadDate = date(daysAgo: 5)  // in range
+        XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: [], books: [book]), 1)
+    }
+
+    func testBooksCountExcludesFinishedBookWithNoDateInfo() {
+        // Both dateFinished and lastReadDate nil → .distantFuture used → > endDate → excluded
+        let c = challenge(type: .booksCount, startDaysAgo: 10, endDaysFromNow: 10)
+        c.startDate = date(daysAgo: 10)
+        let book = Book(title: "Dune", author: "Herbert", totalPages: 100)
+        book.currentPage = 100
+        book.dateFinished = nil
+        book.lastReadDate = nil   // distantFuture > endDate → not counted
+        XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: [], books: [book]), 0)
+    }
+
+    // MARK: - pagesCount: boundary and future-start
+
+    func testPagesCountLogOnExactStartDateIncluded() {
+        // Logs on the exact start date satisfy `>= start` and must be counted
+        let c = challenge(type: .pagesCount, startDaysAgo: 7, endDaysFromNow: 7)
+        c.startDate = date(daysAgo: 7)
+        let logOnStart = log(fromPage: 0, toPage: 40, daysAgo: 7)
+        XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: [logOnStart], books: []), 40)
+    }
+
+    func testPagesCountFutureStartChallengeReturnsZero() {
+        // Challenge starts tomorrow: effectiveEnd = today < start → no logs qualify
+        let tomorrow = cal.date(byAdding: .day, value: 1, to: cal.startOfDay(for: Date()))!
+        let futureEnd = cal.date(byAdding: .day, value: 30, to: Date())!
+        let c = ReadingChallenge(title: "Future", type: .pagesCount, target: 500, endDate: futureEnd)
+        c.startDate = tomorrow
+        let logs = [log(fromPage: 0, toPage: 100, daysAgo: 0)]  // today — before challenge
+        XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: logs, books: []), 0)
+    }
+
+    // MARK: - readingDays: future-start
+
+    func testReadingDaysFutureStartChallengeReturnsZero() {
+        let tomorrow = cal.date(byAdding: .day, value: 1, to: cal.startOfDay(for: Date()))!
+        let futureEnd = cal.date(byAdding: .day, value: 30, to: Date())!
+        let c = ReadingChallenge(title: "Future", type: .readingDays, target: 20, endDate: futureEnd)
+        c.startDate = tomorrow
+        let logs = [log(fromPage: 0, toPage: 50, daysAgo: 0)]
+        XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: logs, books: []), 0)
+    }
 }
