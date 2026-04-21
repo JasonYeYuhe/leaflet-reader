@@ -316,4 +316,14 @@ final class BookModelTests: XCTestCase {
         XCTAssertGreaterThanOrEqual(book.dateAdded, before)
         XCTAssertLessThanOrEqual(book.dateAdded, after)
     }
+
+    func testCurrentPageDefaultsToZero() {
+        let book = Book(title: "Test", author: "Author", totalPages: 300)
+        XCTAssertEqual(book.currentPage, 0)
+    }
+
+    func testCoverImageDataDefaultsToNil() {
+        let book = Book(title: "Test", author: "Author", totalPages: 200)
+        XCTAssertNil(book.coverImageData)
+    }
 }

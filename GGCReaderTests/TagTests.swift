@@ -63,4 +63,22 @@ final class TagTests: XCTestCase {
             XCTAssertEqual(tag.color, color, "color getter mismatch after setting \(color)")
         }
     }
+
+    // MARK: - id + name
+
+    func testIDIsAssigned() {
+        let tag = Tag(name: "Classics")
+        XCTAssertNotNil(tag.id)
+    }
+
+    func testTwoInstancesHaveDifferentIDs() {
+        let a = Tag(name: "Fiction")
+        let b = Tag(name: "Non-Fiction")
+        XCTAssertNotEqual(a.id, b.id)
+    }
+
+    func testNameStoredInInit() {
+        let tag = Tag(name: "Science Fiction")
+        XCTAssertEqual(tag.name, "Science Fiction")
+    }
 }
