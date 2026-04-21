@@ -114,6 +114,7 @@ enum ReadingCalculations {
         let start = cal.startOfDay(for: earliest)
         let end = cal.startOfDay(for: today)
         guard let totalDays = cal.dateComponents([.day], from: start, to: end).day else { return 0 }
+        guard totalDays >= 0 else { return 0 }
 
         var best = 0
         var current = 0
