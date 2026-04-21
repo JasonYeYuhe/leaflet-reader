@@ -217,4 +217,50 @@ final class ChallengeProgressTests: XCTestCase {
         let logs = [log(fromPage: 0, toPage: 50, daysAgo: 0)]
         XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: logs, books: []), 0)
     }
+
+    // MARK: - readingDays: exact start-date boundary
+
+    func testReadingDaysLogOnExactStartDateCounted() {
+        // A log dated exactly on challenge.startDate must satisfy >= start and be counted
+        let c = challenge(type: .readingDays, startDaysAgo: 10, endDaysFromNow: 10)
+        c.startDate = date(daysAgo: 10)
+        let logOnStart = log(fromPage: 0, toPage: 30, daysAgo: 10)
+        XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: [logOnStart], books: []), 1)
+    }
+
+    // MARK: - booksCount: future-start
+
+    func testBooksCountFutureStartChallengeReturnsZero() {
+        // Challenge starts tomorrow; effectiveEnd = today, so end == start → empty date range
+        let tomorrow = cal.date(byAdding: .day, value: 1, to: cal.startOfDay(for: Date()))!
+        let futureEnd = cal.date(byAdding: .day, value: 30, to: Date())!
+        let c = ReadingChallenge(title: "Future", type: .booksCount, target: 5, endDate: futureEnd)
+        c.startDate = tomorrow
+        let book = Book(title: "Dune", author: "Herbert", totalPages: 100)
+        book.currentPage = 100
+        book.dateFinished = date(daysAgo: 0)  // finished today — before challenge starts
+        XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: [], books: [book]), 0)
+    }
+
+    // MARK: - streakDays: future-start
+
+    func testStreakDaysFutureStartChallengeReturnsZero() {
+        // Challenge starts tomorrow; no days in window → streak = 0
+        let tomorrow = cal.date(byAdding: .day, value: 1, to: cal.startOfDay(for: Date()))!
+        let futureEnd = cal.date(byAdding: .day, value: 30, to: Date())!
+        let c = ReadingChallenge(title: "Future", type: .streakDays, target: 15, endDate: futureEnd)
+        c.startDate = tomorrow
+        let logs = [log(fromPage: 0, toPage: 50, daysAgo: 0)]
+        XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: logs, books: []), 0)
+    }
+
+    // MARK: - streakDays: single log
+
+    func testStreakDaysSingleLogMakesStreakOne() {
+        // Exactly one log day within the challenge window → best streak = 1
+        let c = challenge(type: .streakDays, startDaysAgo: 10, endDaysFromNow: 10)
+        c.startDate = date(daysAgo: 10)
+        let logs = [log(fromPage: 0, toPage: 40, daysAgo: 3)]
+        XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: logs, books: []), 1)
+    }
 }
