@@ -194,8 +194,8 @@ final class GoodreadsImporterTests: XCTestCase {
     // MARK: - Date parsing edge cases
 
     func testDateReadWithUnsupportedFormatIsNil() throws {
-        // Format "2023.06.15" matches neither yyyy/MM/dd nor yyyy-MM-dd → nil
-        let csv = makeCSV(header: fullHeader, rows: ["Dune,Frank Herbert,,604,2023.06.15,,read,"])
+        // "15 June 2023" is a natural language format — not matched by yyyy/MM/dd or yyyy-MM-dd
+        let csv = makeCSV(header: fullHeader, rows: ["Dune,Frank Herbert,,604,15 June 2023,,read,"])
         let books = try GoodreadsImporter.parse(csv: csv)
         XCTAssertNil(books[0].dateRead)
     }

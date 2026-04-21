@@ -75,4 +75,57 @@ enum ReadingCalculations {
             return daySet.count
         }
     }
+
+    // MARK: - Goal Streaks
+
+    static func dailyPages(from logs: [ReadingLog]) -> [Date: Int] {
+        let cal = Calendar.current
+        var map: [Date: Int] = [:]
+        for log in logs {
+            let day = cal.startOfDay(for: log.date)
+            map[day, default: 0] += log.pagesRead
+        }
+        return map
+    }
+
+    static func currentGoalStreak(logs: [ReadingLog], goal: Int, today: Date = Date()) -> Int {
+        let cal = Calendar.current
+        let pages = dailyPages(from: logs)
+        var streak = 0
+        var date = cal.startOfDay(for: today)
+
+        if (pages[date] ?? 0) < goal {
+            guard let yesterday = cal.date(byAdding: .day, value: -1, to: date) else { return 0 }
+            date = yesterday
+        }
+
+        while (pages[date] ?? 0) >= goal {
+            streak += 1
+            guard let prev = cal.date(byAdding: .day, value: -1, to: date) else { break }
+            date = prev
+        }
+        return streak
+    }
+
+    static func bestGoalStreak(logs: [ReadingLog], goal: Int, today: Date = Date()) -> Int {
+        guard let earliest = logs.min(by: { $0.date < $1.date })?.date else { return 0 }
+        let cal = Calendar.current
+        let pages = dailyPages(from: logs)
+        let start = cal.startOfDay(for: earliest)
+        let end = cal.startOfDay(for: today)
+        guard let totalDays = cal.dateComponents([.day], from: start, to: end).day else { return 0 }
+
+        var best = 0
+        var current = 0
+        for offset in 0...totalDays {
+            guard let date = cal.date(byAdding: .day, value: offset, to: start) else { continue }
+            if (pages[date] ?? 0) >= goal {
+                current += 1
+                best = max(best, current)
+            } else {
+                current = 0
+            }
+        }
+        return best
+    }
 }
