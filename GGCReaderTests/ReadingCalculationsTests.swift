@@ -254,4 +254,37 @@ final class ReadingCalculationsTests: XCTestCase {
         }
         XCTAssertEqual(ReadingCalculations.bestGoalStreak(logs: logs, goal: 20), 3)
     }
+
+    func testBestGoalStreakFutureOnlyLogsReturnsZero() {
+        // all logs in future → totalDays negative → must return 0, not crash
+        let cal = Calendar.current
+        let tomorrow = cal.date(byAdding: .day, value: 1, to: Date())!
+        var log = ReadingLog(fromPage: 0, toPage: 50)
+        log.date = tomorrow
+        XCTAssertEqual(ReadingCalculations.bestGoalStreak(logs: [log], goal: 1), 0)
+    }
+
+    func testBestGoalStreakPastAndFutureLogsCountsOnlyPast() {
+        // one log today (meets goal) + one log tomorrow → streak = 1
+        let cal = Calendar.current
+        let today = cal.startOfDay(for: Date())
+        let tomorrow = cal.date(byAdding: .day, value: 1, to: today)!
+        var logToday = ReadingLog(fromPage: 0, toPage: 30)
+        logToday.date = today
+        var logTomorrow = ReadingLog(fromPage: 0, toPage: 30)
+        logTomorrow.date = tomorrow
+        XCTAssertEqual(ReadingCalculations.bestGoalStreak(logs: [logToday, logTomorrow], goal: 20), 1)
+    }
+
+    func testBestGoalStreakFutureMultipleLogsReturnsZero() {
+        // multiple future-dated logs must not crash
+        let cal = Calendar.current
+        let logs: [ReadingLog] = (1...5).map { offset in
+            let day = cal.date(byAdding: .day, value: offset, to: Date())!
+            var log = ReadingLog(fromPage: 0, toPage: 20)
+            log.date = day
+            return log
+        }
+        XCTAssertEqual(ReadingCalculations.bestGoalStreak(logs: logs, goal: 1), 0)
+    }
 }
