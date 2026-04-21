@@ -263,4 +263,17 @@ final class ChallengeProgressTests: XCTestCase {
         let logs = [log(fromPage: 0, toPage: 40, daysAgo: 3)]
         XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: logs, books: []), 1)
     }
+
+    // MARK: - booksCount: lastReadDate before start
+
+    func testBooksCountLastReadDateBeforeStartNotCounted() {
+        // dateFinished nil, lastReadDate is before challenge start → not counted
+        let c = challenge(type: .booksCount, startDaysAgo: 5, endDaysFromNow: 10)
+        c.startDate = date(daysAgo: 5)
+        let book = Book(title: "Dune", author: "Herbert", totalPages: 100)
+        book.currentPage = 100   // isFinished = true
+        book.dateFinished = nil
+        book.lastReadDate = date(daysAgo: 10)  // read 10 days ago, before challenge started
+        XCTAssertEqual(ReadingCalculations.challengeProgress(challenge: c, logs: [], books: [book]), 0)
+    }
 }

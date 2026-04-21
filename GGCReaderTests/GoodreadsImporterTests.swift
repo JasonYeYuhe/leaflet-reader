@@ -177,6 +177,39 @@ final class GoodreadsImporterTests: XCTestCase {
         XCTAssertEqual(components.day, 25)
     }
 
+    // MARK: - Pages edge cases
+
+    func testParsesNonNumericPagesDefaultsToZero() throws {
+        let csv = makeCSV(header: fullHeader, rows: ["Dune,Frank Herbert,,N/A,,,read,"])
+        let books = try GoodreadsImporter.parse(csv: csv)
+        XCTAssertEqual(books[0].pages, 0)
+    }
+
+    func testParsesEmptyPagesDefaultsToZero() throws {
+        let csv = makeCSV(header: fullHeader, rows: ["Dune,Frank Herbert,,,,,,"])
+        let books = try GoodreadsImporter.parse(csv: csv)
+        XCTAssertEqual(books[0].pages, 0)
+    }
+
+    // MARK: - Date parsing edge cases
+
+    func testDateReadWithUnsupportedFormatIsNil() throws {
+        // Format "2023.06.15" matches neither yyyy/MM/dd nor yyyy-MM-dd → nil
+        let csv = makeCSV(header: fullHeader, rows: ["Dune,Frank Herbert,,604,2023.06.15,,read,"])
+        let books = try GoodreadsImporter.parse(csv: csv)
+        XCTAssertNil(books[0].dateRead)
+    }
+
+    // MARK: - ISBN edge cases
+
+    func testStripsEmptyExcelISBNToEmptyString() throws {
+        // Goodreads exports an empty ISBN as ="" which becomes = after CSV parsing
+        // The = is then stripped, yielding ""
+        let csv = makeCSV(header: fullHeader, rows: ["Dune,Frank Herbert,=\"\",,,,read,"])
+        let books = try GoodreadsImporter.parse(csv: csv)
+        XCTAssertEqual(books[0].isbn, "")
+    }
+
     // MARK: - Row length edge cases
 
     func testSkipsWhitespaceTitleRow() throws {
