@@ -22,12 +22,7 @@ struct GoalsView: View {
     // MARK: - Computed Data
 
     private var dailyPages: [Date: Int] {
-        var map: [Date: Int] = [:]
-        for log in allLogs {
-            let day = calendar.startOfDay(for: log.date)
-            map[day, default: 0] += log.pagesRead
-        }
-        return map
+        ReadingCalculations.dailyPages(from: allLogs)
     }
 
     private var todayPages: Int {
@@ -40,43 +35,11 @@ struct GoalsView: View {
     }
 
     private var currentStreak: Int {
-        let pages = dailyPages
-        var streak = 0
-        var date = calendar.startOfDay(for: Date())
-
-        if (pages[date] ?? 0) < dailyPageGoal {
-            guard let yesterday = calendar.date(byAdding: .day, value: -1, to: date) else { return 0 }
-            date = yesterday
-        }
-
-        while (pages[date] ?? 0) >= dailyPageGoal {
-            streak += 1
-            guard let prev = calendar.date(byAdding: .day, value: -1, to: date) else { break }
-            date = prev
-        }
-
-        return streak
+        ReadingCalculations.currentGoalStreak(logs: allLogs, goal: dailyPageGoal)
     }
 
     private var bestStreak: Int {
-        guard let earliest = allLogs.min(by: { $0.date < $1.date })?.date else { return 0 }
-        let pages = dailyPages
-        let start = calendar.startOfDay(for: earliest)
-        let today = calendar.startOfDay(for: Date())
-        guard let totalDays = calendar.dateComponents([.day], from: start, to: today).day else { return 0 }
-
-        var best = 0
-        var current = 0
-        for offset in 0...totalDays {
-            guard let date = calendar.date(byAdding: .day, value: offset, to: start) else { continue }
-            if (pages[date] ?? 0) >= dailyPageGoal {
-                current += 1
-                best = max(best, current)
-            } else {
-                current = 0
-            }
-        }
-        return best
+        ReadingCalculations.bestGoalStreak(logs: allLogs, goal: dailyPageGoal)
     }
 
     private var heatmapData: [(date: Date, pages: Int)] {
