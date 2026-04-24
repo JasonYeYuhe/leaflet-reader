@@ -29,7 +29,7 @@ struct BookFormView: View {
 
     private var isEditing: Bool { bookToEdit != nil }
     private var isValid: Bool {
-        !title.trimmingCharacters(in: .whitespaces).isEmpty &&
+        !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
         (Int(totalPages) ?? 0) > 0
     }
 
@@ -232,12 +232,12 @@ struct BookFormView: View {
     private func saveBook() {
         let pages = Int(totalPages) ?? 0
         if let book = bookToEdit {
-            book.title = title.trimmingCharacters(in: .whitespaces)
-            book.author = author.trimmingCharacters(in: .whitespaces)
+            book.title = title.trimmingCharacters(in: .whitespacesAndNewlines)
+            book.author = author.trimmingCharacters(in: .whitespacesAndNewlines)
             book.totalPages = pages
             book.coverColor = selectedColor
             book.coverImageData = coverImageData
-            book.genre = genre.trimmingCharacters(in: .whitespaces)
+            book.genre = genre.trimmingCharacters(in: .whitespacesAndNewlines)
             book.bookType = selectedBookType
             #if os(iOS) || os(macOS)
             SpotlightManager.indexBook(book)
@@ -249,14 +249,14 @@ struct BookFormView: View {
                 return
             }
             let book = Book(
-                title: title.trimmingCharacters(in: .whitespaces),
-                author: author.trimmingCharacters(in: .whitespaces),
+                title: title.trimmingCharacters(in: .whitespacesAndNewlines),
+                author: author.trimmingCharacters(in: .whitespacesAndNewlines),
                 totalPages: pages,
                 coverColor: selectedColor,
                 bookType: selectedBookType
             )
             book.coverImageData = coverImageData
-            book.genre = genre.trimmingCharacters(in: .whitespaces)
+            book.genre = genre.trimmingCharacters(in: .whitespacesAndNewlines)
             modelContext.insert(book)
             #if os(iOS) || os(macOS)
             SpotlightManager.indexBook(book)

@@ -15,7 +15,7 @@ struct ChapterFormView: View {
 
     private var isEditing: Bool { chapterToEdit != nil }
     private var isValid: Bool {
-        !name.trimmingCharacters(in: .whitespaces).isEmpty &&
+        !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
         (Int(startPage) ?? 0) > 0 &&
         (Int(endPage) ?? 0) > 0 &&
         (Int(startPage) ?? 0) <= (Int(endPage) ?? 0) &&
@@ -77,12 +77,12 @@ struct ChapterFormView: View {
         guard let start = Int(startPage), let end = Int(endPage) else { return }
 
         if let chapter = chapterToEdit {
-            chapter.name = name.trimmingCharacters(in: .whitespaces)
+            chapter.name = name.trimmingCharacters(in: .whitespacesAndNewlines)
             chapter.startPage = start
             chapter.endPage = end
         } else {
             let chapter = Chapter(
-                name: name.trimmingCharacters(in: .whitespaces),
+                name: name.trimmingCharacters(in: .whitespacesAndNewlines),
                 startPage: start,
                 endPage: end,
                 sortOrder: nextSortOrder
