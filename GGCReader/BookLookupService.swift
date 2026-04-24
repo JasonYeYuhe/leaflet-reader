@@ -13,7 +13,7 @@ actor BookLookupService {
     static let shared = BookLookupService()
 
     func lookup(isbn: String) async throws -> BookLookupResult {
-        let cleanISBN = isbn.replacingOccurrences(of: "-", with: "").trimmingCharacters(in: .whitespaces)
+        let cleanISBN = isbn.replacingOccurrences(of: "-", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
         guard !cleanISBN.isEmpty else { throw LookupError.invalidISBN }
         // ISBN-10 may end in 'X' (check digit); ISBN-13 is all digits. Reject non-ISBN chars early.
         let prefix = cleanISBN.last == "X" ? String(cleanISBN.dropLast()) : cleanISBN
