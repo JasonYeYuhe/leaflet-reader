@@ -278,3 +278,100 @@ final class GoodreadsImporterTests: XCTestCase {
         XCTAssertEqual(books[0].isbn, "")
     }
 }
+
+// MARK: - importBooks Tests
+
+import SwiftData
+
+@MainActor
+final class GoodreadsImporterImportBooksTests: XCTestCase {
+
+    private var container: ModelContainer!
+    private var context: ModelContext!
+
+    override func setUpWithError() throws {
+        let schema = Schema([
+            Book.self, Chapter.self, ReadingLog.self, BookNote.self,
+            ReadingSession.self, Bookshelf.self, ReadingChallenge.self, Tag.self
+        ])
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        container = try ModelContainer(for: schema, configurations: config)
+        context = ModelContext(container)
+    }
+
+    override func tearDown() {
+        context = nil
+        container = nil
+    }
+
+    private func makeBook(_ title: String, author: String = "Author", shelf: String = "read", pages: Int = 100) -> GoodreadsBook {
+        GoodreadsBook(title: title, author: author, isbn: "", pages: pages,
+                      dateRead: nil, dateAdded: nil, shelf: shelf, publisher: "")
+    }
+
+    private func fetchAllBooks() throws -> [Book] {
+        try context.fetch(FetchDescriptor<Book>())
+    }
+
+    func testImportBooksCreatesBook() throws {
+        let count = GoodreadsImporter.importBooks([makeBook("Dune")], into: context)
+        let books = try fetchAllBooks()
+        XCTAssertEqual(count, 1)
+        XCTAssertEqual(books.count, 1)
+        XCTAssertEqual(books.first?.title, "Dune")
+    }
+
+    func testImportBooksReturnsCorrectCount() throws {
+        let input = [makeBook("Book A"), makeBook("Book B"), makeBook("Book C")]
+        let count = GoodreadsImporter.importBooks(input, into: context)
+        XCTAssertEqual(count, 3)
+    }
+
+    func testImportBooksEmptyInputReturnsZero() throws {
+        let count = GoodreadsImporter.importBooks([], into: context)
+        let books = try fetchAllBooks()
+        XCTAssertEqual(count, 0)
+        XCTAssertTrue(books.isEmpty)
+    }
+
+    func testImportBooksReadShelfSetsCurrentPageToTotal() throws {
+        GoodreadsImporter.importBooks([makeBook("Dune", shelf: "read", pages: 412)], into: context)
+        let book = try fetchAllBooks().first!
+        XCTAssertEqual(book.currentPage, 412)
+        XCTAssertTrue(book.isFinished)
+    }
+
+    func testImportBooksCurrentlyReadingShelfLeavesCurrentPageAtZero() throws {
+        GoodreadsImporter.importBooks([makeBook("Dune", shelf: "currently-reading", pages: 412)], into: context)
+        let book = try fetchAllBooks().first!
+        XCTAssertEqual(book.currentPage, 0)
+        XCTAssertFalse(book.isFinished)
+    }
+
+    func testImportBooksToReadShelfLeavesCurrentPageAtZero() throws {
+        GoodreadsImporter.importBooks([makeBook("Dune", shelf: "to-read", pages: 412)], into: context)
+        let book = try fetchAllBooks().first!
+        XCTAssertEqual(book.currentPage, 0)
+    }
+
+    func testImportBooksSkipsDuplicateByTitleAndAuthor() throws {
+        GoodreadsImporter.importBooks([makeBook("Dune", author: "Frank Herbert")], into: context)
+        let count = GoodreadsImporter.importBooks([makeBook("Dune", author: "Frank Herbert")], into: context)
+        XCTAssertEqual(count, 0)
+        XCTAssertEqual(try fetchAllBooks().count, 1)
+    }
+
+    func testImportBooksDuplicateIsCaseInsensitive() throws {
+        GoodreadsImporter.importBooks([makeBook("Dune", author: "Frank Herbert")], into: context)
+        let count = GoodreadsImporter.importBooks([makeBook("dune", author: "frank herbert")], into: context)
+        XCTAssertEqual(count, 0)
+        XCTAssertEqual(try fetchAllBooks().count, 1)
+    }
+
+    func testImportBooksSameTitleDifferentAuthorIsNotDuplicate() throws {
+        GoodreadsImporter.importBooks([makeBook("Dune", author: "Frank Herbert")], into: context)
+        let count = GoodreadsImporter.importBooks([makeBook("Dune", author: "Other Author")], into: context)
+        XCTAssertEqual(count, 1)
+        XCTAssertEqual(try fetchAllBooks().count, 2)
+    }
+}
