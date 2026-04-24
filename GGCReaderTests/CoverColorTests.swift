@@ -6,11 +6,11 @@ final class CoverColorTests: XCTestCase {
     // MARK: - allCases
 
     func testAllCasesCount() {
-        XCTAssertEqual(CoverColor.allCases.count, 25)
+        XCTAssertEqual(CoverColor.allCases.count, 26)
     }
 
     func testAllCasesContainsOriginalColors() {
-        let original: Set<CoverColor> = [.red, .blue, .green, .orange, .purple, .brown, .teal, .indigo, .pink, .mint]
+        let original: Set<CoverColor> = [.red, .blue, .green, .orange, .yellow, .purple, .brown, .teal, .indigo, .pink, .mint]
         for color in original {
             XCTAssertTrue(CoverColor.allCases.contains(color), "Missing original color: \(color)")
         }
