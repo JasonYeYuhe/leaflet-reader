@@ -2,7 +2,7 @@ import SwiftUI
 
 enum CoverColor: String, CaseIterable, Codable, Sendable {
     // Original colors
-    case red, blue, green, orange, purple, brown, teal, indigo, pink, mint
+    case red, blue, green, orange, yellow, purple, brown, teal, indigo, pink, mint
     // Expanded palette
     case coral, crimson, navy, sky, forest, lime, gold, amber, violet, lavender
     case slate, charcoal, peach, rose, cyan
@@ -13,6 +13,7 @@ enum CoverColor: String, CaseIterable, Codable, Sendable {
         case .blue: .blue
         case .green: .green
         case .orange: .orange
+        case .yellow: .yellow
         case .purple: .purple
         case .brown: .brown
         case .teal: .teal

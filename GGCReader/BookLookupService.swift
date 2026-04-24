@@ -15,6 +15,11 @@ actor BookLookupService {
     func lookup(isbn: String) async throws -> BookLookupResult {
         let cleanISBN = isbn.replacingOccurrences(of: "-", with: "").trimmingCharacters(in: .whitespaces)
         guard !cleanISBN.isEmpty else { throw LookupError.invalidISBN }
+        // ISBN-10 may end in 'X' (check digit); ISBN-13 is all digits. Reject non-ISBN chars early.
+        let prefix = cleanISBN.last == "X" ? String(cleanISBN.dropLast()) : cleanISBN
+        guard !prefix.isEmpty, prefix.allSatisfy(\.isNumber) else {
+            throw LookupError.invalidISBN
+        }
 
         // Try Open Library first
         if let result = try? await lookupOpenLibrary(isbn: cleanISBN) {
